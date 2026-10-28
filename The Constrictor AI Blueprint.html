@@ -1,0 +1,464 @@
+<title>The Constrictor AI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: fight-poster bands (navy hero, paper body), one centered 1080px column, cards only for the five divisions. */
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --ink:#0B1B29; --muted:#5A6672; --line:#D7DDE3;
+  --navy:#081C2B; --navy-2:#11283B; --gold:#B97618; --gold-soft:#F6E6CC; --on-navy:#F4F1EA; --gold-on-navy:#EAA959;
+  --built:#1D7A3A; --now:#B97618; --next:#2D6A9F; --later:#7A8691;
+  --display:"Saira Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#06121C; --surface:#0D2131; --ink:#E9EDF1; --muted:#9AA7B3; --line:#21384B;
+  --navy:#030C14; --navy-2:#0D2131; --gold:#EAA959; --gold-soft:#2A2215; --on-navy:#F4F1EA; --gold-on-navy:#EAA959;
+  --built:#4CB873; --now:#EAA959; --next:#6FA8DC; --later:#8D9AA6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#06121C; --surface:#0D2131; --ink:#E9EDF1; --muted:#9AA7B3; --line:#21384B;
+  --navy:#030C14; --navy-2:#0D2131; --gold:#EAA959; --gold-soft:#2A2215; --on-navy:#F4F1EA; --gold-on-navy:#EAA959;
+  --built:#4CB873; --now:#EAA959; --next:#6FA8DC; --later:#8D9AA6; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,40px);text-transform:uppercase;letter-spacing:.01em}
+h3{font-size:22px;text-transform:uppercase}
+p{margin:0}
+a{color:var(--gold)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+section{padding-block:44px;border-top:1px solid var(--line)}
+section .lede{max-width:66ch;color:var(--muted);margin-top:10px}
+.stack{display:flex;flex-direction:column;gap:14px}
+
+/* hero */
+.hero{background:var(--navy);color:var(--on-navy)}
+.hero .wrap{padding-block:44px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end}
+.hero h1{font-size:clamp(48px,9vw,96px);text-transform:uppercase;letter-spacing:.005em}
+.hero h1 span{color:var(--gold-on-navy)}
+.hero .sub{font-size:18px;max-width:52ch;margin-top:14px;color:#C9D2DA}
+.hero .eyebrow{color:var(--gold-on-navy)}
+.tape{display:grid;grid-template-columns:repeat(4,auto);gap:6px 22px;margin-top:26px}
+.tape div{display:flex;flex-direction:column}
+.tape b{font-family:var(--display);font-size:40px;color:var(--gold-on-navy);line-height:1}
+.tape small{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9FB0BF}
+.belt{width:150px;height:150px;border-radius:50%;border:3px solid var(--gold-on-navy);display:grid;place-items:center;text-align:center;font-family:var(--display);text-transform:uppercase;color:var(--gold-on-navy);font-size:20px;line-height:1.05;padding:14px}
+.belt small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:#9FB0BF;margin-top:6px}
+
+/* org chart */
+.org{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:26px}
+.node{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 18px;text-align:center;max-width:520px;width:100%}
+.node.top{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.node.top .eyebrow{color:var(--gold-on-navy)}
+.node.claude{border:2px solid var(--gold)}
+.node b{font-family:var(--display);font-size:24px;text-transform:uppercase;display:block}
+.node p{font-size:13.5px;color:var(--muted)}
+.node.top p{color:#C9D2DA}
+.stem{width:2px;height:22px;background:var(--gold)}
+.divs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;width:100%;margin-top:0;position:relative;padding-top:22px}
+.divs::before{content:"";position:absolute;top:0;left:10%;right:10%;height:22px;border:2px solid var(--gold);border-bottom:0}
+.div{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.div b{font-family:var(--display);font-size:21px;text-transform:uppercase;line-height:1.05}
+.div .proj{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.div ul{margin:0;padding-left:16px;font-size:13px;display:flex;flex-direction:column;gap:3px}
+.div.later{border-top-color:var(--later)}
+.pill{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;border:1px solid currentColor;white-space:nowrap;align-self:flex-start}
+.pill.built{color:var(--built)} .pill.now{color:var(--now)} .pill.next{color:var(--next)} .pill.later{color:var(--later)}
+
+/* tale of the tape */
+.tot{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.tot th{font-family:var(--display);text-transform:uppercase;font-size:18px;text-align:left;padding:8px 10px;border-bottom:2px solid var(--ink)}
+.tot th:nth-child(2){text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.tot td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tot td:nth-child(2){text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;width:110px}
+.tot td:last-child{font-weight:500}
+.tot td:first-child{color:var(--muted)}
+.scroll{overflow-x:auto}
+
+/* toolbox */
+.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:22px}
+.tool{background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tool b{font-family:var(--display);font-size:20px;text-transform:uppercase}
+.tool p{font-size:13.5px}
+.tool .jobs{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:auto;padding-top:6px}
+
+/* jobs table */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.filters button{font:inherit;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:6px 11px;border-radius:3px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filters button:focus-visible,.copy:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:10px}
+.jobs-t{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px;min-width:640px}
+.jobs-t th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid var(--ink)}
+.jobs-t td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+.jobs-t td.n{font-family:var(--mono);color:var(--muted);width:34px;font-variant-numeric:tabular-nums}
+.jobs-t td.job{font-weight:600;width:200px}
+.jobs-t tr.grp td{background:var(--gold-soft);font-family:var(--display);font-size:17px;text-transform:uppercase;font-weight:700;padding:6px 8px}
+
+/* workflows */
+.flows{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:22px}
+.flow ol{list-style:none;margin:14px 0 0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:0}
+.flow li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.flow li::before{content:counter(s);font-family:var(--display);font-size:24px;color:var(--gold);line-height:1}
+.flow li span{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.flow .who{font-weight:600}
+
+/* command centre mock */
+.cc{background:var(--navy);color:var(--on-navy);border-radius:8px;padding:20px;margin-top:22px;display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.cc .eyebrow{color:var(--gold-on-navy)}
+.cc h3{color:var(--on-navy)}
+.cc .sample{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;border:1px solid #9FB0BF;color:#9FB0BF;padding:2px 6px;border-radius:3px;align-self:start}
+.q{display:flex;flex-direction:column;margin-top:12px}
+.q div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #22405A;font-size:14px}
+.q span{font-family:var(--mono);font-size:11px;color:var(--gold-on-navy);text-transform:uppercase;white-space:nowrap}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.kpi{background:var(--navy-2);border:1px solid #22405A;border-radius:6px;padding:12px}
+.kpi b{font-family:var(--display);font-size:30px;color:var(--gold-on-navy);display:block;line-height:1;font-variant-numeric:tabular-nums}
+.kpi small{font-size:12px;color:#C9D2DA}
+.stages{display:flex;gap:4px;margin-top:12px;flex-wrap:wrap}
+.stages div{flex:1 1 60px;background:var(--navy-2);border:1px solid #22405A;padding:8px;border-radius:4px;text-align:center}
+.stages b{display:block;font-family:var(--display);font-size:22px;color:var(--on-navy)}
+.stages small{font-family:var(--mono);font-size:10px;text-transform:uppercase;color:#9FB0BF}
+
+/* auto list, rules, phases */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:22px}
+.ticks{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ticks li{padding-left:18px;position:relative}
+.ticks li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.sched{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.sched td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.sched td:first-child{font-family:var(--mono);font-size:12px;color:var(--gold);white-space:nowrap;width:120px}
+.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+.phase{border-top:3px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.phase.on{border-top-color:var(--gold)}
+.phase b{font-family:var(--display);font-size:22px;text-transform:uppercase}
+.phase ul{margin:0;padding-left:16px;font-size:13.5px;display:flex;flex-direction:column;gap:4px}
+.callout{background:var(--gold-soft);border-left:4px solid var(--gold);padding:14px 16px;margin-top:22px;max-width:780px}
+footer{padding-block:30px 50px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+footer ul{margin:8px 0 0;padding-left:16px;display:flex;flex-direction:column;gap:3px}
+
+@media (max-width:900px){
+  .divs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .divs::before{display:none}
+  .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .phases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cc{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero .wrap{grid-template-columns:1fr}
+  .belt{display:none}
+  .tape{grid-template-columns:repeat(2,auto)}
+  .divs,.tools,.flows,.cols,.phases{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){.filters button{transition:background .15s,color .15s}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Bancroft Boxing &amp; Grappling · CCCL · Built on Claude</p>
+      <h1>The Constrictor <span>AI</span></h1>
+      <p class="sub">Cody's AI management team, rebuilt around what Claude can actually do today. One Claude account, one shared Google folder, and a person approving everything that goes out.</p>
+      <div class="tape">
+        <div><b>5</b><small>Divisions</small></div>
+        <div><b>60</b><small>Jobs from the plan</small></div>
+        <div><b>9</b><small>Claude skills</small></div>
+        <div><b>1</b><small>Command centre</small></div>
+      </div>
+    </div>
+    <div class="belt">Built on<br>Claude<small>Oct 2026</small></div>
+  </div>
+</header>
+
+<main>
+<section><div class="wrap">
+  <p class="eyebrow">01 · The org chart</p>
+  <h2>Same team. Claude in the middle.</h2>
+  <p class="lede">The original plan puts a "Chief AI Executive" between Cody and five departments. In the Claude version, that's Cody's own Claude account. Each department gets its own Claude skills, with its facts, prices and templates inside, and the shared Google folder holds the records.</p>
+  <div class="org">
+    <div class="node top"><p class="eyebrow">Owner, President &amp; Athlete</p><b>Cody "The Constrictor" Purtell</b><p>Final decisions, relationships, coaching and business vision. Approves anything big before it goes out.</p></div>
+    <div class="stem"></div>
+    <div class="node claude"><p class="eyebrow">Chief AI Executive</p><b>The Constrictor = Claude</b><p>Cody's Claude Pro account: the morning report, the skills below, and a CCCL Gmail, Calendar and Drive connected.</p></div>
+    <div class="divs">
+      <div class="div"><span class="pill built">First tools built</span><b>CCCL</b><span class="proj">Skills: sponsor desk, event scout, fight night</span>
+        <ul><li>Event Profit Predictor (real 2026 numbers)</li><li>Fight Night Kit</li><li>Sponsorship pipeline (real packages)</li><li>2027 venue scout</li><li>Event checklists</li></ul></div>
+      <div class="div"><span class="pill built">First tools built</span><b>BBG</b><span class="proj">Skills: front desk, coach, social</span>
+        <ul><li>Inquiry replies, free class &amp; signup link</li><li>Check-ins after a month away</li><li>Lesson plans &amp; drills</li><li>Parent updates</li></ul></div>
+      <div class="div"><span class="pill built">First tools built</span><b>Executive Office</b><span class="proj">Skills: HQ, funding</span>
+        <ul><li>Morning report</li><li>Team task list</li><li>Email sorting &amp; drafts</li><li>Approval queue</li></ul></div>
+      <div class="div"><span class="pill built">First tools built</span><b>Second Chance</b><span class="proj">Its own folder, tracker and skill (kept separate)</span>
+        <ul><li>Setup steps &amp; board check</li><li>Partner letters &amp; policy drafts</li><li>Safe placements &amp; check-ins</li><li>Funding that fits</li></ul></div>
+      <div class="div"><span class="pill built">First tools built</span><b>Pro Athlete</b><span class="proj">"Get back up": Cody's own page</span>
+        <ul><li>Three posts a week</li><li>Bios &amp; speaker intro</li><li>Personal sponsors &amp; merch next</li></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">02 · Tale of the tape</p>
+  <h2>The original stack vs the Claude build</h2>
+  <p class="lede">The first draft of the plan called for n8n, Supabase, a custom API gateway and a web app. All of that is real software someone has to keep running. Here's what does each job in the Claude version.</p>
+  <div class="scroll">
+  <table class="tot">
+    <thead><tr><th>Original plan</th><th>Job</th><th>Claude version</th></tr></thead>
+    <tbody>
+      <tr><td>Supabase / PostgreSQL database</td><td>Shared records</td><td>A few Google Sheets in one shared Drive folder. Claude reads them through the Google Drive connector.</td></tr>
+      <tr><td>n8n automations</td><td>Things that run on their own</td><td>One Claude cloud scheduled task: a morning report every weekday, even with the laptop shut. Monday follow-ups and Friday check-ins are one-line asks, and can become scheduled tasks later.</td></tr>
+      <tr><td>Custom bots per department</td><td>Specialists</td><td>Nine custom skills, one or more per business, for the repeatable jobs.</td></tr>
+      <tr><td>Email &amp; calendar integration</td><td>Inbox and schedule</td><td>Gmail and Google Calendar connectors. Claude drafts, Cody sends; sending asks for approval by default.</td></tr>
+      <tr><td>Dashboard web app</td><td>Command centre</td><td>A Dashboard tab in Google Sheets on Cody's phone. A nicer web version can come later.</td></tr>
+      <tr><td>Voice Command Operator</td><td>Talk instead of type</td><td>Talk to Claude in the mobile app. It turns what Cody says into tasks and drafts.</td></tr>
+      <tr><td>Shared AI Gateway to ChatGPT</td><td>Two AIs, same info</td><td>Both connect to the same Google Drive folder. No custom gateway needed.</td></tr>
+      <tr><td>Web research bots</td><td>Scouting &amp; prospecting</td><td>Claude's web search for towns, venues, grants and sponsors. Claude in Chrome for sites that need clicking through.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">03 · The toolbox</p>
+  <h2>Eight Claude features do all 60 jobs</h2>
+  <p class="lede">You don't need 60 bots. Every job on the list runs on one of these.</p>
+  <div class="tools">
+    <div class="tool"><b>Projects (optional)</b><p>A workspace per business for extra files and long-running chats. The skills already carry the facts, so Cody can start without them.</p><span class="jobs">Later, if useful</span></div>
+    <div class="tool"><b>Skills</b><p>Saved step-by-step jobs Cody runs by asking: "reply to this inquiry", "draft sponsor pitches", "run Peterborough vs Kingston".</p><span class="jobs">Inquiries · pitches · reports</span></div>
+    <div class="tool"><b>Google connectors</b><p>Reads the shared Sheets, drafts Gmail replies, adds Calendar events. Anything sent or shared asks first.</p><span class="jobs">Records · email · calendar</span></div>
+    <div class="tool"><b>Scheduled tasks</b><p>Runs a job on a schedule: the morning report every day. Monday follow-ups and the Friday quiet-member list are asks for now.</p><span class="jobs">Chief Executive AI · analyst</span></div>
+    <div class="tool"><b>Web search</b><p>Researches towns, venues, competing events, grants and local businesses, with sources Cody can check.</p><span class="jobs">Scout · sponsors · grants</span></div>
+    <div class="tool"><b>Claude in Chrome</b><p>Works through websites that need clicking, like venue booking pages or event listings, with Cody watching.</p><span class="jobs">Venue &amp; conflict checks</span></div>
+    <div class="tool"><b>Pages &amp; files</b><p>Builds the Profit Predictor, sponsor decks, posters, checklists and forms like the question form for Cody.</p><span class="jobs">Predictor · decks · forms</span></div>
+    <div class="tool"><b>Mobile &amp; voice</b><p>Cody talks to Claude from his phone between classes. It becomes a task, a draft or a calendar event.</p><span class="jobs">Voice Command Operator</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">04 · All 60 jobs</p>
+  <h2>Every bot on the list, mapped to Claude</h2>
+  <p class="lede">The numbers match Cody's original list. "Built" has a first working version, "Now" is in the first build, "Next" follows once those work, and "Later" waits until the core is paying off.</p>
+  <div class="filters" role="group" aria-label="Filter jobs by stage">
+    <button type="button" data-f="all" aria-pressed="true">All 60</button>
+    <button type="button" data-f="built" aria-pressed="false">Built</button>
+    <button type="button" data-f="now" aria-pressed="false">Now</button>
+    <button type="button" data-f="next" aria-pressed="false">Next</button>
+    <button type="button" data-f="later" aria-pressed="false">Later</button>
+  </div>
+  <p class="count" id="count">Showing all 60 jobs</p>
+  <div class="scroll"><table class="jobs-t"><thead><tr><th>#</th><th>Job</th><th>How Claude does it</th><th>Stage</th></tr></thead><tbody id="jobs"></tbody></table></div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">05 · How it works day to day</p>
+  <h2>Two workflows, start to finish</h2>
+  <div class="flows">
+    <div class="flow"><h3>A new member asks about classes</h3>
+      <ol>
+        <li><div><span class="who">Someone messages BBG on Facebook or calls.</span><span>Cody or the front desk answers today</span></div></li>
+        <li><div>They paste the message into Claude: "reply to this inquiry."<span>Front-desk skill</span></div></li>
+        <li><div>Claude drafts a friendly reply: a free first class (any class: boxing, kickboxing, jiu-jitsu, wrestling or MMA), the classes that fit them, and the Gymdesk signup link. Parents sign the waiver there first.<span>Uses the real schedule &amp; prices</span></div></li>
+        <li><div>Cody or the front desk sends it and the trial goes on the calendar.<span>Calendar connector</span></div></li>
+        <li><div>The lead lands in the Leads sheet. After the trial, Claude drafts the thank-you and follow-up for the front desk to send.<span>Leads sheet · front-desk skill</span></div></li>
+        <li><div>Every Friday, Cody uploads the Gymdesk attendance export and Claude lists members who haven't been in for a month, each with a check-in message ready.<span>Gymdesk export · Cody uploads it</span></div></li>
+      </ol></div>
+    <div class="flow"><h3>Landing a CCCL sponsor</h3>
+      <ol>
+        <li><div><span class="who">"Find 25 sponsor prospects around Peterborough for the February show."</span><span>Web search · sponsor-desk skill</span></div></li>
+        <li><div>Claude adds them to the Sponsorship Pipeline with a reason each one fits.<span>Drive connector</span></div></li>
+        <li><div>It drafts a personal pitch for the right package, from Bronze ($1,000) to Title ($7,500). 2026 sponsors get first pick.<span>Skill · Gmail drafts</span></div></li>
+        <li><div>Cody reads, edits and sends from ontario.cccl@gmail.com.<span>Cody approves</span></div></li>
+        <li><div>Every Monday, Cody asks "do my follow-ups" and Claude lists who to nudge and drafts each message.<span>Sponsor-desk skill</span></div></li>
+        <li><div>Signed sponsors get a delivery checklist: banner made, posts done, tickets sent.<span>Contacted → interested → proposal → signed → paid</span></div></li>
+      </ol></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">06 · The command centre</p>
+  <h2>One screen every morning</h2>
+  <p class="lede">A Dashboard tab in the shared Google Sheet, readable on Cody's phone. The morning report sums it up in a few lines. Everything below is sample data showing the layout.</p>
+  <div class="cc">
+    <div>
+      <div style="display:flex;justify-content:space-between;gap:10px"><div><p class="eyebrow">The Constrictor HQ</p><h3>Approval queue</h3></div><span class="sample">Sample data</span></div>
+      <div class="q">
+        <div>Approve 6 sponsor pitch drafts<span>CCCL · Sales</span></div>
+        <div>Review Peterborough venue quote request<span>CCCL · Events</span></div>
+        <div>Reply to 3 new class inquiries<span>BBG · Members</span></div>
+        <div>Send check-ins to 4 quiet members<span>BBG · Retention</span></div>
+        <div>Approve this week's posts<span>Marketing</span></div>
+        <div>Check Haliburton 2027 date conflicts<span>CCCL · Events</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">This week</p>
+      <div class="kpis">
+        <div class="kpi"><b>5</b><small>New gym inquiries</small></div>
+        <div class="kpi"><b>3</b><small>Free trials booked</small></div>
+        <div class="kpi"><b>$4,000</b><small>Sponsorship signed &amp; paid</small></div>
+        <div class="kpi"><b>525</b><small>Tickets to break even (Peterborough)</small></div>
+      </div>
+      <div class="stages" aria-label="Sponsor pipeline, sample">
+        <div><b>25</b><small>Contacted</small></div><div><b>8</b><small>Interested</small></div><div><b>5</b><small>Proposal</small></div><div><b>4</b><small>Signed</small></div><div><b>4</b><small>Paid</small></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">07 · The weekly rhythm</p>
+  <h2>Scheduled, drafted, approved</h2>
+  <div class="cols">
+    <div>
+      <table class="sched"><tbody>
+        <tr><td>Every weekday</td><td>Cloud scheduled task, so it runs with the laptop shut. Morning report: today's calendar, new inquiries, sponsor follow-ups due, tasks overdue, anything waiting for approval.</td></tr>
+        <tr><td>Monday</td><td>The morning report adds last week's numbers. Cody asks for the sponsor follow-up list; Claude drafts the nudges.</td></tr>
+        <tr><td>Friday</td><td>Cody uploads the Gymdesk export for the quiet-member list with check-in drafts, and asks for next week's post drafts.</td></tr>
+        <tr><td>After each show</td><td>Results report: tickets, sponsors, costs, profit. The Predictor gets updated with the real numbers.</td></tr>
+        <tr><td>Monthly</td><td>Opportunity scan: grants, events, towns, sponsors worth a look.</td></tr>
+      </tbody></table>
+    </div>
+    <div>
+      <h3>House rules</h3>
+      <ul class="ticks">
+        <li><b>Claude drafts, people send.</b> Cody approves sponsor deals, money, contracts, fight matchups and anything public about CCCL. Staff approve routine gym replies and class reminders.</li>
+        <li><b>Kids' details stay in Gymdesk.</b> Claude works from first names and attendance only.</li>
+        <li><b>No health, medical or card details</b> go into Claude or the shared Sheets.</li>
+        <li><b>Second Chance stays separate.</b> Its own folder, tracker, email and bank account. Participants are a first name and a code, nobody records what someone was convicted of, and Claude never decides who is eligible.</li>
+        <li><b>A sponsorship isn't revenue until it's paid.</b></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">08 · Build order</p>
+  <h2>One round at a time</h2>
+  <p class="lede">Each piece has to save time, make money or cut a real risk before the next one starts.</p>
+  <div class="phases">
+    <div class="phase on"><span class="pill now">Round 1 · Now</span><b>Foundation &amp; money</b><ul><li>Event Profit Predictor <span class="pill built">Built</span></li><li>Town &amp; venue scout <span class="pill built">Built</span></li><li>Sponsorship pipeline &amp; packages <span class="pill built">Built</span></li><li>Gym inquiry replies &amp; leads <span class="pill built">Built</span></li><li>Morning report, tasks, Dashboard tab <span class="pill built">Built</span></li></ul></div>
+    <div class="phase"><span class="pill next">Round 2 · Next</span><b>Events &amp; marketing</b><ul><li>Ticket sales vs break-even <span class="pill built">Built</span></li><li>Fight Night Kit: fighters, bout card, run of show, press <span class="pill built">Built</span></li><li>Marketing Kit, brand kit &amp; 16 Canva designs <span class="pill built">Built</span></li><li>Fighter Package for every fighter <span class="pill built">Built</span></li><li>Handoff pack: phone cheat sheet, guide, skill tests <span class="pill built">Built</span></li><li>Social post drafts &amp; content calendar <span class="pill built">Built</span></li><li>Staff how-to guides <span class="pill built">Built</span></li><li>Inbox sorting &amp; reply drafts <span class="pill built">Built</span></li><li>Contacts sheet for every venue, gym &amp; outlet <span class="pill built">Built</span></li><li>Coaching library: lesson plans, drills &amp; parent updates <span class="pill built">Built</span></li></ul></div>
+    <div class="phase"><span class="pill later">Round 3 · Later</span><b>Grow</b><ul><li>Grant research &amp; funding tracker <span class="pill built">Built</span></li><li>Athlete brand &amp; content <span class="pill built">Built</span></li></ul></div>
+    <div class="phase"><span class="pill later">Round 4 · Later</span><b>Scale</b><ul><li>Second Chance office <span class="pill built">Started</span></li><li>Monthly money summary <span class="pill built">Built</span></li><li>Claude Team plan if staff need the skills</li></ul></div>
+  </div>
+  <div class="callout"><b>What it costs to start:</b> nothing new. Cody's Claude Pro account (it includes scheduled tasks), the free CCCL Gmail (ontario.cccl@gmail.com) and Gymdesk. Custom skills live on one account, and sharing them with staff needs a Claude Team plan, so staff get templates that also work in ChatGPT until then.</div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">09 · ChatGPT</p>
+  <h2>Keep it. Point it at the same folder.</h2>
+  <p class="lede">Claude and ChatGPT don't share memory or pass work to each other. If Cody likes ChatGPT for thinking out loud, he connects it to the same Google Drive folder, and both see the same Sheets. Nothing custom is needed.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p>Prepared by Kyle for Cody Purtell, October 2026. Claude feature details are from Anthropic's help centre as of October 2026 and can change. Sample numbers in the command centre are for layout only.</p>
+  <ul>
+    <li><a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude" target="_blank" rel="noopener">Use skills in Claude</a></li>
+    <li><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a></li>
+    <li><a href="https://code.claude.com/docs/en/web-scheduled-tasks" target="_blank" rel="noopener">Cloud scheduled tasks</a></li>
+    <li><a href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener">What are projects?</a></li>
+  </ul>
+</div></footer>
+
+<script>
+const D = {
+  "Master bots: run every business": [
+    [1,"Chief Executive AI","Constrictor HQ skill: morning report as a scheduled task, reading the HQ, sponsor and leads sheets plus Gmail and Calendar.","built"],
+    [2,"Executive Assistant","Google Calendar and Gmail connectors. Cody asks by text or voice; Claude books, reminds and preps agendas.","built"],
+    [3,"AI Delegation Manager","Tasks tab in Constrictor HQ. Claude adds tasks, drafts the message to each staff member and flags what's overdue.","built"],
+    [4,"Financial Controller","BBG & CCCL Money Summary: paste the bank, Eventbrite and Gymdesk exports, keyword rules sort each line by business, and \"how did we do in September?\" gives the monthly picture. Second Chance keeps its own copy. Not tax advice.","built"],
+    [5,"Grant Research Director","Funding Tracker and the constrictor-funding skill: 35 researched programs (18 open to BBG, CCCL or families now), eligibility checks, deadlines, and application drafts Cody reviews and submits.","built"],
+    [6,"AI Communications Manager","Inbox sweep in the HQ skill: sorts the last few days of Gmail by type, leaves reply drafts using the right playbook, flags the Commission, money and complaints for Cody, and logs follow-ups. Drafts only.","built"],
+    [7,"Marketing Director","Content calendar plus the CCCL Marketing Kit: a 16-week show campaign, a tracking link for every ticket source, ad tests that say keep or stop, and a livestream money check.","built"],
+    [8,"Business Intelligence Analyst","Weekly numbers in the Monday morning report, built from the Sheets.","built"],
+    [9,"Automation Supervisor","Monthly system check in the HQ skill: which sheets have gone stale, approvals waiting too long, deadlines with no status, each with a one-line fix.","built"],
+    [10,"Opportunity Hunter","Monthly opportunity scan in the HQ skill: funding intakes, events in CCCL's towns, rule changes and new local businesses, ranked by payoff and effort, with sources.","built"]
+  ],
+  "CCCL: event promotion": [
+    [11,"Event Location Scout","Event Scout skill, 24 venues for 2027 (1,000+ crowds, winter use, 3-hour limit) and a 25-town ranking. Feeds the Predictor.","built"],
+    [12,"Venue Negotiation Assistant","Finds venue contacts and published rates, drafts quote requests for Cody to send.","built"],
+    [13,"Event Conflict Scanner","Web search for MMA shows, festivals and big local events on each candidate date.","built"],
+    [14,"Fight Card Coordinator","Fight Night Kit: fighter roster with experience classes and a bout card that checks Ontario's weight-gap table, ages and paperwork. Claude lists options; Cody and officials decide. Each fighter gets a 4-page Fighter Package through their coach.","built"],
+    [15,"Fighter Recruitment Bot","34 researched gyms, outreach and follow-up drafts, and a fighter sign-up Google Form.","built"],
+    [16,"Sponsorship Sales Bot","Sponsor Desk skill, Cody's real packages (Title $7,500 to Community $300, every level on the livestream and event shirt), the 2026 Title Sponsor, 70 local businesses, national brands, pitch templates and a one-page sponsor sheet.","built"],
+    [17,"Ticket Sales Analyst","Ticket Tracker tab: weekly Eventbrite totals against break-even, with tickets needed per week.","built"],
+    [18,"Event Budget Controller","The Event Profit Predictor with Cody's real 2026 numbers: break-even tickets, sponsorship needed, three crowd scenarios, the first show's real result and a check on whether an adults-only (19+) show is worth it.","built"],
+    [19,"Compliance Coordinator","Checklist with deadlines: Ontario Athletics Commission permit, insurance, medical, officials.","built"],
+    [20,"Media & Public Relations Bot","29 local and combat-sports media outlets with their own news routes, and three press releases per show.","built"],
+    [21,"Social Media Hype Bot","Show campaign posts, fighter promo packs with personal ticket links, and 16 CCCL starter designs for Canva (posters, fight cards, \"I'm fighting\" posts for each fighter, weigh-ins, results, sponsor posts), all for Cody to approve.","built"],
+    [22,"Production Coordinator","Production checklist (raised cage, gloves and wraps, lights, sound, livestream) and a run of show built from the bout card.","built"],
+    [23,"Sponsor Fulfilment Tracker","Per-sponsor checklist: banner, social mentions, tickets delivered.","built"],
+    [24,"Volunteer & Staffing Manager","Twelve fight-night roles with headcounts and a volunteer briefing.","built"],
+    [25,"Event Results & Analytics Bot","Results & Report tab: real numbers against the Predictor, fight results and lessons; the Commission report checklist.","built"]
+  ],
+  "BBG: gym operations": [
+    [26,"Gym Operations Manager","Part of the morning report: today's classes, new inquiries, anything off.","built"],
+    [27,"Membership Sales Agent","Front Desk skill: a free first class of any kind, the classes that fit and the Gymdesk signup link, then $20 drop-in or $25 a week. Leads tracked to trial to member.","built"],
+    [28,"Member Retention Manager","Cody uploads the Gymdesk attendance export each Friday. Members away a month get a check-in draft.","built"],
+    [29,"Billing Assistant","\"Who owes us?\" in the Front Desk skill: reads the Gymdesk payments export and drafts friendly private reminders for Cody to approve.","built"],
+    [30,"Class Scheduling Bot","Schedule change and holiday closure posts and member messages, from the Front Desk skill's class facts.","built"],
+    [31,"Training Content Assistant","BBG Coaching Library and the bbg-coach skill: 63 drills, a 4-week plan for every class that checks time, age and contact allowed, sub-coach sheets and the safety rules.","built"],
+    [32,"Parent Communications Bot","Program updates, closures and reminders drafted for parents.","built"],
+    [33,"Gym Social Media Bot","Post drafts from the content calendar.","built"],
+    [34,"Birthday Party Sales Bot","Reply template for the $225 birthday party package.","built"],
+    [35,"Student Progress Tracker","BBG Skills Passport: four levels of skills for each kids' and youth class, linked to the drill library, with a progress card for parents. First names only.","built"],
+    [36,"Merchandise Manager","Gear and merch stock sheet.","later"],
+    [37,"Gym Expansion Analyst","Looks at new classes or a Haliburton location, using the same method as the Predictor.","later"]
+  ],
+  "Second Chance: nonprofit (kept separate)": [
+    [38,"Government Grants Specialist","The Second Chance Tracker's Funding tab lists the programs that fit and what each needs (incorporation, charity status or a partner to lead). Applications start once it's incorporated.","built"],
+    [39,"Employer Partnership Developer","Partners and Placements tabs in the Second Chance Tracker (John Howard Society, Loyalist College employment services and more); the second-chance skill drafts the letters.","built"],
+    [40,"Job Placement Coordinator","Placements tab with safe fight-night roles and several hosts, never CCCL alone. Participants by first name and code only.","built"],
+    [41,"Resume & Interview Coach","Participants use Claude with staff beside them.","later"],
+    [42,"Participant Support Navigator","An approved list of local resources only.","later"],
+    [43,"Fundraising Coordinator","Foundation and donor research.","later"],
+    [44,"Impact Measurement Bot","Totals only: placements, completions, retention.","later"],
+    [45,"Nonprofit Governance Assistant","Setup and Board tabs (with the arm's-length check), the 90-day plan, and policy drafts for a lawyer to review.","built"]
+  ],
+  "Pro athlete: career and brand": [
+    [46,"Athlete Career Manager","Opportunities sheet and goals, added to Cody's athlete plan.","later"],
+    [47,"Personal Sponsorship Agent","A media kit from real numbers after 8-12 weeks of posting; CCCL's 2026 sponsors get first chance.","next"],
+    [48,"Social Media Brand Manager","The \"Get back up\" plan: three posts a week on Cody's page (tip, behind the scenes, his story), drafted by the social skill onto the HQ Content Calendar.","built"],
+    [49,"YouTube Growth Strategist","Series, titles and thumbnails, using the video tools Kyle already runs.","later"],
+    [50,"Training Journal Assistant","Workout and recovery journal, added to Cody's athlete plan.","later"],
+    [51,"Media Booking Assistant","Podcast, newspaper and TV pitch drafts.","later"],
+    [52,"Brand Partnership Analyst","Side-by-side comparison of offers in a sheet.","later"],
+    [53,"Personal Finance & Contract Organizer","Document checklist and deadlines; an accountant or lawyer reviews.","later"]
+  ],
+  "Advanced": [
+    [54,"Million-Dollar Opportunity Radar","The monthly opportunity scan, ranked by realistic payoff.","built"],
+    [55,"Content Multiplication Engine","One training session becomes clips, captions and titles, using Kyle's editing tools.","next"],
+    [56,"Relationship Intelligence Bot","BBG & CCCL Contacts: 110 venues, gyms, media outlets and officials to start, a log of every call and email, and follow-ups in the morning report. Sponsors stay in the Pipeline.","built"],
+    [57,"Business Stress-Test Bot","Built into the Predictor: 30% fewer people and half the sponsors pulling out.","built"],
+    [58,"Legal & Compliance Research","Rule changes (Athletics Commission, Rowan's Law, Boxing Ontario) are part of the monthly scan, with questions to take to a lawyer. Never legal advice.","built"],
+    [59,"AI Training Academy","Staff Playbook: one section per job plus copy-paste prompts that work in ChatGPT or free Claude.","built"],
+    [60,"Voice Command Operator","Claude mobile app plus the HQ skill: Cody talks, Claude splits it into tasks, drafts and calendar events.","built"]
+  ]
+};
+const LABEL = {built:"Built", now:"Now", next:"Next", later:"Later"};
+const tbody = document.getElementById("jobs");
+const count = document.getElementById("count");
+function render(f){
+  tbody.textContent = "";
+  let n = 0;
+  for (const [grp, rows] of Object.entries(D)){
+    const vis = rows.filter(r => f === "all" || r[3] === f);
+    if (!vis.length) continue;
+    const g = document.createElement("tr"); g.className = "grp";
+    const gc = document.createElement("td"); gc.colSpan = 4; gc.textContent = grp; g.append(gc); tbody.append(g);
+    for (const [num, job, how, st] of vis){
+      const tr = document.createElement("tr");
+      const a = document.createElement("td"); a.className = "n"; a.textContent = num;
+      const b = document.createElement("td"); b.className = "job"; b.textContent = job;
+      const c = document.createElement("td"); c.textContent = how;
+      const d = document.createElement("td"); const p = document.createElement("span"); p.className = "pill " + st; p.textContent = LABEL[st]; d.append(p);
+      tr.append(a, b, c, d); tbody.append(tr); n++;
+    }
+  }
+  count.textContent = f === "all" ? "Showing all 60 jobs" : `Showing ${n} jobs marked ${LABEL[f]}`;
+}
+document.querySelectorAll(".filters button").forEach(btn => btn.addEventListener("click", () => {
+  document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", String(x === btn)));
+  render(btn.dataset.f);
+}));
+render("all");
+</script>
