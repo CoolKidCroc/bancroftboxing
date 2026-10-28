@@ -1,0 +1,318 @@
+import json, sys
+
+OUT = sys.argv[1]
+
+S = {
+ "BC_LTAD": ("Boxing Canada (CABA) Long-Term Athlete Development guide (hosted by Boxing Ontario)", "https://boxingontario.com/wp-content/uploads/Boxing-Canada-LTAD.pdf"),
+ "BO_MATCH": ("Boxing Ontario - Match Guidelines, Club Events 2025", "https://boxingontario.com/wp-content/uploads/2025/07/Match-Guidelines-Club-Events-2025.pdf"),
+ "ON_BOX": ("Ontario Amateur Combative Sport Rules: Boxing (overview, v1.0 eff. Jan 1 2025)", "https://www.ontario.ca/document/amateur-combative-sport-rules-boxing"),
+ "ON_BOX_IV": ("Ontario Amateur Combative Sport Rules: Boxing - Part IV Competition requirements", "https://www.ontario.ca/document/amateur-combative-sport-rules-boxing/part-iv-competition-requirements"),
+ "ON_BOX_V": ("Ontario Amateur Combative Sport Rules: Boxing - Part V Participants", "https://www.ontario.ca/document/amateur-combative-sport-rules-boxing/part-v-participants"),
+ "ON_BOX_III": ("Ontario Amateur Combative Sport Rules: Boxing - Part III Pre-competition requirements", "https://www.ontario.ca/document/amateur-combative-sport-rules-boxing/part-iii-pre-competition-requirements"),
+ "BO_CLUB": ("Boxing Ontario - Becoming a Registered Club", "https://boxingontario.com/clubs/becoming-a-registered-club-with-boxing-ontario/"),
+ "BO_SAFE": ("Boxing Ontario - UCCMS Safe Sport Policy", "https://boxingontario.com/?p=25666"),
+ "BO_CONC": ("Boxing Ontario - Concussion Policy and Code (uploaded 2025-04)", "https://boxingontario.com/wp-content/uploads/2025/04/Boxing-Ontario-Concussion-Policy-and-Code.pdf"),
+ "BO_NCCP": ("Boxing Ontario - National Coaching Certification Program (NCCP) page", "https://boxingontario.com/?p=100"),
+ "BO_IB": ("Boxing Ontario Instruction Beginners (Level 1) course listing, Aug 2026 (Trackie)", "https://www.trackie.com/fr/evenement/boxing-ontario-instruction-beginners-level-1/1038627/"),
+ "BO_FDC": ("Boxing Ontario - Female Development Committee camp news (IWD 2026)", "https://boxingontario.com/iwd-2026-give-to-gain-boxing-ontarios-female-development-committee-hosts-female-development-camp-at-tnt-boxing/"),
+ "BO_BOXON": ("Boxing Ontario - BOX-ON! non-contact youth program article (year not stated)", "https://boxingontario.com/?p=16257"),
+ "BCBOX_FUN": ("Boxing BC - FUNBox Rules (other province, reference only)", "https://boxingbc.ca/wp-content/uploads/2026/06/FUNBox-Rules.pdf"),
+ "WCL_LTAD": ("Wrestling Canada Lutte - LTAD Seven Stages", "https://wrestling.ca/wp-content/uploads/2018/04/LTAD_E.pdf"),
+ "WCL_MAN": ("Wrestling Canada Lutte - LTAD Manual (2015, still the posted version)", "https://wrestling.ca/wp-content/uploads/2018/04/LTAD_Manual_2015.pdf"),
+ "WCL_COACH": ("Wrestling Canada Lutte - Coach Education (page modified Aug 2026)", "https://wrestling.ca/coach-education/"),
+ "CAC_KIDSWR": ("Coaching Association of Canada - Kids Wrestling course", "https://www.coach.ca/kids-wrestling-0"),
+ "OAWA": ("Ontario Amateur Wrestling Association - Youth Wrestling Rules", "https://www.oawa.ca/youth-wrestling-rules"),
+ "ON_WR_IV": ("Ontario Amateur Combative Sport Rules: Wrestling - Part IV Competition requirements (eff. Jan 1 2025)", "https://www.ontario.ca/document/amateur-combative-sport-rules-wrestling/part-iv-competition-requirements"),
+ "ON_WR_V": ("Ontario Amateur Combative Sport Rules: Wrestling - Part V Participants", "https://www.ontario.ca/document/amateur-combative-sport-rules-wrestling/part-v-participants"),
+ "OPHEA_SEC": ("Ophea Ontario Physical Activity Safety Standards - Wrestling, Secondary Interschool 2023", "https://safety.ophea.net/secondary/interschool/wrestling"),
+ "OPHEA_ELEM": ("Ophea Ontario Physical Activity Safety Standards - Wrestling, Elementary Curricular 2025", "https://safety.ophea.net/print/pdf/558"),
+ "OPHEA_UPD": ("Ophea - Wrestling and Combatives Safety Standards Updates", "https://safety.ophea.net/wrestling-and-combatives-safety-standards-updates"),
+ "MB_EDU": ("Manitoba Education - Wrestling safety checklist (out-of-class PE; other province, reference only)", "https://www.edu.gov.mb.ca/k12/cur/physhlth/out_of_class/checklists/wrestling.pdf"),
+ "ON_GRAP_IV": ("Ontario Amateur Combative Sport Rules: Grappling (Ontario Grappling Association) - Part IV", "https://www.ontario.ca/document/amateur-combative-sport-rules-grappling/part-iv-competition-requirements"),
+ "ON_GRAP_V": ("Ontario Amateur Combative Sport Rules: Grappling - Part V Participants", "https://www.ontario.ca/document/amateur-combative-sport-rules-grappling/part-v-participants"),
+ "ON_NEWAZA_IV": ("Ontario Amateur Combative Sport Rules: Newaza Jiu Jitsu (Ontario Jiu Jitsu Association) - Part IV", "https://www.ontario.ca/document/amateur-combative-sport-rules-newaza-jiu-jitsu/part-iv-competition-requirements"),
+ "IBJJF": ("IBJJF illegal-techniques table as reproduced on a PBJJF Smoothcomp event page (IBJJF poster dated 2024-01-01)", "https://pbjjf.smoothcomp.com/en/event/12912/page/30304/technical-fouls-illegal-moves"),
+ "IBJJF_BOOKS": ("IBJJF - Books & Videos (Rule Book v6.0 Jun 2024, Illegal Moves poster Jan 2024)", "https://ibjjf.com/books-videos"),
+ "ON_MMA_I": ("Ontario Amateur Combative Sport Rules: Mixed Martial Arts - Part I General (updated Jun 2025)", "https://www.ontario.ca/document/amateur-combative-sport-rules-mixed-martial-arts/part-i-general"),
+ "ON_MMA_III": ("Ontario Amateur Combative Sport Rules: Mixed Martial Arts - Part III Technical sport rules", "https://www.ontario.ca/document/amateur-combative-sport-rules-mixed-martial-arts/part-iii-technical-sport-rules"),
+ "ON_MMA": ("Ontario Amateur Combative Sport Rules: Mixed Martial Arts (overview)", "https://www.ontario.ca/document/amateur-combative-sport-rules-mixed-martial-arts"),
+ "ON_KICK_IV": ("Ontario Amateur Combative Sport Rules: Kickboxing - Kick Light and Light Contact, Part IV", "https://www.ontario.ca/document/amateur-combative-sport-rules-kickboxing-kick-light-and-light-contact/part-iv-competition"),
+ "ON_KICK_V": ("Ontario Amateur Combative Sport Rules: Kickboxing - Kick Light and Light Contact, Part V Participants", "https://www.ontario.ca/document/amateur-combative-sport-rules-kickboxing-kick-light-and-light-contact/part-v-participants"),
+ "ON_COMBAT": ("Ontario - Combative sports (updated Apr 2026)", "https://www.ontario.ca/page/combative-sports"),
+ "ON_AMATEUR": ("Ontario - Amateur combative sports events (updated Sep 2025)", "https://www.ontario.ca/page/amateur-combative-sports"),
+ "ON_SAFELEGAL": ("Ontario - Safe and Legal Amateur Combative Sport Contests (2022 fact sheet; predates 2025 Act changes)", "https://files.ontario.ca/mhstci-safe-and-legal-amateur-combative-sport-contests-en-2022-03-21.pdf"),
+ "ROWAN": ("Ontario - Rowan's Law: concussion safety (updated Aug 2026)", "https://www.ontario.ca/page/rowans-law-concussion-safety"),
+ "ROWAN_ORGS": ("Ontario - Rowan's Law: information for sport organizations and schools (updated Sep 2026)", "https://www.ontario.ca/page/rowans-law-information-sports-organizations-and-schools"),
+ "ROWAN_RES": ("Ontario - Rowan's Law concussion awareness resources (updated Jan 2026)", "https://www.ontario.ca/page/rowans-law-concussion-awareness-resources"),
+ "CAO_FAQ": ("Coaches Association of Ontario - FAQ: You are the Designated Person under Rowan's Law (Oct 2024)", "https://www.coachesontario.ca/programs-resources/concussion/faq/"),
+ "CANLAW": ("Canadian Lawyer - Rowan's Law: all about competitive sports, concussions, and the children (Dec 2024)", "https://www.canadianlawyermag.com/resources/legal-education/rowans-law-all-about-competitive-sports-concussions-and-the-children/390419"),
+ "OLA_BILL": ("Legislative Assembly of Ontario - Bill 193, Rowan's Law (Concussion Safety), 2018", "https://www.ola.org/en/legislative-business/bills/parliament-41/session-2/bill-193/acts-affected"),
+ "PARA_GUIDE": ("Parachute - Canadian Guideline on Concussion in Sport, 2nd ed. (Mar 2024)", "https://parachute.ca/en/professional-resource/concussion-collection/canadian-guideline-on-concussion-in-sport/"),
+ "PARA_RTS": ("Parachute - Return-to-Sport and Return-to-School Protocols (2024, Canadian Guideline 2nd ed.)", "https://pedsconcussion.com/wp-content/uploads/2024/03/Parachute-Return-to-Sport-and-School-Protocols-2024.pdf"),
+ "CAC_RCM": ("Coaching Association of Canada - Responsible Coaching Movement", "https://coach.ca/responsible-coaching-movement"),
+ "CCES_RCM": ("CCES - Responsible Coaching Movement", "https://cces.ca/rcm"),
+ "CAC_SST": ("Coaching Association of Canada - Safe Sport Training module (updated Mar 2025)", "https://coach.ca/module/safe-sport-training"),
+ "UCCMS": ("Universal Code of Conduct to Prevent and Address Maltreatment in Sport (UCCMS) v7.0, eff. Apr 1 2025", "https://sportintegrity.ca/sites/default/files/content/docs/2025-01/CCES-UCCMS-Final-E.pdf"),
+ "C2K": ("Abuse-Free Sport - accredited training (Commit to Kids for Coaches)", "https://abuse-free-sport.ca/c3p/training"),
+ "SKATE_R2": ("Skate Canada - Rule of Two recommendations (Dec 2024; example NSO implementation)", "https://skatecanada.ca/wp-content/uploads/2024/12/Rule-of-Two-EN.pdf"),
+ "ON_PRC": ("Ontario - Police record checks (updated Apr 2026)", "https://www.ontario.ca/page/police-record-checks"),
+ "ON_SRP": ("Ontario - Sport recognition policy for provincial and multi-sport organizations (updated May 2025)", "https://www.ontario.ca/page/sport-recognition-policy-provincial-and-multi-sport-organizations"),
+ "BJSM_NMT": ("Lutz et al., BJSM 58(11):615 - Best practices for NMT injury-prevention warm-ups in youth team sport (systematic review)", "https://bjsm.bmj.com/content/58/11/615"),
+ "FIFA_KIDS": ("University of Basel press release on FIFA 11+ Kids trial (Jan 2018)", "https://idw-online.de/de/news687360"),
+ "SHRED": ("University of Calgary SIPRC - SHRed Injuries (youth NMT warm-ups)", "https://live-ucalgary.ucalgary.ca/sport-injury-prevention-research-centre/research/studies/sport/shred-injuries"),
+ "CSEP": ("CSEP - Canadian 24-Hour Movement Guidelines for Children and Youth (5-17)", "https://csepguidelines.ca/guidelines/children-youth/"),
+ "NATA": ("NATA - Sport Specialization Recommendations for Adolescent and Young Athletes (Oct 2019)", "https://www.nata.org/sites/default/files/youth_sports_specialization_recommendations.pdf"),
+ "AAP": ("AAP - Overuse Injuries, Overtraining, and Burnout in Young Athletes (Pediatrics, Feb 2024) news summary", "https://www.healthychildren.org/English/news/Pages/AAP-calls-out-causes-of-injury-overtraining-and-burnout-in-youth-sports.aspx"),
+ "SFL_LTD": ("Sport for Life - Long-Term Development in Sport and Physical Activity 3.0", "https://sportforlife.ca/long-term-development/"),
+ "SFL_BLOG": ("Sport for Life - The First Three Stages of Long-Term Development (Dec 2024)", "https://sportforlife.ca/blog/building-a-solid-foundation-the-first-three-stages-of-long-term-development-in-sport-and-physical-activity/"),
+ "CPS": ("Canadian Paediatric Society - 'Boxing not for children and teens' (2011, updated 2012)", "https://cps.ca/en/media/Boxing-not-for-children-and-teens"),
+ "RALLY": ("Canadian Women & Sport - Rally Report 2024", "https://womenandsport.ca/rally-2024/"),
+}
+
+def it(topic, age, guidance, src, conf):
+    name, url = S[src]
+    return {"topic": topic, "age_group": age, "guidance": guidance, "source_url": url, "source_name": name, "confidence": conf}
+
+items = [
+ # ---------- 1. Boxing LTAD / Boxing Ontario ----------
+ it("Boxing LTAD stages", "0-6", "Active Start (boys and girls 0-6): fun and mastering basic movement; boxing has no direct role and there is no formal competition.", "BC_LTAD", "high"),
+ it("Boxing LTAD stages", "Boys 6-9 / girls 6-8", "FUNdamentals: fundamental movement and basic sport skills with exposure to many sports; Boxing Canada suggests 1-2 'introduction to boxing' sessions of 45-75 minutes per week alongside 4-6 other activity sessions.", "BC_LTAD", "high"),
+ it("Boxing LTAD stages", "Boys 6-9 / girls 6-8", "No maximal or near-maximal strength work at the FUNdamentals stage (growth-plate protection); equipment must be adapted to the child's size, strength and skill; focus on fun games and spatial awareness.", "BC_LTAD", "high"),
+ it("Boxing LTAD stages", "Boys 9-12 / girls 8-11", "Learn to Box: basic boxing skills (straight punches, hooks, uppercuts, blocking, footwork) with technical precision; endurance and speed trained through fun games; 'children are not miniature adults'.", "BC_LTAD", "high"),
+ it("Contact / sparring for kids", "Boys 9-12 / girls 8-11", "Boxing Canada says coach-led 'simulated bouts, condition sparring, or shadow boxing' can be introduced progressively at Learn to Box; inter-club competition may be introduced for fun but should not be the main focus.", "BC_LTAD", "high"),
+ it("Competition age and volume", "11-12+", "Boxing Canada LTAD indicates athletes may start competing at age 11, limited to about 2-4 well-structured club events per year against similar size and skill opponents (table context in the PDF was not fully verifiable).", "BC_LTAD", "medium"),
+ it("Session frequency/length", "11+ (Learn to Box) and Train to Box", "LTAD summary: 2-3 boxing-specific sessions per week of 45-75 min at the earlier stage; 3-5 sessions of 45-90 min at Train to Box (boys 12-16, girls 11-15), plus other sport/activity sessions.", "BC_LTAD", "medium"),
+ it("Boxing LTAD stages", "Boys 12-16 / girls 11-15", "Train to Box: build physical preparation and boxing-specific skills, volume and intensity increase gradually; carefully selected competition, roughly 4-10 bouts per year in club events and junior tournaments.", "BC_LTAD", "high"),
+ it("Growth spurt precautions", "Boys 12-16 / girls 11-15", "Injury risk rises during the growth spurt: adjust programs, address flexibility and strength imbalances, reduce volume/intensity; include shoulder and low-back injury prevention and 6-8 weeks of general conditioning before intense boxing-specific work.", "BC_LTAD", "high"),
+ it("Work:rest for speed", "All youth", "Speed efforts should be very short (under 5 seconds for younger athletes, extendable to about 10-15 s later) with complete recovery between reps and sets; train speed early in the session after a thorough warm-up. No explicit work:rest ratio is given.", "BC_LTAD", "high"),
+ it("Trainability windows", "Kids and teens", "Flexibility window is about ages 6-10 for both sexes; speed windows about 6-8 and 11-13 (girls), 7-9 and 13-16 (boys); emphasize aerobic endurance through continuous training during the growth spurt.", "BC_LTAD", "medium"),
+ it("Youth competition categories", "6-18", "Boxing Ontario club events: Fun Box ages 6-10 (U13 may also take part), U13 = 11/12, U15 = 13/14, U17 = 15/16, U19 = 17/18; age matching generally within 12 months.", "BO_MATCH", "high"),
+ it("Round lengths for youth", "U13 / U15 / U17", "Boxing Ontario 2025 club events: U13 3 x 1 min, U15 3 x 1.5 min, U17 3 x 2 min; boxers may box fewer rounds but not more. Ontario rules set a 1-minute rest between rounds.", "BO_MATCH", "high"),
+ it("Headgear and gloves (youth)", "Youth and women", "Open-face headgear is mandatory for all in Boxing Ontario club events (cheek-protector headgear allowed only for Fun Box and Masters if both wear the same type); 10 oz gloves for females, U17, U15 and U13 bouts.", "BO_MATCH", "high"),
+ it("Fun Box age range (provincial rules)", "6-12", "Ontario's official amateur boxing ruleset lists 'Initiation Funbox' as 6-12 years, Junior A U13, Junior B U15, Junior C U17; note this differs from Boxing Ontario's 2025 club guideline (6-10).", "ON_BOX_V", "high"),
+ it("Protective equipment (competition)", "All", "Ontario boxing rules: headgear mandatory for all sanctioned competitions except National Championships; gumshield required every bout; men must wear a groin protector, women may.", "ON_BOX_IV", "high"),
+ it("Medicals before competition", "All competitors", "Weigh-ins and medicals must occur no more than 2 hours before a sanctioned boxing event, with separate male/female rooms.", "ON_BOX_III", "high"),
+ it("Supervision of sparring", "All", "Boxing Ontario: registered, Boxing Ontario certified coaches must be present to supervise any training/sparring; a registered club needs at least one NCCP Instruction Beginner coach.", "BO_CLUB", "high"),
+ it("Insurance", "All", "Boxing Ontario liability insurance covers only Boxing Ontario members in membership-related activities, so participants must be registered members to be covered.", "BO_CLUB", "high"),
+ it("Fun Box format (reference)", "6-12", "Boxing BC FUNBox (reference, not Ontario): 3 rounds of 1-1.5 min, no judging (both boxers declared winners), heavy blows discouraged and the referee coaches from inside the ring.", "BCBOX_FUN", "medium"),
+ it("Non-contact youth boxing", "8-16", "Boxing Ontario's BOX-ON! is a standardized non-contact boxing-fitness program for youth 8-16 that any club or youth centre can adapt (article undated; check whether still offered).", "BO_BOXON", "low"),
+ it("Paediatric position on boxing", "Children and teens", "The Canadian Paediatric Society (2011) said boxing is not appropriate for children and teens and recommended sports where deliberate head blows are not the focus; the statement is dated and its current status is unclear.", "CPS", "medium"),
+
+ # ---------- 2. Wrestling ----------
+ it("Wrestling LTAD stages", "0-6", "Active Start: daily play and safe exploration; tumbling and 'play-wrestling' are fine 'as long as you can see smiles and hear laughter'.", "WCL_MAN", "high"),
+ it("Wrestling LTAD stages", "6-9", "FUNdamentals: structured play in fun, safe environments with minimal competition emphasis; non-aggressive tumbling and play-wrestling; modified equipment; speed activities under 5 seconds.", "WCL_MAN", "high"),
+ it("Kids physiology", "6-9", "Wrestling Canada notes children have low anaerobic capacity and limited ability to regulate body temperature in extreme heat or cold.", "WCL_MAN", "high"),
+ it("Wrestling LTAD stages", "10-12", "Learning to Wrestle: core principles, basic takedowns and par terre; use games and simulations and avoid complex tactics, highly repetitive drills and high-intensity physical training; 1+ festival-style events per year with modified rules.", "WCL_MAN", "high"),
+ it("Wrestling LTAD stages", "12-16", "Training to Compete (Bantam/Cadet): core skill repetition, off-mat cross-training, tactics; about 10-20 matches per year; avoid cutting late maturers and pushing early maturers too hard, too soon.", "WCL_LTAD", "high"),
+ it("Youth age groups", "7-14", "OAWA youth age groups: Tykes 7/8, Novices 9/10, Kids 11/12, Bantam 13/14 (age as of Dec 31); youth rules use Wrestling Canada U17 rules with OAWA modifications.", "OAWA", "high"),
+ it("Banned moves - all age-group wrestling", "7-14", "Illegal for all age-group wrestlers in Ontario: slams, all back-bending throws (side suplay, salto), full and 3/4 nelson, both hands on the neck, West Point ride, German leg ride, and amplitude (5-point) throws.", "ON_WR_IV", "high"),
+ it("Banned moves - youngest", "Tykes 7-8 / Novice 9-10", "Tykes and Novice: no head-and-arm throw, no Gabori/rolling head-and-arm, no repeated tilts without reset; pins must be completed within 15 s; Novice/Kids/Bantam also may not lock hands in a double underhook or use reverse leg rides.", "ON_WR_IV", "high"),
+ it("Gabori ban", "7-14", "OAWA bans the Gabori (alligator roll) at all youth levels; front head-and-arm control is allowed but any roll attempt is stopped immediately.", "OAWA", "high"),
+ it("General illegal holds", "All ages", "Illegal at all levels: throat holds, twisting arms beyond 90 degrees, holding head/neck with two hands or any strangulation, chancery holds, and stretching the spinal column.", "ON_WR_IV", "high"),
+ it("Referee safety principle", "Youth", "For young wrestlers officials should stop the action immediately if there is any doubt about safety, even when the move is legal: 'Safety must be a key goal of youth wrestling.'", "ON_WR_IV", "high"),
+ it("Match length (youth)", "Tykes to U17", "Tykes/Novice and U15/U17: two 2-minute periods with 30-second break (some local youth events use 2 x 1.5 min).", "ON_WR_IV", "high"),
+ it("Safe falling before throws", "Teens (school standard)", "Ontario school safety standard: throwing permitted only when break-fall/roll techniques are well established; skills taught in progression; partners of similar weight, strength and ability; constant visual supervision when first teaching holds/releases.", "OPHEA_SEC", "high"),
+ it("Elementary-age wrestling", "Elementary school age", "Ophea elementary curricular wrestling (2025): no throws; direct supervision during initial instruction of holds and releases; wrestling-approved mats with no gaps; no contact for students with communicable skin conditions.", "OPHEA_ELEM", "high"),
+ it("Breakfall content in WCL LTAD", "All", "Wrestling Canada's LTAD manual does not include breakfall instruction or a restricted-moves list; those come from the competition rules and school safety standards.", "WCL_MAN", "medium"),
+ it("Matching and first aid", "Youth (reference)", "Manitoba's school wrestling checklist (reference) requires matching by size and ability, warm-up/cool-down every session, constant visual supervision, and a first-aid-trained person present.", "MB_EDU", "medium"),
+
+ # ---------- 3. BJJ / grappling ----------
+ it("Kids no-gi legal submissions (Ontario)", "7-17", "Ontario grappling rules (Ontario Grappling Association), no-gi youth: straight armbar from 7, kimura/americana from 9, rear naked choke and triangle from 11; arm triangle, guillotine, Ezekiel, bow-and-arrow, omoplata, straight foot lock, gogoplata only from 16-17.", "ON_GRAP_IV", "high"),
+ it("Never-legal grappling techniques", "All ages/belts", "Not allowed at any age or belt in Ontario grappling: bicep lock, neck crank, twister, scissor takedown, full suplex, slam, striking, small-joint manipulation. In no-gi, heel hooks and calf slicers are allowed only at brown/black/elite.", "ON_GRAP_IV", "high"),
+ it("Youth grappling divisions", "4-20", "Ontario grappling divisions: kids in two-year brackets from 4-6 up to 12, teens 13-15 and 16-17, juniors 18-20.", "ON_GRAP_V", "high"),
+ it("Kids jiu-jitsu (newaza) bans", "4-15", "Ontario Newaza Jiu Jitsu (Ontario Jiu Jitsu Association): for all kids, no arm triangle, Ezekiel, guillotine, neck crank, cervical locks, omoplata/gogoplata, wrist locks, leg attacks (except leg-stretch at 12-15), bicep slicers, scissor takedowns, jump-guard attacks or head-and-arm throws.", "ON_NEWAZA_IV", "high"),
+ it("Kids jiu-jitsu match length", "Under 10 to U21", "Newaza durations: U10 1.5 min; ages 10-15 3 min; U18 4 min; U21 5 min. Heel hooks and knee reaping banned for all competitors.", "ON_NEWAZA_IV", "high"),
+ it("IBJJF kids/teen illegal techniques", "4-12 and 13-15", "IBJJF table (2024): for ages 4-15 illegal: Ezekiel, frontal guillotine, arm triangle, triangle pulling the head, omoplata, straight foot lock, leg-splitting submissions, wrist lock, bicep/calf slicer, kneebar, toe hold, heel hook; slams, knee reaping, scissor takedowns and spinal locks are illegal for everyone.", "IBJJF", "medium"),
+
+ # ---------- MMA / kickboxing / legal framework ----------
+ it("Youth MMA (Ontario)", "12-18", "Ontario amateur MMA categories: Youth C 12-13, Youth B 14-15, Youth A 16-18, Senior 19+; all head and face strikes are prohibited for Youth A, B and C.", "ON_MMA_III", "high"),
+ it("Youth MMA banned techniques", "12-15", "Youth B (14-15) bans knee strikes, grounded striking, bicep/calf crushes, wristlocks, kneebars, omoplata, slams, standing guillotines, up-kicks and stomps; Youth C (12-13) adds no grounded strikes of any kind, no guillotines and no leg submissions.", "ON_MMA_III", "high"),
+ it("MMA fouls at all levels", "All", "Ontario amateur MMA bans elbow/forearm strikes, neck cranks, heel hooks, toe holds and spine locks at every level; Pre-Novice also bans head strikes on a grounded opponent, suplexes, slams and shoulder throws.", "ON_MMA_III", "high"),
+ it("MMA equipment and medical", "All", "Amateur MMA: soft neoprene shin guards required, gloves at least 6 oz, no headgear; annual physical by an Ontario-licensed physician plus pre-bout medical; contestants sign a Concussion Code of Conduct.", "ON_MMA_I", "high"),
+ it("Who sanctions amateur MMA", "All", "All amateur MMA contests or exhibitions in Ontario must be sanctioned by the Ontario Athletics Commission (no PSO is listed for MMA).", "ON_MMA", "high"),
+ it("Kick light / light contact kickboxing", "7-15 and adults", "Kickboxing Ontario light-contact categories: Cadet 7-9, Junior A 10-12, Junior B 13-15; 2 x 2-min rounds with 1-min rest; warnings for excessive contact; spinning backfist, knees, throws and grappling are illegal.", "ON_KICK_IV", "high"),
+ it("Kickboxing youth matching", "7-18", "Kickboxing youth must compete in their age category or within 24 months of birthdate.", "ON_KICK_V", "high"),
+ it("Contests need sanction", "All", "Amateur combative contests/exhibitions in Ontario are governed by the Combative Sports Act, 2019; they need an OAC permit or must be held/sanctioned by a ministry-recognized PSO (Boxing Ontario, OAWA, OGA, OJJA, Kickboxing Ontario, etc.).", "ON_AMATEUR", "high"),
+ it("Training vs contests", "All", "Ontario's guidance covers contests and exhibitions; events with only light contact are among those that do not need a permit. Ontario's 2022 fact sheet said training, skills development and non-contact demonstrations are not prize fights.", "ON_AMATEUR", "medium"),
+ it("Light contact in school combatives", "School-age", "Ophea intramural combatives/wrestling standards now permit only 'light contact' activities, using the light-contact definition in Ontario Regulation 507/24 (controlled techniques not intended or expected to cause harm).", "OPHEA_UPD", "medium"),
+
+ # ---------- 4. Rowan's Law ----------
+ it("Rowan's Law - who is a sport organization", "Under 26", "Rowan's Law covers 'a person or entity that carries out, for profit or otherwise, a prescribed activity' in connection with amateur competitive sport, so private for-profit gyms can be covered.", "OLA_BILL", "high"),
+ it("Rowan's Law - prescribed activities", "Under 26", "The prescribed activities include training athletes, conducting practices and organizing competitions; the sports list is in O. Reg. 161/19 (not verified here because e-Laws would not load).", "CANLAW", "medium"),
+ it("Rowan's Law - awareness resources", "Athletes under 26; parents of under-18s", "Before registering, athletes under 26 and parents of athletes under 18 must confirm they reviewed a Concussion Awareness Resource within the previous 12 months; coaches, team trainers and officials confirm every year.", "ROWAN_ORGS", "high"),
+ it("Rowan's Law - Concussion Code of Conduct", "Under 26", "Sport organizations must have a Concussion Code of Conduct (since July 1, 2019) that athletes under 26, parents of under-18s, coaches and team trainers confirm every year; Ontario provides sample codes.", "ROWAN_RES", "high"),
+ it("Rowan's Law - removal and return protocols", "Under 26", "Sport organizations must have Removal-from-Sport and Return-to-Sport protocols (since Jan 1, 2022): immediate removal from training, practice or competition, parents told for under-18s, and no return until the return-to-sport process is complete.", "ROWAN", "high"),
+ it("Designated persons", "All", "Each practice, training or competition needs a designated person who can remove athletes; they must have reviewed the awareness resources in the past 12 months; they do not diagnose. CAO recommends NCCP Making Headway.", "CAO_FAQ", "high"),
+ it("Medical clearance", "All", "Only physicians and nurse practitioners can medically clear an athlete to return to amateur competitive sport.", "ROWAN_ORGS", "high"),
+ it("Concussion spotters", "All", "Ontario recommends concussion spotters at all games and practices in higher-risk sports to flag possible head injuries to the designated person.", "ROWAN_ORGS", "medium"),
+ it("Age-specific e-booklets", "10 and under / 11-14 / 15+", "Ontario publishes concussion e-booklets for ages 10 and under, 11-14, and 15 and up, plus sample codes of conduct and an optional confirmation receipt form.", "ROWAN_RES", "high"),
+ it("Recreational programs scope", "All", "Coaches Association of Ontario: recreational providers must decide for themselves whether their programs fall within Rowan's Law 'prescribed activity'; drop-in programs are not specifically addressed.", "CAO_FAQ", "medium"),
+ it("Boxing Ontario concussion policy", "All BO members", "Boxing Ontario's Concussion Policy applies to all BO activities including practices and training at member clubs, and is intended to comply with Rowan's Law; it is based on the 2017 consensus and still contains an unfilled designated-person placeholder.", "BO_CONC", "high"),
+ it("Return-to-sport steps (2024)", "All", "Parachute 2024: 6 steps, each at least 24 h (relative rest first 24-48 h, light then moderate aerobic, sport-specific without head-impact risk, non-contact drills, full-contact practice, return to sport); mild brief symptom increase is OK in steps 1-3.", "PARA_RTS", "high"),
+ it("Medical clearance timing (2024)", "All", "Parachute 2024 says the athlete gives the coach a Medical Clearance Letter before progressing to step 4 and must have returned to full-time school first; Boxing Ontario's older policy places clearance after stage 5.", "PARA_RTS", "high"),
+ it("Pre-season education", "All", "Canadian Guideline (2024): all stakeholders review and sign a pre-season concussion education sheet; a standardized Medical Clearance Letter from an MD or NP is required before full-contact practice and games.", "PARA_GUIDE", "high"),
+
+ # ---------- 5. Safe sport ----------
+ it("Rule of Two", "Minors", "Responsible Coaching Movement: all interactions and communications with participants are open, observable and justifiable, with two responsible adults (coach, parent, staff or screened volunteer) present; exceptions only in emergencies.", "CAC_RCM", "high"),
+ it("Rule of Two (Boxing Ontario)", "Minors", "Boxing Ontario: an athlete must never be alone one-on-one with an unrelated Person in Authority; where full implementation isn't possible, keep training environments visible and accessible.", "BO_SAFE", "high"),
+ it("RCM three pillars", "Coaches", "The Responsible Coaching Movement has three parts: Rule of Two, background screening (references, interviews, police checks repeated at intervals) and ethics training.", "CCES_RCM", "high"),
+ it("Electronic communication", "Minors", "Example NSO practice: eliminate one-to-one electronic messaging with participants; send communications to the group and/or include parents; another adult present when a participant rides in a coach's vehicle.", "SKATE_R2", "medium"),
+ it("UCCMS boundaries", "Minors (under 19)", "UCCMS v7.0 (Apr 2025) treats a minor as under 19; private social-media/text messaging with a minor, one-on-one meetings outside open and observable settings, inappropriate change-room sharing and private transport are possible boundary transgressions.", "UCCMS", "high"),
+ it("Duty to report", "Adults", "UCCMS: adult participants must report prohibited behaviour they know of or ought to have known of; Boxing Ontario routes complaints to its discipline office (within 21 days) and suspected child abuse to local authorities.", "UCCMS", "high"),
+ it("Boxing Ontario screening levels", "Coaches", "Boxing Ontario Level 3 roles (full-time coaches, coaches who travel with or could be alone with athletes) need an E-PIC and a Vulnerable Sector Check, plus Commit to Kids and MED; Level 2 needs an E-PIC.", "BO_SAFE", "high"),
+ it("Vulnerable sector check (Ontario)", "Adults working with under-18s", "People in positions of trust or authority over children (under 18) can be asked for a VSC; it must be done by the applicant's local police service with consent; volunteers get free basic checks but VSC fees still apply.", "ON_PRC", "high"),
+ it("CAC Safe Sport Training", "Coaches/staff", "CAC Safe Sport Training is a free 90-minute online module (the Locker) on maltreatment, UCCMS principles and what to do if you suspect maltreatment; worth 2 NCCP PD points.", "CAC_SST", "high"),
+ it("Commit to Kids for Coaches", "Coaches", "Commit to Kids for Coaches (Canadian Centre for Child Protection): online, 2.5-3 h, $20, certificate plus 3 NCCP PD points.", "C2K", "high"),
+ it("Boxing coach entry course", "Coaches 16+", "Boxing Ontario Instruction Beginners course (2026): NCCP number required; Safe Sport Training and Respect in Sport Activity Leader needed for club membership; Making Headway mandatory since 2025; police check dated within 3 years.", "BO_IB", "high"),
+ it("Boxing NCCP pathway", "Coaches 16+", "Boxing NCCP contexts: Instruction Beginner (formerly Apprentice Coach), Competition Introduction (formerly Club Coach), Competition Development (formerly Level 3); NCCP is open to coaches over 16.", "BO_NCCP", "high"),
+ it("Wrestling NCCP pathway", "Coaches", "Wrestling Canada: Kids Wrestling (1.5-day workshop for coaching grassroots participants 14 and under), Competition-Introduction, Competition-Development; MED, Making Headway and Safe Sport listed as safe-sport requirements.", "WCL_COACH", "high"),
+ it("PSO obligations", "Organizations", "Ontario's recognition policy requires PSOs to have risk-based screening policies, safe-sport codes, a Rowan's Law concussion policy, and NCCP (or equivalent) certified coaches.", "ON_SRP", "high"),
+
+ # ---------- 6. Warm-up and volume ----------
+ it("Neuromuscular warm-up", "Youth", "NMT warm-ups typically take 10-15 minutes and combine aerobic, balance, strength and agility exercises; they reduce injury rates by up to about 60%, with adherence of 1.5+ sessions/week linked to benefit.", "BJSM_NMT", "high"),
+ it("FIFA 11+ Kids evidence", "7-13", "A roughly 20-minute kids warm-up done at least once and preferably twice a week cut injuries by 48% and severe injuries by up to 74% in a 3,900-child trial (soccer; principles transferable but untested in combat sports).", "FIFA_KIDS", "medium"),
+ it("Canadian youth NMT program", "13-17", "University of Calgary's SHRed Injuries program developed NMT warm-ups for high-school athletes 13-17 in high-injury-risk sports.", "SHRED", "medium"),
+ it("Daily activity and sleep", "5-17", "Canadian 24-Hour Guidelines: at least 60 min/day of moderate-to-vigorous activity; vigorous plus muscle- and bone-strengthening at least 3 days/week; sleep 9-11 h (5-13) or 8-10 h (14-17); no more than 2 h/day recreational screen time.", "CSEP", "high"),
+ it("Training volume limits", "Youth", "NATA: organized sport hours per week should not exceed the athlete's age; at least 2 days off per week; no more than 8 months/year in one sport; one team per season; delay specialization.", "NATA", "medium"),
+ it("Overtraining and burnout", "Youth", "AAP (2024): avoid overtraining and overscheduling, keep workouts fun with age-appropriate games, and protect free play time; overtraining shows as falling performance, persistent fatigue, poor sleep and mood changes.", "AAP", "medium"),
+ it("LTD general framework", "Children", "Sport for Life: FUNdamentals (boys 6-9, girls 6-8) is about 75% general activity and 25% sport-specific, built on agility, balance, coordination and speed; Learn to Train is about 70% training and 30% competition-related activity; progress by development, not just age.", "SFL_BLOG", "high"),
+
+ # ---------- 7. Women / teens ----------
+ it("Women starting boxing later", "Teens and adult women", "Boxing Canada: most women join boxing at 15-22, but they must still go through all the basic stages progressively; girls with limited sport backgrounds should focus on basic boxing skills and general athletic development.", "BC_LTAD", "high"),
+ it("Women's sparring opportunities", "Women (novice)", "Boxing Ontario's Female Development Committee runs camps with controlled, pre-matched sparring supervised by experienced coaches; clubs can host all-female sparring sessions and join the 'Female Sparring in Ontario' list.", "BO_FDC", "high"),
+ it("Girls' retention", "Girls 6-18", "Rally Report 2024: more than 1 in 5 girls leave sport during adolescence, and 7 in 10 girls say sport improves their mental health.", "RALLY", "high"),
+ it("Women's protective equipment (MMA)", "Women", "Ontario amateur MMA rules: a groin or breast protector is optional for women, while men must wear a foul-proof groin protector (for boxing, see the Ontario boxing equipment item).", "ON_MMA_III", "high"),
+]
+
+class_notes = {
+ "Wrestling (Mon 3:20-4:00, kids)": [
+  "Group by OAWA age bands: Tykes 7-8, Novice 9-10, Kids 11-12 [OAWA Youth Wrestling Rules].",
+  "Keep it play-based for under-10s: structured play, play-wrestling, tumbling, modified rules [Wrestling Canada LTAD Manual].",
+  "For 10-12s use games and simulations, and avoid complex tactics, highly repetitive drills and high-intensity conditioning [Wrestling Canada LTAD Manual].",
+  "Teach breakfalls and rolls first; only teach throws once falling is well established, and for elementary-age groups keep it to no throws [Ophea Secondary 2023; Ophea Elementary 2025].",
+  "Never teach or allow slams, back-bending throws, full or 3/4 nelson, two hands on the neck, chancery/throat holds, arm twists beyond 90 degrees, West Point ride, German leg ride or Gabori; also no head-and-arm throw for Tykes/Novice [Ontario Wrestling Rules Part IV; OAWA].",
+  "Stop any live action when in doubt about safety, even if it is legal [Ontario Wrestling Rules Part IV].",
+  "Keep live goes short: youth matches are 2 x 2 min with a 30-second break [Ontario Wrestling Rules Part IV].",
+  "Match partners by weight, strength and ability, and give direct supervision while first teaching holds and releases [Ophea].",
+  "Use wrestling-approved mats with no gaps, clean them before every session, and keep anyone with a skin infection off contact drills [Ophea Elementary 2025].",
+  "Plan water breaks and watch heat, because children regulate temperature poorly [Wrestling Canada LTAD Manual].",
+  "Fit a 10-15 min neuromuscular warm-up into the 40-minute slot (balance, landing, agility, strength) [Lutz et al. BJSM].",
+ ],
+ "Boxing (adult, Mon/Wed/Thu 4-5)": [
+  "A registered Boxing Ontario certified coach must be present to supervise all training and sparring [Boxing Ontario club page].",
+  "Register participants as Boxing Ontario members so BO insurance applies [Boxing Ontario club page].",
+  "Spar with headgear, mouthguard and (for men) a groin protector, which are the competition minimums [Ontario Boxing Rules Part IV].",
+  "Anyone under 26 must confirm the concussion resource and the Code of Conduct, and coaches confirm every year [Rowan's Law info page].",
+  "Start with a 10-15 min neuromuscular warm-up and do speed/power work early, after the warm-up [Lutz et al. BJSM; Boxing Canada LTAD].",
+  "For beginners starting as adults, still progress through the basics before hard sparring [Boxing Canada LTAD].",
+ ],
+ "Jiu-Jitsu no-gi (Tue 4-6)": [
+  "If any youth attend, follow the Ontario Grappling no-gi table: armbar from 7, kimura/americana from 9, RNC and triangle from 11, guillotine/arm triangle/omoplata/straight foot lock only from 16 [Ontario Grappling Rules Part IV].",
+  "Never allow neck cranks, twisters, slams, scissor takedowns, full suplexes, bicep locks or small-joint manipulation at any age [Ontario Grappling Rules Part IV].",
+  "Heel hooks are only legal for brown/black/elite in Ontario no-gi, and banned for everyone in newaza and for all IBJJF kids and teens [Ontario Grappling Rules; Ontario Newaza Rules; IBJJF table].",
+  "For kids under 16, also keep out wrist locks, Ezekiel, guillotines and omoplata [Ontario Newaza Rules; IBJJF table].",
+  "Drill breakfalls before takedowns and throws [Ophea Secondary 2023].",
+  "For a 2-hour class, plan a structured warm-up and water breaks; NMT warm-ups take 10-15 min [Lutz et al. BJSM].",
+ ],
+ "Yoga (Tue)": [
+  "No guidance from an official yoga or sport body was found in this research; treat the class as general fitness and mobility [no source; inferred, low confidence].",
+  "If kids or teens attend, ages 6-10 are the main window for training flexibility [Boxing Canada LTAD].",
+  "Whether Rowan's Law applies to yoga is unconfirmed, because it is unlikely to be a prescribed amateur competitive sport [inferred from Rowan's Law definitions; low confidence].",
+ ],
+ "Kids Boxing (Wed 5:15-6:15, ages 6+)": [
+  "Most kids aged 6-9 are in FUNdamentals: fun games built on agility, balance, coordination and speed, with about 75% general movement and 25% boxing [Sport for Life; Boxing Canada LTAD].",
+  "A 60-minute session fits Boxing Canada's 45-75 min 'introduction to boxing' guidance (1-2 sessions per week for this stage) [Boxing Canada LTAD].",
+  "No maximal or near-maximal strength work; adapt equipment (gloves, bags, pads) to the child's size [Boxing Canada LTAD].",
+  "Keep speed efforts under 5 seconds with full recovery, and do them early, after the warm-up [Boxing Canada LTAD].",
+  "Keep it non-contact for 6-8s. Boxing Canada introduces coach-led simulated bouts, conditioned sparring and shadow boxing progressively only from Learn to Box (boys 9+, girls 8+) [Boxing Canada LTAD].",
+  "Fun Box is the competition format for 6-10s (Boxing Ontario) or 6-12s (Ontario ruleset): 3 x 1 min, cheek-protector headgear allowed, heavy blows discouraged [Boxing Ontario Match Guidelines 2025; Ontario Boxing Rules Part V; Boxing BC FUNBox].",
+  "Look at Boxing Ontario's non-contact BOX-ON! format (ages 8-16) as a template [Boxing Ontario BOX-ON! article].",
+  "Parents confirm the Ontario concussion e-booklet for ages 10 and under before registration [Rowan's Law resources].",
+  "Apply the Rule of Two: two responsible adults present and no coach alone one-on-one with a child [CAC RCM; Boxing Ontario Safe Sport].",
+  "Be ready for parents to raise the Canadian Paediatric Society's 2011 view against youth boxing; a non-contact format answers most of it [CPS].",
+ ],
+ "Women's Boxing (Wed 7:00-7:45, Thu 6:00-6:45)": [
+  "Treat beginners as beginners: basic skills and general athletic development first, whatever their age [Boxing Canada LTAD].",
+  "Any sparring should be controlled, pre-matched by skill and size, and supervised by a BO-certified coach [Boxing Ontario FDC; Boxing Ontario club page].",
+  "Offer an all-female sparring option and consider joining Boxing Ontario's 'Female Sparring in Ontario' list or hosting an FDC camp [Boxing Ontario FDC].",
+  "Equipment: 10 oz gloves for women in competition, groin protector optional; a breast protector is optional in MMA rules [Boxing Ontario Match Guidelines 2025; Ontario Boxing Rules; Ontario MMA Rules].",
+  "Design for retention, because more than 1 in 5 girls leave sport in adolescence, so a welcoming beginner class matters [Rally Report 2024].",
+  "Rowan's Law resource and Code confirmations apply to anyone under 26 [Rowan's Law info page].",
+ ],
+ "Boxing ages 11-14 (Thu 4-5)": [
+  "This group spans Learn to Box and Train to Box (boys 12-16, girls 11-15): build technique, aerobic base and general conditioning [Boxing Canada LTAD].",
+  "During growth spurts, cut volume and intensity, work on flexibility and strength imbalances, and add shoulder and low-back injury prevention [Boxing Canada LTAD].",
+  "Sparring progression: coach-led simulated bouts, then conditioned (restricted-target or restricted-technique) sparring, then light sparring, always supervised by a BO-certified coach [Boxing Canada LTAD; Boxing Ontario club page].",
+  "Pair within 12 months of age and within the BO weight allowances (3 kg under 54 kg, 4 kg at 54-66 kg) [Boxing Ontario Match Guidelines 2025].",
+  "Competition gear: open-face headgear, 10 oz gloves, mouthguard; U13 rounds are 3 x 1 min and U15 rounds 3 x 1.5 min with 1-min rest, so use these as sparring round lengths too [Boxing Ontario Match Guidelines 2025; Ontario Boxing Rules Part IV].",
+  "Competition can start at about 11, with roughly 2-4 club events a year at first, building toward 4-10 bouts a year [Boxing Canada LTAD].",
+  "Use the Ontario concussion e-booklet for ages 11-14; parents of under-18s confirm too [Rowan's Law resources].",
+  "Limit total organized sport hours per week to about the athlete's age, give 2 days off, and encourage 9-11 h of sleep [NATA; CSEP].",
+  "Introduce free weights with technique first and no maximal lifts for younger members [Boxing Canada LTAD].",
+ ],
+ "Kickboxing (Thu 7-8)": [
+  "Any interclub or exhibition bout needs an Ontario Athletics Commission or Kickboxing Ontario sanction [Ontario Kick Light rules overview; Ontario amateur combative sports page].",
+  "For light-contact formats, warn and penalize excessive contact; spinning backfist, knees, throws, grappling and lower-leg targets are illegal in Kick Light [Ontario Kick Light Part IV].",
+  "If youth join, Kickboxing Ontario categories are Cadet 7-9, Junior A 10-12, Junior B 13-15, with 2 x 2-min rounds and 1-min rest [Ontario Kick Light Parts IV-V].",
+  "Use the same NMT warm-up and concussion process as the boxing classes [Lutz et al. BJSM; Rowan's Law].",
+ ],
+ "MMA (Fri 4-5)": [
+  "If the class includes teens, follow the Ontario youth MMA limits: no head or face strikes for anyone 12-18 [Ontario MMA Rules Part III].",
+  "For 12-13 (Youth C) also exclude grounded strikes, guillotines, all leg submissions, knees, slams, wristlocks, bicep/calf crushes, up-kicks and stomps [Ontario MMA Rules Part III].",
+  "At every level exclude elbows, neck cranks, heel hooks, toe holds and spine locks; for pre-novice adults also no ground-and-pound to the head, slams, suplexes or shoulder throws [Ontario MMA Rules Part III].",
+  "Use shin guards and gloves of at least 6 oz [Ontario MMA Rules Parts I and III].",
+  "Amateur MMA contests must be OAC-sanctioned, with physicals and a signed Concussion Code of Conduct [Ontario MMA Rules].",
+ ],
+ "Competition Class (Fri 5-6)": [
+  "Only enter sanctioned events: OAC permit or recognized PSO (Boxing Ontario, OAWA, OGA, OJJA, Kickboxing Ontario); unsanctioned contests risk criminal charges [Ontario amateur combative sports page; Ontario 2022 fact sheet].",
+  "Boxing matching: novice is 10 bouts or fewer; novice vs novice within 7 bouts, novice vs open within 5; medicals within 2 h of the event [Boxing Ontario Match Guidelines 2025; Ontario Boxing Rules Part III].",
+  "Control competition volume by age (boxing about 2-4 club events a year at entry, 4-10 bouts a year at Train to Box; wrestling about 10-20 matches a year at 12-16), and avoid excessive fatigue before events [Boxing Canada LTAD; Wrestling Canada LTAD].",
+  "At competitions the host organization's removal and return-to-sport protocol applies [Canadian Lawyer; CAO FAQ].",
+  "Coaches should hold the NCCP context their PSO requires for competition coaching, likely Competition Introduction for corner work [Boxing Ontario NCCP page; inferred, low confidence].",
+ ],
+}
+
+open_questions = [
+ "Is BBG a registered Boxing Ontario club, and does it hold memberships with OAWA, OGA/OJJA and Kickboxing Ontario? This decides insurance, coach requirements and who can sanction in-house events.",
+ "Does Rowan's Law cover each class? Confirm which sports are prescribed in O. Reg. 161/19 (e-Laws would not load here). The Act applies to for-profit organizations; the safest course is to comply for every contact class.",
+ "Who is the designated person for removal and for return-to-sport at each class time? Download and adapt Ontario's June 2025 sample Removal-from-Sport/Return-to-Sport protocol (the .docx could not be read in this research).",
+ "Which medical-clearance timing will BBG adopt? Parachute 2024 says before step 4, Boxing Ontario's older (2017-based) policy says after stage 5, and the older CAC sheet says before step 5. The Boxing Ontario policy also has an unfilled designated-person placeholder.",
+ "What are the actual ages in the Jiu-Jitsu, Kickboxing, MMA, Yoga and Competition classes? Youth technique restrictions depend on it.",
+ "Fun Box ages differ between sources (Boxing Ontario 2025 club guideline: 6-10; Ontario ruleset: 6-12). Confirm with Boxing Ontario.",
+ "Do all coaches and helpers have NCCP Instruction Beginner (minimum), Making Headway, CAC Safe Sport Training, Respect in Sport Activity Leader, and Commit to Kids where required?",
+ "Vulnerable Sector Checks: who needs one, how often to renew (Boxing Ontario courses want a police check within 3 years), and which local police service processes them for Bancroft applicants.",
+ "How will the Rule of Two work for the kids' classes (second screened adult or parent present), and what is the communications policy with minors (group messages that include parents, no 1:1 DMs)?",
+ "Do in-house sparring days, smokers or interclub light-contact sessions need OAC or PSO sanction under the Combative Sports Act, 2019 and O. Reg. 507/24's light-contact definition?",
+ "Insurance for non-member or trial participants: Boxing Ontario's policy covers only registered members.",
+ "Waivers and informed-consent forms for minors, and how to answer parents who cite the CPS 2011 position against youth boxing.",
+ "Yoga instructor qualifications and insurance: no official sport-body guidance was found.",
+ "First aid and emergency action plan: is a first-aid-trained person on site every session, and is there a written EAP (the NCCP EAP module)?",
+ "FIFA 11+ Kids is reported to include falling-technique exercises, but that was not verified in a fetched source. Check the official manual before adapting it.",
+ "Confirm the current Wrestling Canada rulebook (OAWA links a March 2023 version) and OAWA's youth modification document (a Google Doc not reviewed here).",
+ "The Boxing Canada LTAD PDF is undated (CABA ISBN edition). Check with Boxing Canada whether a newer LTD document has replaced it.",
+ "Heat and hydration policy for the gym, especially for kids' wrestling and the 2-hour jiu-jitsu block.",
+]
+
+DROP = {
+ ("Boxing LTAD stages", "0-6"), ("Wrestling LTAD stages", "0-6"),
+ ("Breakfall content in WCL LTAD", None), ("Matching and first aid", None),
+ ("Canadian youth NMT program", None), ("Kickboxing youth matching", None),
+ ("Concussion spotters", None), ("Medicals before competition", None),
+ ("Youth grappling divisions", None), ("Kids jiu-jitsu match length", None),
+ ("Gabori ban", None), ("PSO obligations", None), ("Fun Box format (reference)", None),
+}
+items = [i for i in items if (i["topic"], i["age_group"]) not in DROP and (i["topic"], None) not in DROP]
+for i in items:
+    if i["topic"] == "Banned moves - all age-group wrestling":
+        i["guidance"] = ("Illegal for all age-group wrestlers in Ontario: slams, all back-bending throws (side suplay, salto), full and 3/4 nelson, "
+                         "both hands on the neck, West Point ride, German leg ride, amplitude (5-point) throws, and the Gabori/alligator roll (OAWA bans it Tyke to Bantam).")
+
+# All sources consulted (items plus class notes plus supporting pages)
+sources = [{"name": v[0], "url": v[1]} for v in S.values()]
+
+doc = {"generated": "2026-10-17", "items": items, "class_notes": class_notes, "open_questions": open_questions, "sources": sources}
+with open(OUT, "w") as f:
+    json.dump(doc, f, indent=2, ensure_ascii=False)
+print("items", len(items), "classes", len(class_notes), "open_q", len(open_questions), "sources", len(sources))
+from collections import Counter
+print(Counter(i["confidence"] for i in items))

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@page{size:Letter;margin:0}
+:root{--navy:#0E1311;--pine:#354940;--pine-d:#26362F;--gold:#D9483B;--gold-d:#2F4A3D;--cream:#F2ECDC;--sage:#A9BDB0;--paper:#F4F1E8;--ink:#141A17;--muted:#5B655F}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Inter",Arial,sans-serif;color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:8.5in;height:11in;display:flex;flex-direction:column}
+.top{background:radial-gradient(120% 140% at 100% 0%,#1E2C26 0%,var(--navy) 55%);color:var(--cream);padding:.3in .55in .24in;position:relative;overflow:hidden;flex-shrink:0}
+.head{display:flex;justify-content:space-between;align-items:center;gap:.25in}
+.logo{width:1.45in;height:1.45in;flex-shrink:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+.eyebrow{font-size:9.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);font-weight:700}
+h1{font-family:"Inter Display","Inter",Arial,sans-serif;font-weight:900;font-size:31pt;line-height:.95;margin:.08in 0 .07in;text-transform:uppercase;letter-spacing:-.01em}
+h1 span{color:var(--gold)}
+.lede{font-size:10.5pt;line-height:1.42;max-width:5.2in;margin:0;color:#D9D5C8}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:.12in;margin-top:.16in}
+.fact{border-top:2px solid var(--gold);padding-top:.07in}
+.fact b{display:block;font-family:"Inter Display","Inter",Arial;font-weight:900;font-size:13.5pt;color:var(--cream);text-transform:uppercase}
+.fact small{font-size:8.5pt;color:var(--sage);line-height:1.3;display:block;margin-top:2px}
+.body{padding:.17in .55in .12in;flex:1;display:flex;flex-direction:column;gap:.12in;background:var(--paper)}
+h2{font-family:"Inter Display","Inter",Arial;font-weight:900;font-size:15pt;text-transform:uppercase;margin:0;color:var(--pine-d);letter-spacing:.01em}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:.11in}
+.tier{background:#fff;border:1px solid #DCD6C6;border-radius:6px;padding:.11in .16in;display:flex;flex-direction:column;gap:.05in}
+.tier.lead{background:var(--pine-d);color:var(--cream);border-color:var(--pine-d);grid-column:1/-1}
+.tier.lead ul{columns:2;column-gap:.3in}
+.tier.wide{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;gap:.2in}
+.tier.wide .stack{display:flex;flex-direction:column;gap:.05in;flex:1}
+.tier .row{display:flex;justify-content:space-between;align-items:baseline;gap:0 .1in;flex-wrap:wrap}
+.tier b{font-family:"Inter Display","Inter",Arial;font-weight:900;font-size:13pt;text-transform:uppercase}
+.tier .price{font-family:"Inter Display","Inter",Arial;font-weight:900;font-size:18pt;color:var(--gold-d);white-space:nowrap}
+.tier.lead .price{color:var(--cream)}
+.tier ul{margin:0;padding-left:.17in;font-size:9pt;line-height:1.4}
+.tier .slots{font-size:7.5pt;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.tier.lead .slots{color:var(--sage)}
+.tier.wide p{margin:0;font-size:9pt;line-height:1.4;flex:1}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:.18in}
+.why div{font-size:9pt;line-height:1.4}
+.why b{display:block;font-size:10pt;margin-bottom:2px;color:var(--pine-d)}
+.every{margin:-.04in 0 0;font-size:9pt;color:var(--muted)}
+.every b{color:var(--pine-d)}
+.foot{background:var(--navy);color:var(--cream);padding:.2in .55in;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;gap:.3in}
+.foot .who b{font-family:"Inter Display","Inter",Arial;font-weight:900;font-size:14pt;text-transform:uppercase;display:block}
+.foot .who span{font-size:9.5pt;color:var(--sage)}
+.foot .cta{text-align:right;font-size:11pt;line-height:1.5}
+.foot .cta b{color:var(--cream);font-size:13pt}
+</style></head>
+<body><div class="page">
+  <div class="top">
+    <div class="head"><div>
+    <div class="eyebrow">Cottage Country Combat League · 2027 Sponsorship</div>
+    <h1>Put your business<br><span>cage-side.</span></h1>
+    <p class="lede">Professionally run amateur MMA for smaller Ontario communities. Our first fight night was at the A.J. LaRue Arena in Haliburton on May 2, 2026. In 2027 we're running more shows across cottage country.</p>
+    </div><img class="logo" src="cccl-logo-400.png" alt="Cottage Country Combat League logo"></div>
+    <div class="facts">
+      <div class="fact"><b>Sanctioned</b><small>by the Ontario Athletics Commission</small></div>
+      <div class="fact"><b>400 tickets</b><small>sold for our first show</small></div>
+      <div class="fact"><b>15 sponsors</b><small>backed the first show</small></div>
+      <div class="fact"><b>Livestreamed</b><small>reaching fans who can't be there</small></div>
+    </div>
+  </div>
+  <div class="body">
+    <h2>Sponsor packages</h2>
+    <p class="every"><b>Every level is on the livestream and the event shirt,</b> with your logo or name sized by level.</p>
+    <div class="tiers">
+      <div class="tier lead"><div class="row"><b>Title Sponsor</b><span class="price">$7,500</span></div>
+        <ul><li>Naming rights: "CCCL presented by [your business]"</li><li>Top logo on the cage and event banners</li><li>Featured on posters, ads and social media</li><li>Named at fighter introductions</li><li>Your own posts before and after the show</li><li>VIP seating and space for your display</li></ul>
+        <span class="slots">One per show · 2026: Dillabough Millwrighting &amp; Welding</span></div>
+      <div class="tier"><div class="row"><b>Gold Sponsor</b><span class="price">$4,000</span></div>
+        <ul><li>Priority logo around the cage</li><li>Featured on posters and ads</li><li>Social posts, announcer mentions</li><li>VIP tickets, banner and display</li></ul></div>
+      <div class="tier"><div class="row"><b>Silver Sponsor</b><span class="price">$2,000</span></div>
+        <ul><li>Logo on selected posters</li><li>Mention on CCCL social media</li><li>Shared banner space</li><li>Announcer mention, free tickets</li></ul></div>
+      <div class="tier"><div class="row"><b>Bronze Sponsor</b><span class="price">$1,000</span></div>
+        <ul><li>Logo on selected ads</li><li>Social media announcement</li><li>Live announcer mention</li><li>Free admission tickets</li></ul></div>
+      <div class="tier wide"><div class="stack"><b>Community Sponsor</b><p>A mention on CCCL social media, your name or logo in sponsor promos, and recognition as an official community supporter.</p></div><span class="price">$300&ndash;500</span></div>
+      <div class="tier wide"><div class="stack"><b>VIP Corporate Table</b><p>A cage-side table for 8&ndash;10 guests (depending on the venue's tables) to host your staff or clients. Booths, partnerships and custom packages can be arranged too.</p></div><span class="price">$1,500</span></div>
+    </div>
+    <h2>Why local businesses back CCCL</h2>
+    <div class="why">
+      <div><b>Your customers are in the stands.</b>Fight night fans live, shop and work here, and see your name all night.</div>
+      <div><b>It lasts longer than one night.</b>Posts run for weeks before the show, and the livestream travels further.</div>
+      <div><b>It builds the community.</b>Local athletes get a place to compete, run by Bancroft Boxing &amp; Grappling.</div>
+    </div>
+      </div>
+  <div class="foot">
+    <div class="who"><b>Cody "The Constrictor" Purtell</b><span>Promoter, CCCL · Owner, Bancroft Boxing &amp; Grappling</span></div>
+    <div class="cta"><b>705-760-0938</b><br>ontario.cccl@gmail.com</div>
+  </div>
+</div></body></html>

@@ -1,0 +1,43 @@
+{
+ "checked": "October 20, 2026",
+ "short": [
+  "Canada Summer Jobs asks about three things: health and safety, workers' compensation, and anti-harassment. This covers all three, plus pay and payroll.",
+  "With 5 or fewer workers, Ontario doesn't require the health and safety or violence policies to be written or posted, but the harassment program must be in writing at any size. CSJ asks about all of them, so BBG puts them in writing.",
+  "WSIB: gyms are probably not a mandatory industry (WSIB has to confirm), but CSJ requires the student to be covered by WSIB or equivalent insurance from the first day."
+ ],
+ "checklist": [
+  ["CRA payroll account (RP)", "CRA's Business Registration Online. The CSJ form asks for the number.", "Now (CSJ is open)"],
+  ["WSIB or equivalent insurance", "Call WSIB (1-800-387-0750) to confirm the gym's classification. If it isn't mandatory, apply for optional coverage or confirm BBG's insurance covers the student. If it is mandatory, register within 10 days of hiring. Rough cost: about $45 for an 8-week job at $0.90 per $100 of pay (WSIB sets the real rate).", "Before day 1"],
+  ["Policies and the harassment program", "Sign the two drafts below, look at the risk of violence (members or visitors losing their temper), and set a yearly review date.", "Before day 1"],
+  ["Posters", "The \"Health & Safety at Work: Prevention Starts Here\" poster and a copy of the Occupational Health and Safety Act, where workers can see them (ontario.ca, free). Add WSIB's Form 82 if BBG is covered by WSIB.", "Before day 1"],
+  ["Awareness training", "The student does Ontario's free Worker Health and Safety Awareness in 4 Steps; Cody does Supervisor Health and Safety Awareness in 5 Steps. 45 to 60 minutes each online. Keep the certificates.", "Cody now; student on day 1"],
+  ["Cleaning products", "Workers who use the mat disinfectant or other cleaning chemicals get WHMIS training and know where the safety data sheets are. CSJ lists WHMIS among the safety practices.", "Day 1"],
+  ["First aid", "A first aid box with a St. John Ambulance manual, safety pins, 12 adhesive dressings, 4 gauze pads, 2 gauze rolls, 2 field dressings and 1 triangular bandage; someone on site with Basic First Aid; check the box every 3 months and log every treatment.", "Before day 1"],
+  ["Vulnerable sector check", "BBG's own rule for anyone working with kids. Ontario doesn't require it for camps today, but the Premier has promised a law.", "Before day 1"],
+  ["Employment standards poster", "Give the student a copy of Ontario's Employment Standards poster within 30 days.", "First 30 days"],
+  ["Before the first pay", "Collect the SIN and the TD1 federal and Ontario forms. Work out deductions with CRA's Payroll Deductions Online Calculator.", "First pay"],
+  ["Each month", "Send the deductions to CRA by the 15th of the next month. T4 slip by Feb 29, 2028.", "Monthly"],
+  ["If the student is hurt", "First aid, then tell Cody, tell CSJ in writing, and report to WSIB if BBG is covered.", "If it happens"]
+ ],
+ "pay": [
+  ["Minimum wage", "$17.95 an hour from Oct 1, 2026 to Sept 30, 2027. The $16.90 student rate only applies to students under 18 working in the summer or on breaks. Paying above minimum scores points with CSJ."],
+  ["Vacation pay", "4% of gross wages. It can go on each paycheque if the student agrees in writing; otherwise pay it within 7 days of the job ending or on the next pay day."],
+  ["Public holidays", "In July and August only Canada Day (July 1). The Civic Holiday in August is not a public holiday under the Employment Standards Act. Holiday pay is the wages plus vacation pay from the 4 weeks before, divided by 20."],
+  ["Hours and breaks", "A 30-minute unpaid eating period after no more than 5 hours in a row. No more than 8 hours a day or 48 a week, and 11 hours off in a row each day."],
+  ["Deductions", "Income tax, CPP (only ages 18 to 69; BBG matches it) and EI (any age; BBG pays 1.4 times the employee's share). CRA's online calculator does the math. New employers send deductions monthly."],
+  ["WSIB", "Probably optional for a gym; WSIB confirms. CSJ requires WSIB or equivalent insurance from day 1. Premium = insurable pay x rate / 100."],
+  ["Age", "CSJ youth are 15 to 30. Nobody under 16 works during school hours."],
+  ["Written job details", "Ontario only requires written new-hire information from employers with 25 or more employees, but a short written offer (wage, hours, dates, duties) avoids misunderstandings."],
+  ["Records", "Employment records for 3 years (vacation records 5). CSJ records for 6 years after the agreement ends."]
+ ],
+ "sources": [
+  "ontario.ca: Health and safety for small businesses (Oct 7, 2026)",
+  "ontario.ca: Posters required in the workplace",
+  "ontario.ca: OHSA guide, Part III.0.1 workplace violence and harassment (Aug 17, 2026)",
+  "ontario.ca: Worker and Supervisor Health and Safety Awareness",
+  "wsib.ca: First aid requirements (Jul 22, 2026); How to register (Jul 30, 2026); Optional coverage; 2026 premium rates",
+  "Office of the Employer Adviser: WSIB coverage (2021)",
+  "ontario.ca: Your guide to the Employment Standards Act (minimum wage, vacation, public holidays, hours, records, mandatory information)",
+  "canada.ca: CRA payroll pages; Canada Summer Jobs applicant guide and agreement (2026)"
+ ]
+}
