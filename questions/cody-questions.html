@@ -1,0 +1,277 @@
+<title>Constrictor AI Questions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow phone-first column; a sticky progress bar; each question is a row of tap chips. */
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --ink:#0B1B29; --muted:#5A6672; --line:#D7DDE3;
+  --navy:#081C2B; --gold:#B97618; --gold-soft:#F6E6CC; --on-navy:#F4F1EA; --gold-on-navy:#EAA959; --ok:#1D7A3A; --warn:#A4441C;
+  --display:"Saira Condensed","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans",-apple-system,"Segoe UI",Arial,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#06121C;--surface:#0D2131;--ink:#E9EDF1;--muted:#9AA7B3;--line:#21384B;--navy:#030C14;--gold:#EAA959;--gold-soft:#2A2215;--ok:#4CB873;--warn:#E8875E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06121C;--surface:#0D2131;--ink:#E9EDF1;--muted:#9AA7B3;--line:#21384B;--navy:#030C14;--gold:#EAA959;--gold-soft:#2A2215;--ok:#4CB873;--warn:#E8875E;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--display);text-transform:uppercase;line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+.top{background:var(--navy);color:var(--on-navy)}
+.top .wrap{padding-block:26px 22px;display:flex;flex-direction:column;gap:8px}
+.top h1{font-size:clamp(34px,8vw,48px)}
+.top h1 span{color:var(--gold-on-navy)}
+.top p{color:#C9D2DA;max-width:58ch}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-on-navy)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar .wrap{padding-block:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.track{flex:1 1 160px;height:8px;background:var(--line);border-radius:4px;overflow:hidden;min-width:0}
+.fill{height:100%;width:0;background:var(--gold);transition:width .25s}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.save{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.save.ok{color:var(--ok)} .save.warn{color:var(--warn)}
+button{font:inherit;cursor:pointer}
+.copy{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:7px 12px;border-radius:4px;border:1px solid var(--ink);background:var(--ink);color:var(--bg)}
+.known{background:var(--gold-soft);border-left:4px solid var(--gold);padding:14px 16px;margin-top:22px}
+.known b{font-family:var(--display);font-size:18px;text-transform:uppercase}
+.known ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px;font-size:14px}
+.sec{margin-top:30px}
+.sec h2{font-size:26px;display:flex;gap:10px;align-items:baseline}
+.sec h2 small{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em}
+.sec > p{color:var(--muted);font-size:13.5px;margin-top:4px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;margin-top:10px;display:flex;flex-direction:column;gap:10px}
+.q.done{border-left:4px solid var(--ok)}
+.q label.t,.q .t{font-weight:600}
+.q .hint{font-size:12.5px;color:var(--muted);font-weight:400}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:14px;min-height:38px}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--gold-on-navy);font-weight:600}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{background:var(--gold);color:#081C2B;border-color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{background:var(--gold);color:#081C2B;border-color:var(--gold)}}
+input[type=text],input[type=number],input[type=email],textarea{font:inherit;width:100%;box-sizing:border-box;padding:9px 11px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+textarea{min-height:76px;resize:vertical}
+.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.nums label{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--muted)}
+.money{position:relative}
+.chip:focus-visible,.copy:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.end{margin-block:30px 50px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.end p{color:var(--muted);font-size:13.5px;max-width:60ch}
+#fallback{width:100%;min-height:160px;font-family:var(--mono);font-size:12px}
+@media (max-width:480px){.nums{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<header class="top"><div class="wrap">
+  <p class="eyebrow">For Cody · from Kyle · about 5 minutes</p>
+  <h1>Constrictor AI <span>questions</span></h1>
+  <p>Tap what fits and skip anything you don't know yet. Rough numbers are fine. Your answers save as you go, and Kyle sees them.</p>
+</div></header>
+
+<div class="bar"><div class="wrap">
+  <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
+  <span class="meta" id="prog">0 of 30 answered</span>
+  <span class="save" id="save">Connecting…</span>
+  <button type="button" class="copy" id="copyBtn">Copy all answers</button>
+</div></div>
+
+<main class="wrap">
+  <div class="known">
+    <b>Already answered by Kyle</b>
+    <ul>
+      <li>New people get a free trial class. After that: $20 drop-in or $25 for a week.</li>
+      <li>Cody answers Facebook messages and phone inquiries.</li>
+      <li>Sponsor pitches go out from Cody's email for now.</li>
+      <li>First-show sponsors paid about $1,000 each for a banner, social media mentions and more.</li>
+      <li>Focus area: Haliburton, Bancroft, Apsley and the surrounding towns.</li>
+      <li>The first show (Haliburton, May 2026) cost about $30,000 and broke even with a small profit.</li>
+    </ul>
+  </div>
+  <div id="form"></div>
+  <div class="end">
+    <p>That's everything. If the save status says your answers aren't saving, tap <b>Copy all answers</b> and text or email them to Kyle.</p>
+    <textarea id="fallback" hidden readonly aria-label="All answers as text"></textarea>
+  </div>
+</main>
+
+<script>
+const Q = [
+ {sec:"The first show", sub:"Haliburton, May 2, 2026. Rough numbers are fine.", items:[
+  {id:"ga_price", t:"General admission ticket price", type:"chips", opts:["$25","$30","$35","$40","$50","$60"], other:"Other price"},
+  {id:"vip_seat_price", t:"VIP single seat price", type:"chips", opts:["$50","$60","$75","$100","$125"], other:"Other price"},
+  {id:"vip_table", t:"VIP tables", type:"nums", fields:[["price","Price per table ($)"],["seats","Seats per table"],["sold","Tables sold"]]},
+  {id:"tickets_sold", t:"Tickets sold (all types)", type:"nums", fields:[["n","Tickets"]]},
+  {id:"crowd", t:"People in the building, roughly", type:"chips", opts:["Under 400","400–600","600–800","800–1,000","Over 1,000"]},
+  {id:"sponsors", t:"Sponsors", type:"nums", fields:[["count","How many sponsors"],["total","Total sponsor money ($)"]]},
+  {id:"fees", t:"Eventbrite fees", type:"chips", opts:["Buyers paid them","CCCL paid them","Not sure"]},
+  {id:"bar", t:"Who ran the bar?", type:"chips", opts:["CCCL ran it","The arena or a local group","No bar"]},
+  {id:"costs", t:"Biggest costs, if you know them", hint:"Skip any you don't know. The total was about $30,000.", type:"nums", fields:[["venue","Arena rental ($)"],["cage","Cage ($)"],["medical","Medical ($)"],["officials","Officials ($)"],["insurance","Insurance ($)"],["security","Security ($)"],["production","Lights, sound, stream ($)"],["other","Everything else ($)"]]},
+  {id:"stream_money", t:"Did the livestream bring in money?", type:"chips", opts:["No","Yes, a little","Yes, a lot"]}
+ ]},
+ {sec:"2027 shows", sub:"Helps us find the best towns and dates.", items:[
+  {id:"shows_2027", t:"How many shows in 2027?", type:"chips", opts:["1","2","3","4 or more"]},
+  {id:"months", t:"Which months could work?", type:"chips", multi:true, opts:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},
+  {id:"drive", t:"Furthest drive from Bancroft for a show", type:"chips", opts:["Under 1 hour","1–1.5 hours","1.5–2 hours","Up to 3 hours"]},
+  {id:"towns", t:"Towns worth looking at", hint:"Tap all you'd consider.", type:"chips", multi:true, opts:["Haliburton","Bancroft","Apsley","Minden","Lindsay","Peterborough","Fenelon Falls / Bobcaygeon","Huntsville","Bracebridge","Gravenhurst","Barry's Bay","Madoc","Tweed","Belleville"], other:"Other towns"},
+  {id:"venue_type", t:"Venue types", type:"chips", multi:true, opts:["Hockey arena","Community hall","Fairgrounds (summer)","Casino or event centre","Anywhere a cage fits"]},
+  {id:"min_crowd", t:"Smallest crowd that's worth doing a show for", type:"chips", opts:["300","500","800","1,000+"]}
+ ]},
+ {sec:"Sponsors", sub:"For the sponsorship pipeline Kyle is building next.", items:[
+  {id:"past_sponsors", t:"Who sponsored the first show?", hint:"One per line. Fine to fill in later.", type:"text", long:true},
+  {id:"tiers", t:"Sponsor packages to offer in 2027", type:"chips", multi:true, opts:["Keep the $1,000 package","Add a $250–500 small business package","Add a $2,500+ presenting sponsor","Sponsor a fight or a belt"]},
+  {id:"perks", t:"What sponsors get", hint:"Tap everything you can deliver.", type:"chips", multi:true, opts:["Cage banner","Social media mentions","Logo on posters","Free tickets or VIP table","Announcer shout-outs","Logo on the livestream","Booth at the show","Logo on shirts"]},
+  {id:"dream_sponsors", t:"Dream sponsors to go after", hint:"Businesses or brands, one per line.", type:"text", long:true},
+  {id:"email", t:"Which email should pitches come from?", type:"chips", opts:["Cody's email for now","Set up a CCCL email","One business email for BBG and CCCL"]}
+ ]},
+ {sec:"The gym", sub:"For the new-member and check-in replies.", items:[
+  {id:"trial_booking", t:"How should new people book their free class?", type:"chips", opts:["Reply with class times, they pick","Send the Gymdesk signup link","They call or text Cody"]},
+  {id:"kids_waiver", t:"Kids under 18: does a parent sign a waiver before the free class?", type:"chips", opts:["Yes","No","Not sure"]},
+  {id:"checkin_after", t:"When should a member get a \"we miss you\" check-in?", type:"chips", opts:["After 1 week away","2 weeks","3 weeks","A month"]},
+  {id:"who_replies", t:"Who else can reply to gym messages?", type:"chips", multi:true, opts:["Only Cody","A coach","Front desk"], other:"Names"}
+ ]},
+ {sec:"Setup", sub:"Last few.", items:[
+  {id:"claude_plan", t:"Cody's Claude plan", hint:"The automatic morning report needs a paid plan.", type:"chips", opts:["Free","Pro","Max","Not sure"]},
+  {id:"google", t:"Google account that should own the shared folder", type:"text", input:"email"},
+  {id:"staff", t:"Staff names and what they do", hint:"For example: Jordan, coach, runs kids classes.", type:"text", long:true},
+  {id:"more", t:"Anything else Kyle should know?", type:"text", long:true}
+ ]}
+];
+const ALL = Q.flatMap(s => s.items);
+let state = {};
+try { state = JSON.parse(localStorage.getItem("cq-draft") || "{}") || {}; } catch (e) { state = {}; }
+const touched = new Set();
+const form = document.getElementById("form");
+
+function isAnswered(it){
+  const v = state[it.id];
+  if (v == null) return false;
+  if (it.type === "chips") return (Array.isArray(v.pick) ? v.pick.length : !!v.pick) || !!(v.other && v.other.trim());
+  if (it.type === "nums") return Object.values(v).some(x => x !== "" && x != null);
+  return typeof v === "string" && v.trim() !== "";
+}
+function progress(){
+  const n = ALL.filter(isAnswered).length;
+  document.getElementById("prog").textContent = `${n} of ${ALL.length} answered`;
+  document.getElementById("fill").style.width = (100 * n / ALL.length) + "%";
+  ALL.forEach(it => { const el = document.getElementById("q_" + it.id); if (el) el.classList.toggle("done", isAnswered(it)); });
+}
+function changed(id){ touched.add(id); try { localStorage.setItem("cq-draft", JSON.stringify(state)); } catch (e) {} progress(); queueSave(); }
+
+function build(){
+  form.textContent = "";
+  Q.forEach((s, si) => {
+    const sec = document.createElement("section"); sec.className = "sec";
+    const h = document.createElement("h2"); h.textContent = s.sec;
+    const sm = document.createElement("small"); sm.textContent = `${si + 1} of ${Q.length}`; h.append(sm);
+    const p = document.createElement("p"); p.textContent = s.sub;
+    sec.append(h, p);
+    s.items.forEach(it => sec.append(question(it)));
+    form.append(sec);
+  });
+  progress();
+}
+function question(it){
+  const box = document.createElement("div"); box.className = "q"; box.id = "q_" + it.id;
+  const t = document.createElement("div"); t.className = "t"; t.textContent = it.t;
+  if (it.hint){ const hn = document.createElement("div"); hn.className = "hint"; hn.textContent = it.hint; t.append(hn); }
+  box.append(t);
+  if (it.type === "chips"){
+    const cur = state[it.id] || {pick: it.multi ? [] : "", other: ""};
+    const row = document.createElement("div"); row.className = "chips"; row.setAttribute("role", "group"); row.setAttribute("aria-label", it.t);
+    it.opts.forEach(o => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = o;
+      const on = it.multi ? (cur.pick || []).includes(o) : cur.pick === o;
+      b.setAttribute("aria-pressed", String(on));
+      b.addEventListener("click", () => {
+        const v = state[it.id] || {pick: it.multi ? [] : "", other: ""};
+        if (it.multi){ const set = new Set(v.pick || []); set.has(o) ? set.delete(o) : set.add(o); v.pick = it.opts.filter(x => set.has(x)); }
+        else v.pick = v.pick === o ? "" : o;
+        state[it.id] = v;
+        row.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(it.multi ? v.pick.includes(c.textContent) : v.pick === c.textContent)));
+        changed(it.id);
+      });
+      row.append(b);
+    });
+    box.append(row);
+    if (it.other){
+      const inp = document.createElement("input"); inp.type = "text"; inp.id = "o_" + it.id; inp.placeholder = it.other; inp.value = cur.other || "";
+      inp.setAttribute("aria-label", it.t + ": " + it.other);
+      inp.addEventListener("input", () => { const v = state[it.id] || {pick: it.multi ? [] : "", other: ""}; v.other = inp.value; state[it.id] = v; changed(it.id); });
+      box.append(inp);
+    }
+  } else if (it.type === "nums"){
+    const grid = document.createElement("div"); grid.className = "nums";
+    const cur = state[it.id] || {};
+    it.fields.forEach(([k, lab]) => {
+      const l = document.createElement("label"); l.textContent = lab;
+      const inp = document.createElement("input"); inp.type = "number"; inp.inputMode = "numeric"; inp.min = "0"; inp.id = `n_${it.id}_${k}`; inp.value = cur[k] ?? "";
+      inp.addEventListener("input", () => { const v = state[it.id] || {}; v[k] = inp.value; state[it.id] = v; changed(it.id); });
+      l.append(inp); grid.append(l);
+    });
+    box.append(grid);
+  } else {
+    const el = document.createElement(it.long ? "textarea" : "input");
+    if (!it.long) el.type = it.input || "text";
+    el.id = "x_" + it.id; el.value = state[it.id] || ""; el.setAttribute("aria-label", it.t);
+    el.addEventListener("input", () => { state[it.id] = el.value; changed(it.id); });
+    box.append(el);
+  }
+  return box;
+}
+
+function asText(){
+  const lines = ["Constrictor AI questions: answers", ""];
+  Q.forEach(s => {
+    lines.push("== " + s.sec + " ==");
+    s.items.forEach(it => {
+      const v = state[it.id]; let a = "";
+      if (v != null){
+        if (it.type === "chips") a = [].concat(v.pick || []).filter(Boolean).concat(v.other ? [v.other] : []).join(", ");
+        else if (it.type === "nums") a = it.fields.filter(([k]) => v[k] !== "" && v[k] != null).map(([k, lab]) => `${lab}: ${v[k]}`).join("; ");
+        else a = String(v).trim().replace(/\n+/g, " / ");
+      }
+      lines.push(`${it.t}: ${a || "(skipped)"}`);
+    });
+    lines.push("");
+  });
+  return lines.join("\n");
+}
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const txt = asText(); const fb = document.getElementById("fallback"); const btn = document.getElementById("copyBtn");
+  const show = () => { fb.hidden = false; fb.value = txt; fb.focus(); fb.select(); btn.textContent = "Select and copy below"; };
+  try {
+    navigator.clipboard.writeText(txt).then(() => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy all answers", 2000); }, show);
+  } catch (e) { show(); }
+});
+
+/* saving to the shared store */
+const saveEl = document.getElementById("save");
+function status(text, cls){ saveEl.textContent = text; saveEl.className = "save " + (cls || ""); }
+let ref = null, readOnly = false, timer = null, chain = Promise.resolve();
+function queueSave(){
+  if (!ref || readOnly){ if (!ref) status(readOnly ? "Not saving here: use Copy" : "Saved on this device", "warn"); return; }
+  status("Saving…"); clearTimeout(timer);
+  timer = setTimeout(() => {
+    const body = {answers: JSON.parse(JSON.stringify(state)), updatedAt: new Date().toISOString()};
+    chain = chain.then(() => ref.set(body)).then(() => status("Saved for Kyle ✓", "ok")).catch(e => {
+      if (e && (e.code === "invalid_argument" || e.code === "not_granted" || e.code === "revoked")){ readOnly = true; status("Not saving here: use Copy", "warn"); }
+      else status("Couldn't save. Try again shortly", "warn");
+    });
+  }, 900);
+}
+build();
+status("Saved on this device", "");
+(async () => {
+  try {
+    const db = window.claude && await window.claude.use("db");
+    if (!db){ status("Saved on this device only: use Copy", "warn"); return; }
+    ref = db.doc("answers/cody");
+    let first = true;
+    ref.onSnapshot(snap => {
+      if (!snap.exists){ if (first && Object.keys(state).length) queueSave(); first = false; if (saveEl.textContent === "Saved on this device") status("Ready to save", "ok"); return; }
+      const remote = (snap.data() || {}).answers || {};
+      let changedAny = false;
+      for (const [k, v] of Object.entries(remote)){ if (!touched.has(k) && JSON.stringify(state[k]) !== JSON.stringify(v)){ state[k] = v; changedAny = true; } }
+      if (changedAny){ const y = window.scrollY; build(); window.scrollTo(0, y); }
+      if (first){ status("Saved for Kyle ✓", "ok"); first = false; }
+    }, () => { status("Saved on this device only: use Copy", "warn"); ref = null; });
+  } catch (e) { status("Saved on this device only: use Copy", "warn"); }
+})();
+</script>

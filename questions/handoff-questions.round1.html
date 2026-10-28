@@ -1,0 +1,344 @@
+<title>Constrictor Handoff Questions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow phone-first column; sticky progress bar; two parts (before the handoff / when you can); each question is a card of tap chips. */
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --ink:#0B1B29; --muted:#5A6672; --line:#D7DDE3;
+  --navy:#081C2B; --gold:#B97618; --gold-soft:#F6E6CC; --on-navy:#F4F1EA; --sub-on-navy:#C9D2DA; --gold-on-navy:#EAA959;
+  --ok:#1D7A3A; --ok-soft:#E3F1E7; --warn:#A4441C; --warn-soft:#F8E4DA; --pressed-bg:#081C2B; --pressed-fg:#EAA959;
+  --display:"Saira Condensed","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans",-apple-system,"Segoe UI",Arial,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#06121C;--surface:#0D2131;--ink:#E9EDF1;--muted:#9AA7B3;--line:#21384B;--navy:#030C14;--gold:#EAA959;--gold-soft:#2A2215;--ok:#4CB873;--ok-soft:#12291B;--warn:#E8875E;--warn-soft:#2E1A12;--pressed-bg:#EAA959;--pressed-fg:#081C2B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06121C;--surface:#0D2131;--ink:#E9EDF1;--muted:#9AA7B3;--line:#21384B;--navy:#030C14;--gold:#EAA959;--gold-soft:#2A2215;--ok:#4CB873;--ok-soft:#12291B;--warn:#E8875E;--warn-soft:#2E1A12;--pressed-bg:#EAA959;--pressed-fg:#081C2B;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+.top{background:var(--navy);color:var(--on-navy)}
+.top .wrap{padding-block:26px 22px;display:flex;flex-direction:column;gap:10px}
+.top h1{font-size:clamp(34px,8vw,50px)}
+.top h1 span{color:var(--gold-on-navy)}
+.top p{color:var(--sub-on-navy);max-width:60ch}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-on-navy)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.jump a{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--on-navy);text-decoration:none;border:1px solid #2B4357;border-radius:999px;padding:6px 12px}
+.jump a b{color:var(--gold-on-navy);font-weight:500}
+.jump a:focus-visible{outline:2px solid var(--gold-on-navy);outline-offset:2px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar .wrap{padding-block:9px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 12px}
+.track{height:8px;background:var(--line);border-radius:4px;overflow:hidden;min-width:0}
+.save{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.fill{height:100%;width:0;background:var(--gold);transition:width .25s}
+.meta,.save{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.meta{color:var(--muted)}
+.save.ok{color:var(--ok)} .save.warn{color:var(--warn)}
+button{font:inherit;cursor:pointer}
+.copy{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:7px 12px;border-radius:4px;border:1px solid var(--ink);background:var(--ink);color:var(--bg)}
+.known{background:var(--ok-soft);border-left:4px solid var(--ok);padding:14px 16px;margin-top:22px}
+.known h3{font-size:18px}
+.known ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px;font-size:14px}
+.part{margin-top:34px;padding-top:18px;border-top:3px solid var(--ink);display:flex;flex-direction:column;gap:4px;scroll-margin-top:96px}
+.part h2{font-size:34px}
+.part p{color:var(--muted);font-size:14px;max-width:60ch}
+.part .count{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.sec{margin-top:26px;scroll-margin-top:70px}
+.sec h3{font-size:25px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.sec h3 small{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:none}
+.sec > p{color:var(--muted);font-size:13.5px;margin-top:4px;max-width:62ch}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;margin-top:10px;display:flex;flex-direction:column;gap:10px}
+.q.done{border-left:4px solid var(--ok)}
+.q .t{font-weight:600;display:flex;flex-direction:column;gap:2px}
+.q .hint{font-size:12.5px;color:var(--muted);font-weight:400}
+.flag{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);padding:2px 8px;border-radius:3px;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:14px;min-height:38px;text-align:left}
+.chip[aria-pressed="true"]{background:var(--pressed-bg);border-color:var(--pressed-bg);color:var(--pressed-fg);font-weight:600}
+.todo .chip[aria-pressed="true"][data-v="Done"]{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+input[type=text],textarea{font:inherit;width:100%;box-sizing:border-box;padding:9px 11px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+textarea{min-height:76px;resize:vertical}
+.chip:focus-visible,.copy:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.end{margin-block:30px 50px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.end p{color:var(--muted);font-size:13.5px;max-width:60ch}
+#fallback{width:100%;min-height:180px;font-family:var(--mono);font-size:12px}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<header class="top"><div class="wrap">
+  <p class="eyebrow">For Cody · from Kyle · about 15 minutes</p>
+  <h1>Before the <span>handoff</span></h1>
+  <p>Part 1 is what we need before the sit-down. Part 2 can wait. Tap what fits, skip anything you don't know, rough answers are fine. Your answers save as you go so Kyle sees them.</p>
+  <nav class="jump" aria-label="Parts">
+    <a href="#part1">Part 1 <b>Before the handoff</b></a>
+    <a href="#part2">Part 2 <b>When you can</b></a>
+  </nav>
+</div></header>
+
+<div class="bar"><div class="wrap">
+  <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
+  <span class="meta" id="prog">0 answered</span>
+  <span class="save" id="save">Connecting…</span>
+  <button type="button" class="copy" id="copyBtn">Copy all answers</button>
+</div></div>
+
+<main class="wrap">
+  <section class="known" aria-label="Already answered">
+    <h3>Already answered, thanks</h3>
+    <ul>
+      <li>CCCL email: ontario.cccl@gmail.com. Pitches, venue emails and press go from it.</li>
+      <li>Gym prices, the class schedule, the free first class (any class), check-ins after a month away, a parent signs the waiver for kids.</li>
+      <li>May 2 show: $60 / $100 / $1,500 tables, 400 tickets, 15 sponsors, Dillabough as Title Sponsor.</li>
+      <li>2027: 4+ shows, the months and towns, the sponsor levels, dream sponsors.</li>
+    </ul>
+  </section>
+  <div id="form"></div>
+  <div class="end">
+    <p>That's everything. If the bar at the top says your answers aren't saving, tap <b>Copy all answers</b> and text or email them to Kyle.</p>
+    <textarea id="fallback" hidden readonly aria-label="All answers as text"></textarea>
+  </div>
+</main>
+
+<script>
+const YN = ["Yes","No","Not sure"];
+const TODO = ["Done","Not yet","Need help"];
+const WHEN = ["Now","After the first 2027 show","Later in 2027"];
+const PARTS = [
+ {id:"part1", name:"Before the handoff", sub:"What Kyle needs before the 90-minute sit-down.", secs:[
+  {sec:"Your to-do list", sub:"Things only you can do. Tap Done as you go.", todo:true, items:[
+   {id:"todo_gmail", t:"Sign in to ontario.cccl@gmail.com on your phone and computer", hint:"Keep the password to yourself. It never goes in a file or a sheet.", type:"chips", opts:TODO},
+   {id:"todo_claude", t:"Get the Claude app on your phone, signed in to your own account", type:"chips", opts:TODO},
+   {id:"todo_freeclass", t:"Add the free first class option to the Gymdesk signup page", hint:"Until it's there, replies tell new people to pick Pay Later.", type:"chips", opts:TODO},
+   {id:"todo_eventbrite", t:"Find the Eventbrite payout report for the May 2 show", hint:"In Eventbrite under Reporting, then Payouts. It confirms what the show made.", type:"chips", opts:TODO},
+   {id:"todo_exports", t:"Check you can download your Gymdesk payments and a bank statement as a CSV file", hint:"The Money Summary sorts these by business each month. No card or account numbers ever go in it.", type:"chips", opts:TODO}
+  ]},
+  {sec:"Setup", sub:"How Claude and the shared folder will run.", items:[
+   {id:"plan", t:"Your Claude plan", hint:"The automatic morning report needs Pro or Max.", type:"chips", opts:["Free","Pro","Max","Not sure"]},
+   {id:"sitdown", t:"When works for the 90-minute sit-down with Kyle?", hint:"At a computer, with your phone.", type:"text"},
+   {id:"report_time", t:"When should the weekday morning report arrive?", type:"chips", opts:["6 am","7 am","8 am","Don't schedule it"], other:"Another time"},
+   {id:"drive_access", t:"Who should see the shared Google Drive folder?", hint:"They see the sheets for their job only. Second Chance stays separate.", type:"chips", multi:true, opts:["Only me","Front desk","Sean","Jordan","Other coaches"], other:"Names"},
+   {id:"staff", t:"Staff who should get the Staff Playbook", hint:"First names and job, one per line. Sean and Jordan (wrestling) are already on the list. Who works the front desk?", type:"text", long:true}
+  ]},
+  {sec:"Sponsors", sub:"So 2026 sponsors get pitched first for 2027.", items:[
+   {id:"sponsors_2026", t:"The other 14 sponsors from May 2, and what each paid", hint:"One per line, like: Business name, Gold, $4,000.", type:"text", long:true},
+   {id:"wall", t:"Which of the businesses on the gym wall sponsored the May 2 show?", type:"chips", multi:true, opts:["R&R Property Services","Lockhart Bros Contracting","Dixie Lee","USG","Pinestone Resort","Bryan Fraser Mechanical","Quality Cedar Products","The …'s Daughter boutique","The …Stix sign shop","ICO","None of them"]},
+   {id:"logo_sizes", t:"Logo sizes on the event shirt and livestream", hint:"The Packages tab starts with the biggest logo for Title and name only for Community.", type:"chips", opts:["Keep that ladder","Same size for everyone"], other:"Something else"},
+   {id:"promised", t:"Anything already promised to a sponsor for 2027?", type:"text", long:true}
+  ]},
+  {sec:"2027 shows", sub:"For the Profit Predictor and the Fight Night Kit.", items:[
+   {id:"next_show", t:"Is any 2027 show booked or close?", hint:"Town, venue and date. Write \"not yet\" if nothing's set.", type:"text"},
+   {id:"bar_terms", t:"Bar terms from venues you've talked to", hint:"Who runs the bar and what share CCCL gets. This decides if an adults-only show is worth it.", type:"text", long:true},
+   {id:"adults_only", t:"Adults-only (19+) shows", type:"chips", opts:["Family shows only","Try one 19+ show","Decide once I have bar terms"]}
+  ]},
+  {sec:"The gym", sub:"For class plans, the Coaching Library and safety.", items:[
+   {id:"ages", t:"Are these class ages right?", hint:"Kids Boxing 6–10 · Wrestling from 6 · Boxing 11–14 · Boxing, Kickboxing, Jiu-Jitsu and MMA 15+ · Women's Boxing 18+", type:"chips", opts:["All right","Some are wrong"], other:"Which ones, and the right ages"},
+   {id:"comp_class", t:"Who can join the Competition Class?", hint:"Right now: adults you invite; under 18 only with your OK and a parent's.", type:"chips", opts:["Keep it like that"], other:"Change it to"},
+   {id:"kids_head", t:"Kids under 12: no strikes to the head in any drill or game", hint:"BBG's starting rule. Boxing Canada lets coach-led sparring start slowly from about 9 to 12, so it's your call.", type:"chips", opts:["Keep this rule","Change it"], other:"How"},
+   {id:"coaches", t:"Which coach runs which class?", hint:"One per line, like: Kids Boxing (Wed): Connor.", type:"text", long:true},
+   {id:"designated", t:"Who's the designated person for head injuries in each class?", hint:"Ontario's concussion law (Rowan's Law). They take someone out for the day if a head injury is suspected. It can be the coach.", type:"text", long:true},
+   {id:"rowans", t:"Rowan's Law paperwork", hint:"Members confirm they've read Ontario's concussion resources at signup; coaches sign the code of conduct each year.", type:"chips", opts:["Already done","Not yet","Not sure"]},
+   {id:"vsc", t:"Do your coaches have a vulnerable sector check?", type:"chips", opts:["All of them","Some","None yet","Not sure"]},
+   {id:"nccp", t:"Do your coaches have NCCP coaching certification?", type:"chips", opts:["All of them","Some","None yet","Not sure"]},
+   {id:"pso", t:"Is BBG a registered club with any sport body?", hint:"KidSport only helps families at registered clubs.", type:"chips", multi:true, opts:["Boxing Ontario","Ontario wrestling (OAWA)","A jiu-jitsu body","None","Not sure"]},
+   {id:"jumpstart", t:"Can BBG take Canadian Tire Jumpstart grants for kids' fees?", hint:"Up to $300 per child, paid to the gym.", type:"chips", opts:["Yes, already signed up","No","Not sure"]},
+   {id:"equipment", t:"What equipment does the gym have?", hint:"So class plans never call for gear you don't have.", type:"chips", multi:true, opts:["Heavy bags","Focus mitts","Thai pads or kick shields","Wrestling mats","Boxing ring","Cage","Gloves to lend","Headgear","Skipping ropes","Ladders and cones","Medicine balls"], other:"Anything else"},
+   {id:"holidays", t:"Holiday hours, Christmas to New Year's", hint:"For the closure post and the front desk.", type:"text"}
+  ]}
+ ]},
+ {id:"part2", name:"When you can", sub:"Funding, Second Chance and your athlete brand. None of this holds up the handoff, except Canada Summer Jobs.", secs:[
+  {sec:"Funding and the business", sub:"Most grants depend on these. Rough is fine; skip anything you'd rather not say.", items:[
+   {id:"csj", t:"Canada Summer Jobs 2027: want a funded summer student?", flag:"Opens October 27", hint:"Pays up to half of minimum wage for a student to help with camps, kids classes and show promotion.", type:"chips", opts:["Yes","No","Maybe, tell me more"]},
+   {id:"structure", t:"How is BBG set up?", type:"chips", opts:["Sole proprietorship","Partnership","Corporation","Not sure"]},
+   {id:"one_or_two", t:"Are BBG and CCCL one business or two?", type:"chips", opts:["One business","Two businesses","Not sure"]},
+   {id:"payroll", t:"People on payroll, not counting you", type:"chips", opts:["None","1–4","5–20","More than 20"]},
+   {id:"coach_type", t:"Are your coaches employees or contractors?", type:"chips", opts:["Employees","Contractors","Volunteers","A mix"]},
+   {id:"bn", t:"CRA business number and payroll account", type:"chips", opts:["Both","Business number only","Neither","Not sure"]},
+   {id:"tpon", t:"Registered on Transfer Payment Ontario?", hint:"Ontario's grant portal. The Rural Ontario Development fund needs it.", type:"chips", opts:YN},
+   {id:"sales", t:"BBG's yearly sales, roughly", type:"chips", opts:["Under $50k","$50k–$100k","$100k–$250k","Over $250k","Rather not say"]},
+   {id:"age", t:"Your age range", hint:"Some young-entrepreneur loans and grants are for owners aged 18 to 39.", type:"chips", opts:["18–39","40 or older"]},
+   {id:"building", t:"The gym building", type:"chips", opts:["We own it","We lease it"]},
+   {id:"cip", t:"Is the gym inside Bancroft's Community Improvement Plan area?", hint:"Matters for façade and building grants.", type:"chips", opts:YN},
+   {id:"expand", t:"Thinking about a new or bigger gym space?", hint:"Only then is the December 22 sport infrastructure fund worth a look.", type:"chips", opts:["Yes","Maybe later","No"]},
+   {id:"cccl_base", t:"Where is CCCL based?", type:"chips", opts:["At the gym in Bancroft"], other:"Somewhere else"},
+   {id:"bank", t:"Bank accounts", hint:"The Money Summary splits money by business. Bank name only, never account numbers.", type:"chips", opts:["One account for BBG and CCCL","Separate accounts"], other:"Bank name"}
+  ]},
+  {sec:"Second Chance", sub:"So Kyle can start building it. Its people and its money stay separate from the gym.", items:[
+   {id:"sc_what", t:"Second Chance in a sentence or two", type:"text", long:true},
+   {id:"sc_who", t:"Who it's for", type:"chips", multi:true, opts:["Youth 12–29","Adults leaving the justice system","People looking for work","Anyone who needs a fresh start"], other:"Someone else"},
+   {id:"sc_how", t:"What it would do", type:"chips", multi:true, opts:["Free or low-cost training at BBG","Mentoring","Job skills and work experience","Volunteer roles at fight nights"], other:"Something else"},
+   {id:"sc_incorp", t:"Is it incorporated yet?", type:"chips", opts:["Not yet","In progress","Yes, federally","Yes, in Ontario"]},
+   {id:"sc_charity", t:"Plan to become a registered charity?", hint:"United Way, TELUS, RBC and MLSE grants need charity status.", type:"chips", opts:["Yes","Maybe","No","Not sure"]},
+   {id:"sc_board", t:"Three or more people who could sit on its board", hint:"First names are fine. Not family members or business partners.", type:"text", long:true},
+   {id:"sc_partner", t:"A local charity that could partner while it gets going?", type:"text"},
+   {id:"sc_bank", t:"Its own bank account", type:"chips", opts:["Already has one","Not yet"]},
+   {id:"sc_when", t:"When to start", type:"chips", opts:WHEN}
+  ]},
+  {sec:"Your athlete brand", sub:"The Constrictor as a name of its own.", items:[
+   {id:"ab_what", t:"What it's about", type:"chips", multi:true, opts:["My fight career","Training and technique videos","Coaching","Behind the scenes at BBG and CCCL","Merch","Speaking and appearances"], other:"Something else"},
+   {id:"ab_where", t:"Where you post now", type:"chips", multi:true, opts:["Facebook","Instagram","TikTok","YouTube","Nowhere yet"], other:"Your handles"},
+   {id:"ab_goal", t:"The main goals", type:"chips", multi:true, opts:["Grow the gym","Sell CCCL tickets","Land personal sponsors","Sell merch","Build a following"]},
+   {id:"ab_time", t:"Time you can give it each week", type:"chips", opts:["Under 1 hour","1–3 hours","3–5 hours","More"]},
+   {id:"ab_brands", t:"Brands you already work with, or want to", type:"text", long:true},
+   {id:"ab_when", t:"When to start", type:"chips", opts:WHEN}
+  ]},
+  {sec:"Anything else", sub:"Last one.", items:[
+   {id:"more", t:"Anything else Kyle should know before the handoff?", type:"text", long:true}
+  ]}
+ ]}
+];
+const SECS = PARTS.flatMap(p => p.secs);
+const ALL = SECS.flatMap(s => s.items);
+let state = {};
+try { state = JSON.parse(localStorage.getItem("hq-draft") || "{}") || {}; } catch (e) { state = {}; }
+const touched = new Set();
+const form = document.getElementById("form");
+
+function isAnswered(it){
+  const v = state[it.id];
+  if (v == null) return false;
+  if (it.type === "chips") return (Array.isArray(v.pick) ? v.pick.length : !!v.pick) || !!(v.other && v.other.trim());
+  return typeof v === "string" && v.trim() !== "";
+}
+function progress(){
+  const n = ALL.filter(isAnswered).length;
+  document.getElementById("prog").textContent = `${n} of ${ALL.length} answered`;
+  document.getElementById("fill").style.width = (100 * n / ALL.length) + "%";
+  ALL.forEach(it => { const el = document.getElementById("q_" + it.id); if (el) el.classList.toggle("done", isAnswered(it)); });
+  PARTS.forEach(p => {
+    const items = p.secs.flatMap(s => s.items); const c = document.getElementById("count_" + p.id);
+    if (c) c.textContent = `${items.filter(isAnswered).length} of ${items.length} answered`;
+  });
+}
+function changed(id){ touched.add(id); try { localStorage.setItem("hq-draft", JSON.stringify(state)); } catch (e) {} progress(); queueSave(); }
+
+function build(){
+  form.textContent = "";
+  PARTS.forEach((p, pi) => {
+    const head = document.createElement("section"); head.className = "part"; head.id = p.id;
+    const h = document.createElement("h2"); h.textContent = `Part ${pi + 1}: ${p.name}`;
+    const sp = document.createElement("p"); sp.textContent = p.sub;
+    const ct = document.createElement("span"); ct.className = "count"; ct.id = "count_" + p.id;
+    head.append(h, sp, ct); form.append(head);
+    p.secs.forEach((s, si) => {
+      const sec = document.createElement("section"); sec.className = "sec" + (s.todo ? " todo" : "");
+      const h3 = document.createElement("h3"); h3.textContent = s.sec;
+      const sm = document.createElement("small"); sm.textContent = `${si + 1} of ${p.secs.length}`; h3.append(sm);
+      const d = document.createElement("p"); d.textContent = s.sub;
+      sec.append(h3, d);
+      s.items.forEach(it => sec.append(question(it)));
+      form.append(sec);
+    });
+  });
+  progress();
+}
+function question(it){
+  const box = document.createElement("div"); box.className = "q"; box.id = "q_" + it.id;
+  if (it.flag){ const f = document.createElement("span"); f.className = "flag"; f.textContent = it.flag; box.append(f); }
+  const t = document.createElement("div"); t.className = "t";
+  const tt = document.createElement("span"); tt.textContent = it.t; t.append(tt);
+  if (it.hint){ const hn = document.createElement("span"); hn.className = "hint"; hn.textContent = it.hint; t.append(hn); }
+  box.append(t);
+  if (it.type === "chips"){
+    const blank = () => ({pick: it.multi ? [] : "", other: ""});
+    const cur = state[it.id] || blank();
+    const row = document.createElement("div"); row.className = "chips"; row.setAttribute("role", "group"); row.setAttribute("aria-label", it.t);
+    it.opts.forEach(o => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = o; b.dataset.v = o;
+      b.setAttribute("aria-pressed", String(it.multi ? (cur.pick || []).includes(o) : cur.pick === o));
+      b.addEventListener("click", () => {
+        const v = Object.assign(blank(), state[it.id] || {});
+        if (it.multi){ const set = new Set(v.pick || []); set.has(o) ? set.delete(o) : set.add(o); v.pick = it.opts.filter(x => set.has(x)); }
+        else v.pick = v.pick === o ? "" : o;
+        state[it.id] = v;
+        row.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(it.multi ? v.pick.includes(c.dataset.v) : v.pick === c.dataset.v)));
+        changed(it.id);
+      });
+      row.append(b);
+    });
+    box.append(row);
+    if (it.other){
+      const inp = document.createElement("input"); inp.type = "text"; inp.id = "o_" + it.id; inp.placeholder = it.other; inp.value = cur.other || "";
+      inp.setAttribute("aria-label", it.t + ": " + it.other);
+      inp.addEventListener("input", () => { const v = Object.assign(blank(), state[it.id] || {}); v.other = inp.value; state[it.id] = v; changed(it.id); });
+      box.append(inp);
+    }
+  } else {
+    const el = document.createElement(it.long ? "textarea" : "input");
+    if (!it.long) el.type = "text";
+    el.id = "x_" + it.id; el.value = state[it.id] || ""; el.setAttribute("aria-label", it.t);
+    el.addEventListener("input", () => { state[it.id] = el.value; changed(it.id); });
+    box.append(el);
+  }
+  return box;
+}
+
+function asText(){
+  const lines = ["Cody's handoff answers", ""];
+  PARTS.forEach((p, pi) => {
+    lines.push(`PART ${pi + 1}: ${p.name.toUpperCase()}`, "");
+    p.secs.forEach(s => {
+      lines.push("== " + s.sec + " ==");
+      s.items.forEach(it => {
+        const v = state[it.id]; let a = "";
+        if (v != null){
+          if (it.type === "chips") a = [].concat(v.pick || []).filter(Boolean).concat(v.other && v.other.trim() ? [v.other.trim()] : []).join(", ");
+          else a = String(v).trim().replace(/\n+/g, " / ");
+        }
+        lines.push(`${it.t}: ${a || "(skipped)"}`);
+      });
+      lines.push("");
+    });
+  });
+  return lines.join("\n");
+}
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const txt = asText(); const fb = document.getElementById("fallback"); const btn = document.getElementById("copyBtn");
+  const show = () => { fb.hidden = false; fb.value = txt; fb.focus(); fb.select(); btn.textContent = "Select and copy below"; };
+  try {
+    navigator.clipboard.writeText(txt).then(() => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy all answers", 2000); }, show);
+  } catch (e) { show(); }
+});
+
+/* saving to the artifact's shared store, so Kyle (and Claude) can read the answers */
+const saveEl = document.getElementById("save");
+function status(text, cls){ saveEl.textContent = text; saveEl.className = "save " + (cls || ""); }
+let ref = null, readOnly = false, timer = null, chain = Promise.resolve();
+function queueSave(){
+  if (!ref || readOnly){ status(readOnly ? "Not saving here: use Copy" : "Saved on this device only", "warn"); return; }
+  status("Saving…"); clearTimeout(timer);
+  timer = setTimeout(() => {
+    const body = {answers: JSON.parse(JSON.stringify(state)), updatedAt: new Date().toISOString()};
+    chain = chain.then(() => ref.set(body)).then(() => status("Saved for Kyle ✓", "ok")).catch(e => {
+      const c = e && e.code;
+      if (c === "invalid_argument" || c === "not_granted" || c === "revoked" || c === "capability_disabled" || c === "capability_removed"){ readOnly = true; status("Not saving here: use Copy", "warn"); }
+      else status("Couldn't save. Try again shortly", "warn");
+    });
+  }, 900);
+}
+build();
+status("Saved on this device", "");
+(async () => {
+  try {
+    const db = window.claude && await window.claude.use("db");
+    if (!db){ status("Saved on this device only: use Copy", "warn"); return; }
+    try {
+      const user = await window.claude.use("user");
+      if (user && (await user.can("data.write")) === false){ readOnly = true; }
+    } catch (e) {}
+    ref = db.doc("answers/handoff");
+    let first = true;
+    ref.onSnapshot(snap => {
+      if (!snap.exists){
+        if (first && Object.keys(state).length && !readOnly) queueSave();
+        if (first) status(readOnly ? "Not saving here: use Copy" : "Ready to save", readOnly ? "warn" : "ok");
+        first = false; return;
+      }
+      const remote = (snap.data() || {}).answers || {};
+      let changedAny = false;
+      for (const [k, v] of Object.entries(remote)){ if (!touched.has(k) && JSON.stringify(state[k]) !== JSON.stringify(v)){ state[k] = v; changedAny = true; } }
+      if (changedAny){ const y = window.scrollY; build(); window.scrollTo(0, y); }
+      if (first){ status(readOnly ? "Not saving here: use Copy" : "Saved for Kyle ✓", readOnly ? "warn" : "ok"); first = false; }
+    }, () => { status("Saved on this device only: use Copy", "warn"); ref = null; });
+  } catch (e) { status("Saved on this device only: use Copy", "warn"); }
+})();
+</script>

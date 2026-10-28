@@ -1,0 +1,333 @@
+{
+  "generated": "2026-10-17",
+  "scope_note": "Web research only. Every fact carries a source_url. 'not found' means no reliable source was located; nothing was guessed. Meta's own help/policy pages (facebook.com/business/help, facebook.com/business/ads-guide, transparency.meta.com) could not be machine-read from this environment (robots block / JavaScript-only), so Meta facts are sourced from Meta's developer docs where possible and otherwise from dated secondary sources, flagged with confidence.",
+  "eventbrite": {
+    "fees_canada": {
+      "text": "Canada (online sales): Service fee 3.5% of ticket price + C$1.29 per sold paid ticket; Payment processing fee 2.9% of the total order. Service fee is calculated on the ticket price; processing fee on the total order including service fees and tax. No per-ticket cap is mentioned. No fees on free tickets. At-the-door sales via Organizer app: C$1 service fee per paid ticket + 2.9% processing on card sales (processing can't be passed on).",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/755615/",
+      "confidence": "high (official help centre, en-ca; no last-updated date shown)"
+    },
+    "fees_conflict_warning": {
+      "text": "Eventbrite's Canadian marketing pricing page (eventbrite.ca/organizer/pricing) shows '3.7% + $1.79 per ticket' + 2.9% processing - those are the US figures (the help-centre table lists United States = 3.7% + $1.79). Use the help-centre Canada row (3.5% + C$1.29) and confirm on the Eventbrite fee breakdown in the event dashboard before printing anything.",
+      "source_url": "https://www.eventbrite.ca/organizer/pricing/",
+      "source_url_2": "https://www.eventbrite.ca/help/en-ca/articles/755615/"
+    },
+    "pass_fees_to_buyer": {
+      "text": "Yes. By default buyers pay the Ticketing Fees (service + processing) on top of the ticket price. Ticking 'Absorb fees' includes fees in the ticket price and they are deducted at payout (what CCCL did in 2026). The setting can be changed per ticket type but only affects future orders.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/755615/"
+    },
+    "effective_fee_examples": {
+      "text": "Worked from the help-centre Canada rates, before any HST and assuming the fee is calculated on the listed price. ABSORBED (CCCL pays, buyer sees $60/$100): $60 GA -> service $3.39 + processing $1.74 = $5.13 fees = 8.55%, CCCL nets $54.87. $100 VIP -> service $4.79 + processing $2.90 = $7.69 = 7.69%, nets $92.31. $1,500 VIP table (if sold as one ticket) -> $53.79 + $43.50 = $97.29 = 6.49%, nets $1,402.71. PASSED ON (buyer pays fees, CCCL nets full face value): $60 ticket -> buyer pays about $65.23 (+8.7%); $100 -> about $107.83 (+7.8%); $1,500 -> about $1,598.85. Pass-on amounts are approximate because Eventbrite does not publish its exact rounding/compounding; if HST is charged on tickets, the 2.9% also applies to the tax.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/755615/",
+      "confidence": "calculation by researcher from official rates"
+    },
+    "tracking_links": {
+      "text": "One link per promoter/fighter/ad: Event Dashboard > Marketing > Tracking links > type a name (e.g., 'fighter-jsmith' or 'meta-ad-oshawa-1') > Create. Copy and share the URL exactly as shown (spelling/case changes break tracking). If the event has a custom URL, two URLs are generated; both work. No limit on number of links is stated. A user needs 'edit tracking links' permission from the account owner. Links with activity can't be deleted.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/835126/how-to-create-promotional-tracking-links/"
+    },
+    "tracking_link_reporting": {
+      "text": "Per-link page views and sales show on the Tracking links page (sales appear immediately; views can lag a few hours). Quick actions > 'Attendee report' gives the orders from one link. Export: Reporting > Event reports > Marketing > Tracking links (single event) or Reporting > Tracking links from the account (multi-event; filter by link, date, currency; CSV/Excel). The Traffic and Conversion report on the dashboard also breaks views/sales down by tracking link, with untracked traffic shown as 'Direct Traffic'.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/591670/download-a-tracking-links-report/",
+      "source_url_2": "https://www.eventbrite.com/blog/eventbrite-unique-tracking-links/"
+    },
+    "promo_codes": {
+      "text": "Tickets > Promotions (also called Promo codes) > Add code. Settings: code name, ticket limit (how many tickets the code can be applied to), discount (fixed $ or %; 100% makes the ticket free), start/end time, apply to all or specific ticket types, and 'Reveal hidden tickets during checkout'. Every code must either give a discount or reveal hidden tickets, so a zero-discount 'tracking-only' code is not possible. 'Share code URL' creates a link that applies the code automatically. Bulk edit/delete available; used codes can't be deleted. Multi-event codes live under Marketing > Multi-event promo codes.",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/362532/",
+      "source_url_2": "https://www.eventbrite.ca/help/en-ca/articles/646489/how-to-see-promotion-code-usage/"
+    },
+    "promo_code_reporting": {
+      "text": "Tickets > Promo codes shows how many times each code was used. Reporting > Promotion codes (under Marketing) exports usage with order details for selected events. The Orders report shows the code on each order as 'Ticket type - (DISCOUNT AMOUNT and CODE USED)'.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/646489/how-to-see-promotion-code-usage/"
+    },
+    "hidden_tickets_access_codes": {
+      "text": "Eventbrite's help centre now calls these promo codes that reveal hidden tickets (the term 'access code' isn't used in the current article). Make a ticket type hidden: Add tickets > edit ticket > Advanced settings > 'Visibility of ticket type' = Hidden (or hidden when not on sale / scheduled). Buyers can only see/buy a hidden ticket after entering a code with 'Reveal hidden tickets' on.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/644100/how-to-create-custom-ticket-types/",
+      "source_url_2": "https://www.eventbrite.com/help/en-us/articles/362532/"
+    },
+    "fighter_code_setup_option": {
+      "text": "How the documented features can be combined (researcher's suggestion, not an Eventbrite recipe): (1) Attribution only, no discount: give each fighter their own tracking link - simplest, no code to type. (2) Fighter code with a perk: one promo code per fighter (e.g., JSMITH) with a small discount and a ticket limit; usage per code shows in the Promotion codes report. (3) Fighter code without a discount: create a hidden ticket type at full price (e.g., 'GA - Fighter Supporter $60') and a per-fighter code that only reveals it - satisfies the 'discount or reveal' rule and still counts sales per code.",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/362532/",
+      "source_url_2": "https://www.eventbrite.ca/help/en-ca/articles/835126/how-to-create-promotional-tracking-links/"
+    },
+    "sponsor_comps": {
+      "text": "Two documented ways: (a) Manage Attendees > Add Attendees, payment type 'Complimentary' or 'No payment necessary' - 'Fees aren't charged on manual orders'; attendees get a confirmation email unless you uncheck it. Best for named sponsor guests. (b) A hidden $0 'Sponsor Comp' ticket type (or a 100%-discount code) with a per-sponsor code and a ticket limit (e.g., 8 for a table sponsor) so the sponsor's guests self-register; Eventbrite charges no fees on free tickets.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/874192/",
+      "source_url_2": "https://www.eventbrite.com/help/en-us/articles/362532/"
+    },
+    "email_campaigns": {
+      "text": "Marketing Tools > Email your audience: build campaign, pick subscriber lists, schedule/send, delivery report (sent, delivered, opened, clicked, bounced, unsubscribed). Default limit: up to 250 promotional emails per day; over-limit campaigns continue on following days. Organizers in Canada can pay a one-time fee to exceed the daily limit for one campaign (amount not stated in the article).",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/365405/",
+      "source_url_2": "https://www.eventbrite.com/help/en-us/articles/643578/"
+    },
+    "eventbrite_premium": {
+      "text": "Eventbrite Premium: CA$89/month or CA$948/year. Includes inclusion in Eventbrite's own paid social campaigns on Meta/Google/TikTok (no setup or media spend), Premium badge, $20/month in Eventbrite Ads credits (no rollover), up to 2,000 marketing emails/day, newsletter featured placements, priority support, 50% off instant payout fees. Eventbrite Pro is no longer offered to new subscribers (the eventbrite.ca pricing page still advertises 'Eventbrite Pro starting at CAN $21/month' - conflicting; treat Premium as the current plan).",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/193833/",
+      "source_url_2": "https://www.eventbrite.ca/organizer/pricing/"
+    },
+    "eventbrite_ads": {
+      "text": "Eventbrite Ads promote the event inside Eventbrite's website and apps. Available to organizers in Canada (also AU, NZ, SG, UK, US); needs at least one published event; events paid in CAD are supported. You choose a daily budget (preset or custom) and run dates; objectives: Increase awareness, Drive traffic (Boost attendance is free events only). Location targeting defaults to an 80 km (50 mi) radius; custom 16-80 km. Pricing model (CPC/CPM) and minimum daily budget: not found. Ad spend is on top of ticketing fees.",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/894181/",
+      "source_url_2": "https://www.eventbrite.com/help/en-us/articles/202739/"
+    },
+    "eventbrite_paid_social_tool": {
+      "text": "Marketing Tools > Paid Social Ads can build Facebook/Instagram ads from Eventbrite (audience by interests/age/gender/location, budget, creative, destination = Eventbrite listing, Facebook event or link). You connect your own Facebook account and pay Meta directly. Eventbrite suggests at least $7/day and about $10-20/day, running 4-5+ days. No extra Eventbrite fee mentioned; Canada availability not stated.",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/254520/"
+    },
+    "meta_pixel": {
+      "text": "Yes. Event Dashboard > Marketing > Tracking pixels > Meta pixel > enter pixel ID (15-16 digits), apply to this event or all events. Default events: PageView on the listing and Purchase on 'Event order confirmation'. Optional extra standard events (e.g., Event register -> InitiateCheckout). Optional server-side tracking: paste a Conversions API access token (generated in Meta; Eventbrite can't help). Limits: buyers who block tracking aren't counted; Eventbrite event pages can't be domain-verified in Meta; pixels are disabled on embedded checkout in some regions (Europe/UK). Verify with Meta Pixel Helper.",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/558547/"
+    },
+    "online_event_page_for_streams": {
+      "text": "An Eventbrite event set to 'Online' gets an online event page visible only to registered attendees (sign-in required by default; can be switched to 'Anyone with the link'). You can add live video via Eventbrite's Zoom integration or link to another video provider. Same ticketing fees apply to paid online tickets. Useful as a simple paid-livestream gate (see livestream section).",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/337081/",
+      "source_url_2": "https://www.eventbrite.ca/help/en-ca/articles/755615/"
+    }
+  },
+  "livestream": [
+    {
+      "option": "Eventbrite online ticket + private/unlisted stream link",
+      "how_it_works": "Create a separate online Eventbrite event ('CCCL 2 - Live Stream'), sell a stream ticket, put the stream link (unlisted YouTube, Vimeo, Zoom, etc.) on the attendee-only online event page. Buyers already know the checkout; tracking links/promo codes work the same.",
+      "fees": "Same as paid tickets in Canada: 3.5% + C$1.29 per ticket + 2.9% processing. On a $15 stream ticket absorbed: about $2.25 fees (~15%). The C$1.29 fixed fee hurts low-priced tickets.",
+      "minimums": "None stated.",
+      "used_by": "not found (no documented Canadian combat-sports example located)",
+      "source_url": "https://www.eventbrite.com/help/en-us/articles/337081/",
+      "source_url_2": "https://www.eventbrite.ca/help/en-ca/articles/755615/",
+      "confidence": "high for features/fees; leakage risk (shared links) is a practical caveat, not a documented fact"
+    },
+    {
+      "option": "TrillerTV (formerly FITE) PPV",
+      "how_it_works": "Combat-sports PPV/streaming marketplace; promotions sell PPVs (e.g., US regional MMA promotion XFC sold PPVs at $19.99 early / $24.99 in 2024) and some content sits in the TrillerTV+ subscription. Distribution is by partnership deal; no public self-serve promoter sign-up page was found.",
+      "fees": "Promoter revenue split for small promotions: not found (not published). For context only, AEW's contract per its 2026 lawsuit: 75/25 (US) and 65/35 (international) in AEW's favour; it was 50/50 before mid-2019.",
+      "minimums": "not found",
+      "used_by": "Canadian example: Maple Leaf Pro Wrestling's MLP Resurrection (Laval, QC, July 5, 2025) streamed on TrillerTV (pro wrestling, not MMA). XFC (US regional MMA) signed with TrillerTV in May 2024.",
+      "source_url": "https://cultaholic.com/posts/aew-files-lawsuit-against-trillertv-for-overdue-payments",
+      "source_url_2": "https://en.wikipedia.org/wiki/MLP_Resurrection",
+      "source_url_3": "https://www.trillertv.com/article/xtreme-one-entertainment-teams-with-trillertv-to-stream-xfc-events",
+      "confidence": "medium. RISK FLAG (May 2026 reporting): AEW sued TrillerTV for ~US$5M in unpaid PPV/subscription revenue; Flipps Media (TrillerTV entity) told a Delaware court it can't pay its debts; other independent promotions reportedly owed money. TrillerTV still operating. Treat as high counterparty risk for 2027."
+    },
+    {
+      "option": "UFC Fight Pass (regional promotion deal)",
+      "how_it_works": "Subscription service that carries selected regional promotions under multi-year rights deals; viewers watch with a Fight Pass subscription. Invitation/deal-based, not self-serve.",
+      "fees": "not found (deal terms not published)",
+      "minimums": "Deals reported with a minimum number of events per year (Sportskeeda: minimum 15 events/year per promotion in the Unified MMA/BFL/Samourai deal through 2027) - far beyond a 4-show amateur league.",
+      "used_by": "Unified MMA (Alberta), Battlefield Fight League (BC), Samourai MMA (Quebec) - deal through 2027; BFL signed a multi-year exclusive deal (Jan 2024) and has streamed on Fight Pass since 2021.",
+      "source_url": "https://www.sportskeeda.com/mma/news-ufc-fight-pass-announces-multi-year-streaming-right-deal-3-canadian-mma-promotions",
+      "source_url_2": "https://mmasucka.com/news/battlefield-fight-league-ufc-fight-pass/",
+      "confidence": "medium (Sportskeeda article undated); a long-term goal, not a 2027 option for an amateur league"
+    },
+    {
+      "option": "Promotion-owned OTT app (white-label, e.g., StreamAMG)",
+      "how_it_works": "Promotion runs its own branded streaming app/website with live + on-demand and its own paywall.",
+      "fees": "not found (enterprise contract)",
+      "minimums": "not found",
+      "used_by": "Unified MMA (Edmonton) - multi-year deal with StreamAMG for a custom OTT on its Blaze platform.",
+      "source_url": "https://streamamg.com/news/streamamg-partners-with-unified-mma-to-power-global-fight-streaming/",
+      "confidence": "medium; enterprise-scale, not realistic for CCCL in 2027"
+    },
+    {
+      "option": "Fight Network (Canadian TV/streaming channel)",
+      "how_it_works": "Licensed broadcast of regional events on a Canadian combat-sports channel.",
+      "fees": "not found",
+      "minimums": "not found",
+      "used_by": "Hard Knocks Fighting (Calgary) - live broadcasts on Fight Network from January 2015.",
+      "source_url": "https://en.wikipedia.org/wiki/Hard_Knocks_Fighting",
+      "confidence": "low-medium (Wikipedia; older)"
+    },
+    {
+      "option": "Vimeo OTT",
+      "how_it_works": "Branded subscription/rental video storefront. Starter plan is for pre-recorded video only; live pay-per-view is listed only on Enterprise.",
+      "fees": "Starter: US$1 per subscriber per month + 10% of one-time purchases + upload/transaction fees. Enterprise: custom quote (volume discounts + upload and transaction fees). A third-party summary adds merchant processing of ~2.5% + $0.30 per transaction.",
+      "minimums": "Not stated on Vimeo's page; live PPV requires Enterprise (custom).",
+      "used_by": "not found for Canadian combat sports",
+      "source_url": "https://vimeo.com/ott/pricing",
+      "source_url_2": "https://vodlix.com/blog/vimeo-ott-pricing",
+      "confidence": "high for plan structure (official page); merchant-fee figure is from a competitor's blog (Apr 2026)"
+    },
+    {
+      "option": "Dacast (self-serve live streaming with paywall)",
+      "how_it_works": "Self-serve live streaming host with built-in pay-per-view/subscription paywall; embed the player on CCCL's site.",
+      "fees": "Paywall commission 9.9% + US$0.40 per transaction (covers card/PayPal fees). Plans (billed annually): Starter US$39/mo (paywall is a paid add-on), Event US$63/mo (paywall included, 6 TB), Scale US$165/mo; comparison table on the same page shows different monthly prices ($29/$99/$199).",
+      "minimums": "Monthly billing requires a 3-month minimum; annual plans otherwise.",
+      "used_by": "not found for Canadian combat sports",
+      "source_url": "https://dacast.com/pay-per-view-streaming",
+      "source_url_2": "https://www.dacast.com/pricing/",
+      "confidence": "medium (pricing page shows two sets of prices)"
+    },
+    {
+      "option": "YouTube - channel memberships + members-only live stream, Super Chat/Super Stickers/Super Thanks",
+      "how_it_works": "Stream free on YouTube for reach, then monetize via Super Chat during the stream, or switch the live stream to members-only mid-broadcast (countdown 1-60 min; non-members are prompted to join). Members-only can't be scheduled in advance; desktop, non-vertical streams only. A true per-event ticket/PPV feature on YouTube: not found.",
+      "fees": "YouTube pays 70% of net revenue from memberships, Super Chat, Super Stickers and Super Thanks (sales tax/VAT excluded).",
+      "minimums": "Fan-funding (memberships) eligibility: 500 subscribers, 3 public uploads in last 90 days, and 3,000 watch hours (12 months) or 3M Shorts views (90 days); 18+; Canada is an eligible country. Ad revenue needs 1,000 subs + 4,000 hours or 10M Shorts views. Updated YPP terms must be accepted by Jan 31, 2027.",
+      "used_by": "not found (no sourced Canadian combat-sports example)",
+      "source_url": "https://support.google.com/youtube/answer/72902?hl=en",
+      "source_url_2": "https://support.google.com/youtube/answer/72857",
+      "source_url_3": "https://support.google.com/youtube/answer/16399635",
+      "confidence": "high (official YouTube Help)"
+    },
+    {
+      "option": "Facebook Stars (and Facebook paid online events)",
+      "how_it_works": "Viewers send Stars during Facebook live videos and other content. Facebook paid online events (ticketed live) were discontinued by Meta in mid-2023, so they are not an option.",
+      "fees": "Creator earns 1 cent from Meta per Star received (currency not stated on Meta's page).",
+      "minimums": "500 followers for at least 30 consecutive days, Partner Monetization Policies compliance, live in a Stars-eligible country, accept Stars terms.",
+      "used_by": "not found",
+      "source_url": "https://creators.facebook.com/tools/stars",
+      "source_url_2": "https://www.digitalinformationworld.com/2023/05/facebooks-paid-online-event-program-is.html",
+      "confidence": "high for Stars terms; paid-events shutdown from a news report dated May 8, 2023"
+    }
+  ],
+  "canva": {
+    "pdf_import": {
+      "text": "Yes - Canva imports PDFs as editable designs; text and images may be separated into editable elements. Limits: up to 300 MB, up to 500 pages, up to 1,400 elements and images. Scanned PDFs come in as one flattened image (not editable). Unsupported fonts are swapped for similar fonts; layouts may shift slightly; large files may import incompletely. Plan requirement: none stated on the help page.",
+      "source_url": "https://www.canva.com/help/pdf-import/"
+    },
+    "claude_connector_overview": {
+      "text": "Canva AI Connector (Canva MCP) connects in Claude via Settings > Connectors > Canva, then toggle it on per chat. It lets Claude search/read designs and folders, generate designs from text, create and edit designs, upload assets, comment, export, and (paid plans) use Brand Templates and Autofill. The connector itself is available on all Canva accounts including Free. Some AI actions use Canva AI credits and can pause when credits run out.",
+      "source_url": "https://www.canva.com/help/mcp-agent-setup/",
+      "source_url_2": "https://www.canva.com/help/connect-claude-to-canva/"
+    },
+    "claude_connector_tools_by_plan": {
+      "text": "All plans (incl. Free): generate-design, create-design, create-design-from-candidate, edit via editing transactions, search/get designs and pages, copy/merge designs, import-design-from-url, upload-asset-from-url, folders, comments, generate-image, remove-background, export-design. Pro and above: autofill-design, get-brand-template-dataset, search-brand-templates, list-brand-kits, create-design-from-brand-template, create/publish brand templates, resize-design (Free gets a limited resize trial). export-design works on all plans but Free exports are standard quality; Pro+ gets pro quality, lossless PNG, transparent backgrounds and premium-element export (designs with premium elements may fail with 'license_required' on Free). Canva's help page states: 'Autofill is available on all Canva plans except Pro Lite and Canva Free'; Brand Templates need Pro, Teams, Business, Nonprofit, Enterprise or Education.",
+      "source_url": "https://www.canva.dev/docs/mcp/tools/",
+      "source_url_2": "https://www.canva.com/help/mcp-agent-setup/"
+    },
+    "brand_kit_free_vs_pro": {
+      "text": "Free: 1 Brand Kit (3 colours only). Pro: 5 Brand Kits. Business: 100 Brand Kits and approvals. 'Create Brand Templates' is unavailable on Free, included on Pro. Brand Kits hold logos, colour palettes and uploaded fonts (help page doesn't give per-plan font/logo limits). Linked folders are a Teams/Business/Enterprise/Education/Nonprofits feature (not Pro).",
+      "source_url": "https://www.canva.com/en_ca/pricing/",
+      "source_url_2": "https://www.canva.com/help/brand-kit/"
+    },
+    "pricing_canada": {
+      "text": "Canada pricing page (as read 2026-10-17): Pro $142 CAD/year for one person; Business $260 CAD/year per person; Free $0. Canva Teams is no longer available for new sign-ups (replaced by Business). Monthly CAD prices not captured.",
+      "source_url": "https://www.canva.com/en_ca/pricing/",
+      "confidence": "medium - re-check price at checkout; promotional pricing may apply"
+    },
+    "canva_for_nonprofits": {
+      "text": "Free Canva Pro features plus team tools for one team of up to 50 members (extra seats 50% off Enterprise). Eligibility: officially registered charitable nonprofit, independent of government, not operating for profit; acceptance at Canva's discretion. Explicitly ineligible: 'Professional and commercial sports organisations, leagues, and clubs', for-profit companies (incl. social enterprises), membership-benefit organisations and social clubs; the help page also says sports clubs are not eligible. Canada documents accepted via Canva's verification partner Goodstack: CRA-registered charity, tax-exempt nonprofit operating entity, federal nonprofit corporation, or provincial nonprofit. Conclusion: CCCL (a for-profit amateur MMA promotion) does not qualify.",
+      "source_url": "https://www.canva.com/nonprofits/eligibility-guidelines/",
+      "source_url_2": "https://www.canva.com/en_au/help/canva-for-nonprofits/",
+      "source_url_3": "https://goodstack.org/nonprofit-definitions",
+      "confidence": "high"
+    }
+  },
+  "social_sizes": [
+    {
+      "format": "Instagram feed - portrait (best default)",
+      "size_px": "1080 x 1350",
+      "ratio": "4:5",
+      "source_url": "https://sproutsocial.com/insights/social-media-image-sizes-guide/",
+      "note": "Sprout guide updated Oct 15, 2026; Hootsuite (Oct 1, 2026) agrees."
+    },
+    {
+      "format": "Instagram feed - 3:4 portrait (native since May 2025)",
+      "size_px": "1080 x 1440",
+      "ratio": "3:4",
+      "source_url": "https://9to5mac.com/2025/05/29/instagram-changes-standard-photo-aspect-ratio/",
+      "note": "Mosseri (May 29, 2025): 'Instagram now supports 3:4 aspect ratio photos'; 3:4 uploads display uncropped; max width stays 1080 px (PetaPixel), so 1080x1440 is the 3:4 equivalent. Profile grid thumbnails are cropped to 3:4 (1080x1440) since Jan 2025 - keep key text inside the centre 4:5/3:4 area. Sprout/Hootsuite still list 1080x1350 as the main feed size."
+    },
+    {
+      "format": "Instagram feed - square",
+      "size_px": "1080 x 1080",
+      "ratio": "1:1",
+      "source_url": "https://sproutsocial.com/insights/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Instagram profile grid thumbnail (crop preview)",
+      "size_px": "1080 x 1440",
+      "ratio": "3:4",
+      "source_url": "https://blog.hootsuite.com/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Instagram Stories",
+      "size_px": "1080 x 1920 (safe area 1080 x 1610)",
+      "ratio": "9:16",
+      "source_url": "https://sproutsocial.com/insights/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Instagram Reels (video/cover)",
+      "size_px": "1080 x 1920 (grid shows 1080 x 1440 crop)",
+      "ratio": "9:16",
+      "source_url": "https://blog.hootsuite.com/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Facebook Stories",
+      "size_px": "1080 x 1920 (min width 500; keep text out of top/bottom 14%)",
+      "ratio": "9:16",
+      "source_url": "https://sproutsocial.com/insights/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Facebook Reels",
+      "size_px": "1080 x 1920 (shows as 4:5 1080x1350 crop in feed; safe zone ~14% top, 35% bottom, 6% sides)",
+      "ratio": "9:16",
+      "source_url": "https://postfa.st/sizes/facebook/reels",
+      "note": "PostFast page verified Sep 25, 2026, citing Meta Ads Guide; Meta pages not directly readable from here."
+    },
+    {
+      "format": "Facebook feed image - square",
+      "size_px": "1080 x 1080",
+      "ratio": "1:1",
+      "source_url": "https://sproutsocial.com/insights/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Facebook feed image - vertical",
+      "size_px": "1440 x 1800 (Sprout) or 1080 x 1350 (Hootsuite lists 1080 x 1359)",
+      "ratio": "4:5",
+      "source_url": "https://sproutsocial.com/insights/social-media-image-sizes-guide/",
+      "source_url_2": "https://blog.hootsuite.com/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Facebook feed image - landscape/link",
+      "size_px": "1080 x 566 (1200 x 628 also common)",
+      "ratio": "1.91:1",
+      "source_url": "https://blog.hootsuite.com/social-media-image-sizes-guide/"
+    },
+    {
+      "format": "Facebook event cover photo",
+      "size_px": "1920 x 1005 (minimum 1200 x 628; keep title/date in the centre ~60%)",
+      "ratio": "~1.91:1 (some guides mislabel it 16:9)",
+      "source_url": "https://postfa.st/sizes/facebook/event-cover",
+      "source_url_2": "https://contentstudio.io/blog/facebook-event-photo-size-guide",
+      "note": "PostFast (Apr 2026) says Meta no longer publishes an official pixel spec for event covers; 1920x1005 is the community-validated size (also Sprout, Jan 2024)."
+    }
+  ],
+  "meta_ads": {
+    "minimum_daily_budget": {
+      "text": "Official CAD minimum: not found (Meta's 'minimum budgets' help article, facebook.com/business/help/203183363050448, could not be read from here). Secondary sources citing that article give US$1/day for ad sets charged on impressions and about US$5/day for clicks/engagement/video views, higher (~US$40/day) for low-frequency events; if you set a cost-per-result goal, daily budget must be at least 5x the target. Ads Manager displays the exact minimum in the account's currency (CAD) when you enter a budget. Daily budget is an average - Meta can spend up to 25% more on a given day. Practical guidance from Eventbrite: at least $7/day, about $10-20/day, for 4-5+ days.",
+      "source_url": "https://podvector.ai/articles/ads/scaling-and-diagnosis/meta-ads-minimum-daily-budget-official",
+      "source_url_2": "https://cropink.com/minimum-budget-for-facebook-ads",
+      "source_url_3": "https://developers.facebook.com/documentation/ads-commerce/marketing-api/bidding/overview/budgets.md",
+      "source_url_4": "https://www.eventbrite.com/help/en-us/articles/254520/",
+      "confidence": "medium (USD figures via secondary sources dated Feb-Sep 2026)"
+    },
+    "location_targeting": {
+      "text": "Target by country/region/city/postal code or drop a pin/address. Per Meta's Marketing API docs: radius around a city 17-80 km (10-50 mi); radius around a custom location (pin/address) 1-80 km (0.63-50 mi); up to 200 custom locations. Location type is effectively 'people living in or recently in' the area (the only option in the API; a 2026 agency guide says Ads Manager was simplified to this one setting). With Advantage+ settings Meta may treat a radius as a preference and reach slightly beyond it. Practical: one ad set per show town (e.g., pin on venue, 40-60 km) rather than one province-wide ad.",
+      "source_url": "https://developers.facebook.com/docs/marketing-api/audiences/reference/basic-targeting",
+      "source_url_2": "https://www.bigeyeagency.com/insights/geographic-targeting-for-meta-ads-guide-2026",
+      "confidence": "high for API limits; medium for Ads Manager UI wording"
+    },
+    "age_targeting": {
+      "text": "age_min defaults to 18 and can be set from 13; age_max up to 65 (65+). With Advantage+ Audience, location and minimum age are treated as hard limits while other settings can be expanded. For an MMA show with a bar, set minimum age 19 (Ontario drinking age) if the ad mentions alcohol; otherwise 18+ is a sensible default.",
+      "source_url": "https://developers.facebook.com/docs/marketing-api/audiences/reference/basic-targeting",
+      "source_url_2": "https://www.bigeyeagency.com/insights/geographic-targeting-for-meta-ads-guide-2026"
+    },
+    "combat_sports_restrictions": {
+      "text": "No Meta ad policy specific to combat sports/MMA events was found (it is not a restricted category like alcohol, gambling or weapons). The relevant rule is the general one: ads 'must not contain shocking, sensational, disrespectful or excessively violent content'. Practical: use posed fighter shots, face-offs, logos and event info; avoid blood, cuts, knockouts mid-impact. Upload ads early (paused) to see if they pass review; disapprovals can be appealed once.",
+      "source_url": "https://transparency.meta.com/policies/ad-standards/objectionable-content/violent-graphic-content",
+      "source_url_2": "https://capacityinteractive.com/blog/guide-to-promoting-commonly-disapproved-artistic-content/",
+      "confidence": "medium (official page not machine-readable here; quote via secondary source)"
+    },
+    "alcohol_mentions": {
+      "text": "Meta: ads that promote or reference alcohol must comply with local laws, must use age/country targeting per Meta's requirements, and may never target under-18s. Canada's Meta minimum age for alcohol ads is listed as 19 by a secondary source (Jon Loomer, updated Mar 2025); official country table not readable here. Ontario's legal drinking age is 19. AGCO liquor advertising guidelines (apply to special occasion permit holders and certain licensees): a private-event SOP holder may not advertise liquor at all; ads must not appeal to under-19s, promote excessive consumption, or link drinking with sports/activities requiring skill or danger (people with drinks must clearly be spectators). Simplest path: keep alcohol out of paid ads, or say 'licensed event, 19+ with ID' and target 19+.",
+      "source_url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/alcohol/",
+      "source_url_2": "https://www.jonloomer.com/facebook-advertising-guidelines-targeting/",
+      "source_url_3": "https://www.agco.ca/en/alcohol/legal-drinking-age-and-photo-identification",
+      "source_url_4": "https://www.agco.ca/en/alcohol/appendix-2-registrars-guidelines-advertising-and-promotion/liquor-advertising-guidelines",
+      "confidence": "high for Ontario/AGCO; medium for Meta's Canada age figure"
+    },
+    "measure_ticket_sales_simplest": {
+      "text": "Simplest: make one Eventbrite tracking link per ad (or per ad set/town), e.g., 'meta-ptbo-video1', and use it as the ad's website URL. Sales per link show instantly in Marketing > Tracking links and export via Reporting > Tracking links, so cost per ticket = ad spend / tickets from that link. Next step up: add the Meta Pixel (and optionally a Conversions API token) in Eventbrite > Marketing > Tracking pixels so Meta reports Purchases and can optimise for them; expect undercounting from privacy-blocking browsers, and Eventbrite pages can't be domain-verified. Whether Eventbrite reports standard UTM parameters: not found - rely on tracking links.",
+      "source_url": "https://www.eventbrite.ca/help/en-ca/articles/835126/how-to-create-promotional-tracking-links/",
+      "source_url_2": "https://www.eventbrite.ca/help/en-ca/articles/591670/download-a-tracking-links-report/",
+      "source_url_3": "https://www.eventbrite.com/help/en-us/articles/558547/"
+    }
+  },
+  "notes": "1) Eventbrite Canada fee: use 3.5% + C$1.29/ticket + 2.9% processing (help centre); the eventbrite.ca marketing pricing page shows US rates (3.7% + $1.79) - don't quote it. Absorbing fees cost CCCL about 8.6% on $60 GA and 7.7% on $100 VIP; passing fees to buyers keeps face value but shows buyers about $65.23 / $107.83. 2) Fighter tracking: tracking links need no code and no discount; promo codes must discount or reveal a hidden ticket. 3) Sponsor comps: manual 'Add Attendees' orders as Complimentary have no fees. 4) Livestream: no low-effort PPV channel found that regional Canadian MMA promotions use apart from big rights deals (UFC Fight Pass for BFL/Unified/Samourai, which need 15+ events/yr; Fight Network for Hard Knocks). TrillerTV has serious 2026 payment/solvency problems. Realistic for CCCL: free YouTube/Facebook stream for reach + sponsor reads, Super Chat/memberships (70% share) on a channel that's already eligible, or a cheap paywall (Eventbrite online ticket or Dacast at 9.9% + US$0.40). Facebook paid online events ended in 2023. 5) Canva: PDF import is editable (not scanned PDFs); the Claude Canva connector works on Free, but Autofill/Brand Templates/resize need Pro or higher; Canva for Nonprofits excludes sports leagues/clubs and for-profits, so CCCL won't qualify. Pro is listed at $142 CAD/yr on the Canada pricing page. 6) Instagram: 1080x1350 (4:5) is still the standard feed size; 1080x1440 (3:4) is now supported natively and matches the 3:4 grid crop. Facebook event cover 1920x1005. 7) Meta ads: official CAD minimum not readable here (about US$1/day impressions, US$5/day clicks via secondary sources); radius 1-80 km around a pin; set age 19+ if alcohol is mentioned (Ontario drinking age 19); no MMA-specific ban, but avoid gory images. 8) Context found: The Highlander (Mar 12, 2026) reported CCCL's first show at the A.J. LaRue Arena in Haliburton on May 2, sold on Eventbrite, livestreamed online. Check the venue/town in marketing copy, because the brief says Bancroft. 9) Meta's own help/policy pages and trillertv.com were blocked from this environment; those items are flagged with confidence levels."
+}

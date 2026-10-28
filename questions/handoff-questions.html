@@ -1,0 +1,301 @@
+<title>Constrictor Handoff Questions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow phone-first column; sticky progress bar; two parts (before the handoff / when you can); each question is a card of tap chips. */
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --ink:#0B1B29; --muted:#5A6672; --line:#D7DDE3;
+  --navy:#081C2B; --gold:#B97618; --gold-soft:#F6E6CC; --on-navy:#F4F1EA; --sub-on-navy:#C9D2DA; --gold-on-navy:#EAA959;
+  --ok:#1D7A3A; --ok-soft:#E3F1E7; --warn:#A4441C; --warn-soft:#F8E4DA; --pressed-bg:#081C2B; --pressed-fg:#EAA959;
+  --display:"Saira Condensed","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans",-apple-system,"Segoe UI",Arial,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#06121C;--surface:#0D2131;--ink:#E9EDF1;--muted:#9AA7B3;--line:#21384B;--navy:#030C14;--gold:#EAA959;--gold-soft:#2A2215;--ok:#4CB873;--ok-soft:#12291B;--warn:#E8875E;--warn-soft:#2E1A12;--pressed-bg:#EAA959;--pressed-fg:#081C2B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06121C;--surface:#0D2131;--ink:#E9EDF1;--muted:#9AA7B3;--line:#21384B;--navy:#030C14;--gold:#EAA959;--gold-soft:#2A2215;--ok:#4CB873;--ok-soft:#12291B;--warn:#E8875E;--warn-soft:#2E1A12;--pressed-bg:#EAA959;--pressed-fg:#081C2B;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+.top{background:var(--navy);color:var(--on-navy)}
+.top .wrap{padding-block:26px 22px;display:flex;flex-direction:column;gap:10px}
+.top h1{font-size:clamp(34px,8vw,50px)}
+.top h1 span{color:var(--gold-on-navy)}
+.top p{color:var(--sub-on-navy);max-width:60ch}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-on-navy)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.jump a{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--on-navy);text-decoration:none;border:1px solid #2B4357;border-radius:999px;padding:6px 12px}
+.jump a b{color:var(--gold-on-navy);font-weight:500}
+.jump a:focus-visible{outline:2px solid var(--gold-on-navy);outline-offset:2px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar .wrap{padding-block:9px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 12px}
+.track{height:8px;background:var(--line);border-radius:4px;overflow:hidden;min-width:0}
+.save{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.fill{height:100%;width:0;background:var(--gold);transition:width .25s}
+.meta,.save{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.meta{color:var(--muted)}
+.save.ok{color:var(--ok)} .save.warn{color:var(--warn)}
+button{font:inherit;cursor:pointer}
+.copy{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:7px 12px;border-radius:4px;border:1px solid var(--ink);background:var(--ink);color:var(--bg)}
+.known{background:var(--ok-soft);border-left:4px solid var(--ok);padding:14px 16px;margin-top:22px}
+.known h3{font-size:18px}
+.known ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px;font-size:14px}
+.part{margin-top:34px;padding-top:18px;border-top:3px solid var(--ink);display:flex;flex-direction:column;gap:4px;scroll-margin-top:96px}
+.part h2{font-size:34px}
+.part p{color:var(--muted);font-size:14px;max-width:60ch}
+.part .count{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.sec{margin-top:26px;scroll-margin-top:70px}
+.sec h3{font-size:25px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.sec h3 small{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:none}
+.sec > p{color:var(--muted);font-size:13.5px;margin-top:4px;max-width:62ch}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;margin-top:10px;display:flex;flex-direction:column;gap:10px}
+.q.done{border-left:4px solid var(--ok)}
+.q .t{font-weight:600;display:flex;flex-direction:column;gap:2px}
+.q .hint{font-size:12.5px;color:var(--muted);font-weight:400}
+.flag{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);padding:2px 8px;border-radius:3px;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:14px;min-height:38px;text-align:left}
+.chip[aria-pressed="true"]{background:var(--pressed-bg);border-color:var(--pressed-bg);color:var(--pressed-fg);font-weight:600}
+.todo .chip[aria-pressed="true"][data-v="Done"]{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+input[type=text],textarea{font:inherit;width:100%;box-sizing:border-box;padding:9px 11px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+textarea{min-height:76px;resize:vertical}
+.chip:focus-visible,.copy:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.end{margin-block:30px 50px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.end p{color:var(--muted);font-size:13.5px;max-width:60ch}
+#fallback{width:100%;min-height:180px;font-family:var(--mono);font-size:12px}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<header class="top"><div class="wrap">
+  <p class="eyebrow">For Cody · from Kyle · round 2 · about 5 minutes</p>
+  <h1>A few <span>follow-ups</span></h1>
+  <p>Thanks for the first round: it's all in the system now. These are the loose ends. Part 1 matters this week (Canada Summer Jobs opens October 27). Skip anything you don't know. Your answers save as you go so Kyle sees them.</p>
+  <nav class="jump" aria-label="Parts">
+    <a href="#part1">Part 1 <b>This week</b></a>
+    <a href="#part2">Part 2 <b>When you can</b></a>
+  </nav>
+</div></header>
+
+<div class="bar"><div class="wrap">
+  <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
+  <span class="meta" id="prog">0 answered</span>
+  <span class="save" id="save">Connecting…</span>
+  <button type="button" class="copy" id="copyBtn">Copy all answers</button>
+</div></div>
+
+<main class="wrap">
+  <section class="known" aria-label="Already in the system">
+    <h3>Done from your first answers</h3>
+    <ul>
+      <li>Class ages, Cody coaching every class, the gym's equipment and the holiday closure are in the coaching and front-desk skills.</li>
+      <li>Your business setup re-checked every grant. Canada Summer Jobs is drafted and ready for you to review.</li>
+      <li>Second Chance has a starter plan, its own private tracker, four policy drafts and five letters ready to send.</li>
+      <li>Your own page has a plan: three posts a week, "Get back up". The first four weeks are drafted.</li>
+      <li>Mat McTrash's 50% bar offer is in the Profit Predictor: a family show with a 19+ bar area still makes the most.</li>
+    </ul>
+  </section>
+  <div id="form"></div>
+  <div class="end">
+    <p>That's everything. If the bar at the top says your answers aren't saving, tap <b>Copy all answers</b> and text or email them to Kyle.</p>
+    <textarea id="fallback" hidden readonly aria-label="All answers as text"></textarea>
+  </div>
+</main>
+
+<script>
+const YN = ["Yes","No","Not sure"];
+const TODO = ["Done","Not yet","Need help"];
+const WHEN = ["Now","After the first 2027 show","Later in 2027"];
+const PARTS = [
+ {id:"part1", name:"This week", sub:"Canada Summer Jobs opens Tuesday, October 27, and a few things are holding up the sponsor pitches.", secs:[
+  {sec:"Canada Summer Jobs", sub:"The draft is in Command Centre: CSJ 2027 Application Draft.", todo:true, items:[
+   {id:"rp", t:"Open BBG's CRA payroll account (RP)", flag:"Before Oct 27", hint:"The form's first question asks for the 15-digit payroll number. Fastest through CRA's Business Registration Online.", type:"chips", opts:TODO},
+   {id:"gcos", t:"Set up GCOS (the government's online grant system)", hint:"Sign in with your bank or a GCKey, register BBG's business number, confirm your identity.", type:"chips", opts:TODO},
+   {id:"csj_wage", t:"Wage for the summer student", hint:"Paying above $17.95 an hour scores points. CSJ pays back about $8.98 an hour either way.", type:"chips", opts:["$17.95","$18.50","$19.00"], other:"Another wage"},
+   {id:"csj_start", t:"When should the job start?", hint:"8 weeks at 35 hours is what CSJ usually approves.", type:"chips", opts:["Late June, after school","Early July"], other:"Another date"}
+  ]},
+  {sec:"Sponsors", sub:"So pitches use the right price and nobody gets pitched twice.", items:[
+   {id:"silver", t:"Silver sponsor price", hint:"Your answer said $2,500; the 2026 package sheet says $2,000.", type:"chips", opts:["$2,000","$2,500"], other:"Something else"},
+   {id:"sponsors_rest", t:"The other 10 sponsors from May 2, and what each paid", hint:"5 named so far: Dillabough, Dixie Lee, Pinestone Resort, IT STIX and ICO. One per line: Business, level, amount.", type:"text", long:true},
+   {id:"promised", t:"Who was promised a spot at the Apsley, Bancroft or Haliburton shows?", hint:"Business and town, one per line.", type:"text", long:true},
+   {id:"ico", t:"ICO's full business name", type:"text"}
+  ]},
+  {sec:"Quick checks", sub:"One tap each.", items:[
+   {id:"ages_ok", t:"Did we read the boxing ages right?", hint:"Kids Boxing 4-10. The Mon/Wed Boxing class is open to every age from about 4, with kids in their own group for partner drills.", type:"chips", opts:["Yes","No"], other:"What's right"},
+   {id:"eventbrite", t:"The Eventbrite payout report for May 2", type:"chips", opts:["Sent to Kyle","Will send it"]},
+   {id:"holiday_dates", t:"Exact holiday closure", hint:"Last day open before Christmas and the day you reopen.", type:"text"}
+  ]}
+ ]},
+ {id:"part2", name:"When you can", sub:"Second Chance, grants and a few details for posts.", secs:[
+  {sec:"Second Chance", sub:"Its plan, tracker, policies and letters are in the Second Chance folder.", items:[
+   {id:"sc_where", t:"Incorporating under", hint:"Ontario costs $155 and is simpler for a group based in Bancroft. Federal costs $200 plus $12 a year and needs an Ontario registration too.", type:"chips", opts:["Ontario (ONCA)","Federal (CNCA)","Not sure"]},
+   {id:"sc_filed", t:"Has the incorporation been filed?", type:"chips", opts:["Filed","Not yet","Not sure"]},
+   {id:"sc_arms", t:"Are any of the five board members related to you or each other, or do any work for you?", hint:"More than half the board must be independent for charity status. Either answer is fine.", type:"chips", opts:["No, none of them","Yes, some"], other:"Who (first names)"},
+   {id:"sc_email", t:"Second Chance's own Gmail", type:"chips", opts:["Made it","Not yet"], other:"The address"},
+   {id:"sc_bank", t:"Second Chance's own bank account", type:"chips", opts:["Opened","Not yet"]}
+  ]},
+  {sec:"Grants and shows", sub:"Two things that decide which grants and shows make sense.", items:[
+   {id:"tpon", t:"Is BBG registered on Transfer Payment Ontario?", hint:"Ontario's grant portal. Most Ontario grants need it.", type:"chips", opts:YN},
+   {id:"bar_venues", t:"Which venues would Mat McTrash serve, and any other bar terms you've heard?", type:"text", long:true}
+  ]},
+  {sec:"For posts and the front desk", sub:"So posts can tag the right accounts and replies can name the right person.", items:[
+   {id:"handles", t:"Instagram handles: yours, the gym's and CCCL's", hint:"And CCCL's Facebook page name if it has one.", type:"text", long:true},
+   {id:"front_desk", t:"Who works the front desk? (first names)", type:"text"},
+   {id:"more", t:"Anything else Kyle should know?", type:"text", long:true}
+  ]}
+ ]}
+];
+const SECS = PARTS.flatMap(p => p.secs);
+const ALL = SECS.flatMap(s => s.items);
+let state = {};
+try { state = JSON.parse(localStorage.getItem("hq-draft-2") || "{}") || {}; } catch (e) { state = {}; }
+const touched = new Set();
+const form = document.getElementById("form");
+
+function isAnswered(it){
+  const v = state[it.id];
+  if (v == null) return false;
+  if (it.type === "chips") return (Array.isArray(v.pick) ? v.pick.length : !!v.pick) || !!(v.other && v.other.trim());
+  return typeof v === "string" && v.trim() !== "";
+}
+function progress(){
+  const n = ALL.filter(isAnswered).length;
+  document.getElementById("prog").textContent = `${n} of ${ALL.length} answered`;
+  document.getElementById("fill").style.width = (100 * n / ALL.length) + "%";
+  ALL.forEach(it => { const el = document.getElementById("q_" + it.id); if (el) el.classList.toggle("done", isAnswered(it)); });
+  PARTS.forEach(p => {
+    const items = p.secs.flatMap(s => s.items); const c = document.getElementById("count_" + p.id);
+    if (c) c.textContent = `${items.filter(isAnswered).length} of ${items.length} answered`;
+  });
+}
+function changed(id){ touched.add(id); try { localStorage.setItem("hq-draft-2", JSON.stringify(state)); } catch (e) {} progress(); queueSave(); }
+
+function build(){
+  form.textContent = "";
+  PARTS.forEach((p, pi) => {
+    const head = document.createElement("section"); head.className = "part"; head.id = p.id;
+    const h = document.createElement("h2"); h.textContent = `Part ${pi + 1}: ${p.name}`;
+    const sp = document.createElement("p"); sp.textContent = p.sub;
+    const ct = document.createElement("span"); ct.className = "count"; ct.id = "count_" + p.id;
+    head.append(h, sp, ct); form.append(head);
+    p.secs.forEach((s, si) => {
+      const sec = document.createElement("section"); sec.className = "sec" + (s.todo ? " todo" : "");
+      const h3 = document.createElement("h3"); h3.textContent = s.sec;
+      const sm = document.createElement("small"); sm.textContent = `${si + 1} of ${p.secs.length}`; h3.append(sm);
+      const d = document.createElement("p"); d.textContent = s.sub;
+      sec.append(h3, d);
+      s.items.forEach(it => sec.append(question(it)));
+      form.append(sec);
+    });
+  });
+  progress();
+}
+function question(it){
+  const box = document.createElement("div"); box.className = "q"; box.id = "q_" + it.id;
+  if (it.flag){ const f = document.createElement("span"); f.className = "flag"; f.textContent = it.flag; box.append(f); }
+  const t = document.createElement("div"); t.className = "t";
+  const tt = document.createElement("span"); tt.textContent = it.t; t.append(tt);
+  if (it.hint){ const hn = document.createElement("span"); hn.className = "hint"; hn.textContent = it.hint; t.append(hn); }
+  box.append(t);
+  if (it.type === "chips"){
+    const blank = () => ({pick: it.multi ? [] : "", other: ""});
+    const cur = state[it.id] || blank();
+    const row = document.createElement("div"); row.className = "chips"; row.setAttribute("role", "group"); row.setAttribute("aria-label", it.t);
+    it.opts.forEach(o => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = o; b.dataset.v = o;
+      b.setAttribute("aria-pressed", String(it.multi ? (cur.pick || []).includes(o) : cur.pick === o));
+      b.addEventListener("click", () => {
+        const v = Object.assign(blank(), state[it.id] || {});
+        if (it.multi){ const set = new Set(v.pick || []); set.has(o) ? set.delete(o) : set.add(o); v.pick = it.opts.filter(x => set.has(x)); }
+        else v.pick = v.pick === o ? "" : o;
+        state[it.id] = v;
+        row.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(it.multi ? v.pick.includes(c.dataset.v) : v.pick === c.dataset.v)));
+        changed(it.id);
+      });
+      row.append(b);
+    });
+    box.append(row);
+    if (it.other){
+      const inp = document.createElement("input"); inp.type = "text"; inp.id = "o_" + it.id; inp.placeholder = it.other; inp.value = cur.other || "";
+      inp.setAttribute("aria-label", it.t + ": " + it.other);
+      inp.addEventListener("input", () => { const v = Object.assign(blank(), state[it.id] || {}); v.other = inp.value; state[it.id] = v; changed(it.id); });
+      box.append(inp);
+    }
+  } else {
+    const el = document.createElement(it.long ? "textarea" : "input");
+    if (!it.long) el.type = "text";
+    el.id = "x_" + it.id; el.value = state[it.id] || ""; el.setAttribute("aria-label", it.t);
+    el.addEventListener("input", () => { state[it.id] = el.value; changed(it.id); });
+    box.append(el);
+  }
+  return box;
+}
+
+function asText(){
+  const lines = ["Cody's follow-up answers (round 2)", ""];
+  PARTS.forEach((p, pi) => {
+    lines.push(`PART ${pi + 1}: ${p.name.toUpperCase()}`, "");
+    p.secs.forEach(s => {
+      lines.push("== " + s.sec + " ==");
+      s.items.forEach(it => {
+        const v = state[it.id]; let a = "";
+        if (v != null){
+          if (it.type === "chips") a = [].concat(v.pick || []).filter(Boolean).concat(v.other && v.other.trim() ? [v.other.trim()] : []).join(", ");
+          else a = String(v).trim().replace(/\n+/g, " / ");
+        }
+        lines.push(`${it.t}: ${a || "(skipped)"}`);
+      });
+      lines.push("");
+    });
+  });
+  return lines.join("\n");
+}
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const txt = asText(); const fb = document.getElementById("fallback"); const btn = document.getElementById("copyBtn");
+  const show = () => { fb.hidden = false; fb.value = txt; fb.focus(); fb.select(); btn.textContent = "Select and copy below"; };
+  try {
+    navigator.clipboard.writeText(txt).then(() => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy all answers", 2000); }, show);
+  } catch (e) { show(); }
+});
+
+/* saving to the artifact's shared store, so Kyle (and Claude) can read the answers */
+const saveEl = document.getElementById("save");
+function status(text, cls){ saveEl.textContent = text; saveEl.className = "save " + (cls || ""); }
+let ref = null, readOnly = false, timer = null, chain = Promise.resolve();
+function queueSave(){
+  if (!ref || readOnly){ status(readOnly ? "Not saving here: use Copy" : "Saved on this device only", "warn"); return; }
+  status("Saving…"); clearTimeout(timer);
+  timer = setTimeout(() => {
+    const body = {answers: JSON.parse(JSON.stringify(state)), updatedAt: new Date().toISOString()};
+    chain = chain.then(() => ref.set(body)).then(() => status("Saved for Kyle ✓", "ok")).catch(e => {
+      const c = e && e.code;
+      if (c === "invalid_argument" || c === "not_granted" || c === "revoked" || c === "capability_disabled" || c === "capability_removed"){ readOnly = true; status("Not saving here: use Copy", "warn"); }
+      else status("Couldn't save. Try again shortly", "warn");
+    });
+  }, 900);
+}
+build();
+status("Saved on this device", "");
+(async () => {
+  try {
+    const db = window.claude && await window.claude.use("db");
+    if (!db){ status("Saved on this device only: use Copy", "warn"); return; }
+    try {
+      const user = await window.claude.use("user");
+      if (user && (await user.can("data.write")) === false){ readOnly = true; }
+    } catch (e) {}
+    ref = db.doc("answers/followups");
+    let first = true;
+    ref.onSnapshot(snap => {
+      if (!snap.exists){
+        if (first && Object.keys(state).length && !readOnly) queueSave();
+        if (first) status(readOnly ? "Not saving here: use Copy" : "Ready to save", readOnly ? "warn" : "ok");
+        first = false; return;
+      }
+      const remote = (snap.data() || {}).answers || {};
+      let changedAny = false;
+      for (const [k, v] of Object.entries(remote)){ if (!touched.has(k) && JSON.stringify(state[k]) !== JSON.stringify(v)){ state[k] = v; changedAny = true; } }
+      if (changedAny){ const y = window.scrollY; build(); window.scrollTo(0, y); }
+      if (first){ status(readOnly ? "Not saving here: use Copy" : "Saved for Kyle ✓", readOnly ? "warn" : "ok"); first = false; }
+    }, () => { status("Saved on this device only: use Copy", "warn"); ref = null; });
+  } catch (e) { status("Saved on this device only: use Copy", "warn"); }
+})();
+</script>

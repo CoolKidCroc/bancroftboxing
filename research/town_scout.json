@@ -1,0 +1,1343 @@
+{
+  "towns": [
+    {
+      "town": "Bancroft",
+      "region": "North Hastings (Hastings County)",
+      "population": "4,065 (Town of Bancroft, 2021 census); town site cites a regional population of 'more than 40 000'",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario ; https://bancroft.ca/visiting/about_bancroft",
+      "tourism": "Yes - four-season cottage/tourist area; town says ~150,000 visitors a year. Hastings Highlands (38% of NHCC users) and Faraday are cottage townships around it.",
+      "drive_from_bancroft": "0 km (home base)",
+      "venues": [
+        {
+          "name": "North Hastings Community Centre (NHCC) arena",
+          "address": "103 Newkirk Blvd, Bancroft, ON K0L 1C0",
+          "capacity": "Not published",
+          "capacity_note": "Arena inaugurated 1972; has hosted the Rockhound Gemboree, concerts, summer ball hockey and pro wrestling (Smash Wrestling, May 15, 2015). Capacity must be confirmed with the Town.",
+          "rental_rate": "Not published. Town said in 2023 that rental agreements/fees for year-round (dry-floor) use were being designed to be 'competitive'; ice fees kept at old Commission rates (Feb 2024).",
+          "dry_floor_season": "Ice normally goes in during August (mayor, Mar 2026). 2026: ice delayed to ~Sept 21 by an ice-plant part. Dry floor is expected spring-summer 2027 (estimate: roughly April-July); Gemboree occupies NHCC over the Civic Holiday weekend.",
+          "facilities": "Upstairs community space + LEAF fitness centre (Trillium-funded); 2026 GICB retrofit added new ice plant, heat pumps, accessible washroom, referee room and an extra change room; canteen. Bar licence not mentioned.",
+          "contact": "613-332-2062 (Mon-Fri 9-4); communitycentre@bancroft.ca (2023 article); Pat Hoover, manager of buildings & facilities (2023)",
+          "source_url": "https://bancroft.hosted.civiclive.com/living/recreation___leisure/north_hastings_community_centre"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Bancroft Boxing & Grappling (Cody Purtell; boxing, kickboxing, freestyle wrestling, jiu-jitsu; ~90 members per Mar 2026 article, ~80 per Feb 2026 article)",
+          "town": "Bancroft",
+          "source_url": "https://thehighlander.ca/2026/03/12/fight-night-coming-to-haliburton-county/"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "No 2025-2026 combat events found in Bancroft (historical: Smash Wrestling 'Rural Rumble' at NHCC)",
+          "date": "2015-05-15",
+          "source_url": "https://www.bancroftthisweek.com/bancroft-to-become-a-battlezone-on-may-15/"
+        }
+      ],
+      "local_events": [
+        {
+          "name": "Rockhound Gemboree (61st in 2026)",
+          "typical_dates": "Civic Holiday long weekend; 2026 opening ceremony Thu July 30",
+          "note": "Held at NHCC + Bancroft Curling Club - NHCC unavailable that weekend; about 8,000 attendees in 1985 (Wikipedia)."
+        },
+        {
+          "name": "Ontario municipal election",
+          "typical_dates": "Oct 26, 2026",
+          "note": "New council term begins after; venue deals may need re-confirmation."
+        },
+        {
+          "name": "2027 Ontario long weekends (calendar)",
+          "typical_dates": "Family Day Mon Feb 15; Good Friday Mar 26 (Easter Mar 28); Victoria Day Mon May 24; Canada Day Thu Jul 1; Civic Holiday Mon Aug 2; Labour Day Mon Sep 6; Thanksgiving Mon Oct 11",
+          "note": "Computed from the 2027 calendar. Long weekends bring cottagers north (helps crowds) but compete with family plans."
+        }
+      ],
+      "notes": "Show 1 was moved from Bancroft to Haliburton because of NHCC renovations (Highlander, Mar 12, 2026). NHCC retrofit (~$2.4M; $1.9M federal GICB, ~$500k town) is essentially done as of Sept 15, 2026; only the switch from a temporary to the permanent ice plant remained (about a month). Arena ran a $207,350 operating deficit in 2023 and the Town wants year-round rentals - a strong pitch for a dry-floor fight night. Home gym, home crowd, zero travel.",
+      "scores": {
+        "crowd": 3,
+        "venue": 4,
+        "fighters": 4,
+        "competition": 5,
+        "distance": 5,
+        "overall": 4.2
+      },
+      "verdict": "Best fit for show 2: home gym and home crowd, renovated arena back online, no competition - lock a spring/early-summer 2027 dry-floor date before the Gemboree."
+    },
+    {
+      "town": "Haliburton",
+      "region": "Haliburton County (Municipality of Dysart et al)",
+      "population": "7,182 (Dysart et al, 2021 census); Haliburton County 20,571 (2021, up 13.9%)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario ; https://thehighlander.ca/2022/02/24/county-population-up-13-9-per-cent-2021-census/",
+      "tourism": "Yes - core cottage county; the Dysart mayor said many seasonal residents don't count in the census, so the summer population is higher than the census number (no figure published).",
+      "drive_from_bancroft": "~70 km / ~1 h via Hwy 118 (estimate)",
+      "venues": [
+        {
+          "name": "A.J. LaRue Arena & Community Centre",
+          "address": "728 Mountain Street, Haliburton, ON K0M 1S0",
+          "capacity": "Not published",
+          "capacity_note": "Single ice pad + large community room (auditorium). CCCL 1 planned for 800-1,000 spectators plus 40-80 fighters/crew there.",
+          "rental_rate": "By-Law 2023-39 (winter rates effective Sept 5, 2023; summer Jan 1, 2024): ice surface rental \"$1,030.00 per day\" for profit-making events / \"$463.50 per day\" non-profit; auditorium \"$42.45 per hour, maximum of $265.25 per day\"; set-up/dismantling with staff \"$30.00 per hour\"; ball hockey \"$50.00 per hour\". No separate dry-floor event rate listed.",
+          "dry_floor_season": "Summer ice runs from 'start of season through Labour Day', so ice can be back in during summer; spring (e.g. early May) dry floor proven by CCCL 1. Confirm 2027 ice-out/in dates.",
+          "facilities": "Auditorium (community room). Bar/kitchen not mentioned.",
+          "contact": "705-457-1740 ext. 635; Municipality of Dysart et al, 135 Maple Ave, Haliburton",
+          "source_url": "https://www.dysartetal.ca/en/explore-and-play/resources/Arena/2023-39%20Parks%20and%20Recreation%20Fees%20and%20Charges.pdf"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "The Chop Shop MMA (BJJ + fitness kickboxing; opened May 30, 2026; owners ran Hayabusa Academy Kingston)",
+          "town": "Haliburton (175 Industrial Park Rd)",
+          "source_url": "https://thehighlander.ca/2026/05/21/bringing-hi-yah-to-haliburton/"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "CCCL 1 - Cottage Country Combat League (amateur MMA, A.J. LaRue Arena, Haliburton; results on Sherdog)",
+          "date": "2026-05-02",
+          "source_url": "https://www.sherdog.com/fighter/Johnny-Stringer-500776"
+        }
+      ],
+      "local_events": [
+        {
+          "name": "Haliburton County Fair (Minden Agricultural Society, Minden fairgrounds)",
+          "typical_dates": "Sat June 13, 2026 (single day)",
+          "note": "20 min away in Minden."
+        },
+        {
+          "name": "Ontario municipal election",
+          "typical_dates": "Oct 26, 2026",
+          "note": ""
+        },
+        {
+          "name": "2027 Ontario long weekends (calendar)",
+          "typical_dates": "Family Day Mon Feb 15; Good Friday Mar 26 (Easter Mar 28); Victoria Day Mon May 24; Canada Day Thu Jul 1; Civic Holiday Mon Aug 2; Labour Day Mon Sep 6; Thanksgiving Mon Oct 11",
+          "note": "Computed from the 2027 calendar. Long weekends bring cottagers north (helps crowds) but compete with family plans."
+        }
+      ],
+      "notes": "Dysart et al council approved the 2026 show (Feb 2026), so there is a precedent. Purtell said he wants a Haliburton show at least once a year and to eventually open a gym branch there. Arena net cost ~ $500k/yr (2021 article) - municipality has reason to welcome rentals. Rates on file are 2023-24; expect increases.",
+      "scores": {
+        "crowd": 4,
+        "venue": 4,
+        "fighters": 3,
+        "competition": 5,
+        "distance": 4,
+        "overall": 4.0
+      },
+      "verdict": "Proven venue: the 2026 show made about $18,000 on Cody's numbers (exact figure waiting on the Eventbrite payout report). Keep it as the annual anchor show (spring dry floor), not more than once a year to avoid wearing out the market."
+    },
+    {
+      "town": "Peterborough",
+      "region": "Peterborough (city)",
+      "population": "83,651 (City of Peterborough, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Regional city and gateway to the Kawarthas; not a cottage town itself.",
+      "drive_from_bancroft": "~115 km / ~1 h 25 min south on Hwy 28 (estimate)",
+      "venues": [
+        {
+          "name": "Peterborough Memorial Centre",
+          "address": "151 Lansdowne St W, Peterborough, ON K9J 1Y4",
+          "capacity": "Theatre configuration 2,380; end-stage 4,530; in-the-round 5,501",
+          "capacity_note": "City-owned major events arena; hosted pro boxing/MMA 'Homecoming' cards (e.g., Feb 9, 2019) and OFSAA wrestling 2026.",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Not published",
+          "facilities": "Major arena",
+          "contact": "Box office/main 705-743-3561",
+          "source_url": "https://venuecoalition.com/peterborough-memorial-centre/"
+        },
+        {
+          "name": "Healthy Planet Arena (formerly Evinrude Centre)",
+          "address": "911 Monaghan Rd, Peterborough, ON K9J 5K6",
+          "capacity": "Not published",
+          "capacity_note": "2 ice pads; 5,000 sq ft multipurpose room.",
+          "rental_rate": "City: special events on a floor pad \"$3,700.75 per day per pad\" (same at Kinsmen Civic Centre); floor rates effective April 1, 2026: adult $148.65/hr.",
+          "dry_floor_season": "2026 spring/summer floor allocation ran April 12 to August 1, 2026.",
+          "facilities": "Meeting rooms, multipurpose room",
+          "contact": "Facility Booking 705-742-7777 ext. 2577, facilitybooking@peterborough.ca",
+          "source_url": "https://www.peterborough.ca/arenas"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Kawartha Combat (BJJ, Muay Thai, kickboxing)",
+          "town": "Peterborough (910 High St #15)",
+          "source_url": "https://letsroll.co/gym/kawartha-combat-peterborough-on"
+        },
+        {
+          "name": "10th Planet Jiu Jitsu Peterborough",
+          "town": "Peterborough",
+          "source_url": "https://www.10thplanetjj.com/?p=418"
+        },
+        {
+          "name": "Corcoran's Boxing Club & Fitness Centre (ran 12-bout amateur card 'War in Ennismore: Revival', Aug 2022)",
+          "town": "Peterborough",
+          "source_url": "https://boxingontario.com/city/peterborough"
+        },
+        {
+          "name": "Eastside Boxing (legacy of Peterborough Boxing Club, est. 1977)",
+          "town": "Peterborough",
+          "source_url": "https://boxingontario.com/city/peterborough"
+        },
+        {
+          "name": "BEL Boxing Club",
+          "town": "Selwyn Twp / Peterborough (1625 Chemong Rd)",
+          "source_url": "https://kawarthanow.com/venue/1500/bel-boxing-club"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "OFSAA Wrestling Championship (high-school amateur wrestling, Peterborough Memorial Centre; 900+ competitors)",
+          "date": "2026-03-02 to 2026-03-04",
+          "source_url": "https://www.ptbotoday.ca/?p=94603"
+        },
+        {
+          "name": "GCW live pro wrestling at The Venue, Peterborough (promotion name not expanded on listing)",
+          "date": "2025-06-29",
+          "source_url": "https://tw.trip.com/events/gcw--peterborough--june-29th-2025--live-wrestling--back-at-the-venue-20250618"
+        },
+        {
+          "name": "Homecoming IV (pro card at Peterborough Memorial Centre; Cody Purtell was billed on it; confirm with Cody) - pre-2025 precedent",
+          "date": "2019-02-09",
+          "source_url": "https://www.bancroftthisweek.com/purtells-first-fight-on-home-soil/"
+        }
+      ],
+      "local_events": [
+        {
+          "name": "Peterborough Exhibition",
+          "typical_dates": "Not confirmed for 2026/2027",
+          "note": "Per kawarthaNOW headlines only (not read in full): cancelled in 2022 over a dispute with the city (https://kawarthanow.com/2022/06/09/agricultural-society-cancels-peterborough-exhibition-due-to-dispute-with-city/) and needing a new home after 135 years at Morrow Park (Sept 2023). Not a reliable clash."
+        },
+        {
+          "name": "OFSAA Wrestling Championship at the Memorial Centre",
+          "typical_dates": "Mar 2-4, 2026",
+          "note": "One-off school championship; shows wrestling interest."
+        }
+      ],
+      "notes": "Biggest fighter pool and ticket market within 1.5 h, and Purtell has fought at the Memorial Centre. Costs are much higher ($3,700.75/day for a floor pad) and there's more entertainment competing for the same night. No 2025-26 amateur MMA show found in the city.",
+      "scores": {
+        "crowd": 5,
+        "venue": 3,
+        "fighters": 5,
+        "competition": 3,
+        "distance": 3,
+        "overall": 3.8
+      },
+      "verdict": "Biggest upside but highest cost and risk - target once CCCL has 2-3 shows behind it; test the market via Lakefield first."
+    },
+    {
+      "town": "Apsley",
+      "region": "Peterborough County (North Kawartha)",
+      "population": "2,877 (North Kawartha, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - Kawarthas cottage area (Jack Lake, Chandos); on Hwy 28 between Bancroft and Peterborough.",
+      "drive_from_bancroft": "~55 km / ~45-50 min south on Hwy 28 (estimate)",
+      "venues": [
+        {
+          "name": "North Kawartha Community Centre (NKCC)",
+          "address": "340 McFadden Road, Apsley, ON K0L 1A0",
+          "capacity": "Banquet hall up to 325; arena floor capacity not published",
+          "capacity_note": "NHL-size ice pad; arena surface rented off-season for weddings, trade shows, sporting events.",
+          "rental_rate": "2026 page (+HST): arena \"Daily flat rate for special events (excluding dances): $600.00\"; hall daily flat $300.00 + $50 kitchen/bar; ice primetime $127.05/hr.",
+          "dry_floor_season": "Ice late August to mid-March, so dry floor roughly mid-March to late August.",
+          "facilities": "Full kitchen and separate bar in the hall. No permanent liquor licence: needs AGCO Special Occasion Permit, $5M alcohol liability naming the Township, Smart Serve bartenders.",
+          "contact": "705-656-4445 (NKCC) / 705-656-2438; s.tucker@northkawartha.ca (Shawn Tucker, Parks & Rec Supervisor)",
+          "source_url": "https://northkawartha.ca/living-here/facility-rentals"
+        }
+      ],
+      "gyms_nearby": [],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Apsley Lions Home & Cottage Show (at NKCC)",
+          "typical_dates": "May 2-3, 2026 (early May)",
+          "note": "Books the NKCC floor in early May."
+        },
+        {
+          "name": "Apsley Lions Giant Flea Market (at NKCC)",
+          "typical_dates": "July 18-19, 2026",
+          "note": "Books NKCC."
+        },
+        {
+          "name": "Canada Day parade & celebrations",
+          "typical_dates": "July 1",
+          "note": ""
+        },
+        {
+          "name": "Middle Path Ultra & Trail Race",
+          "typical_dates": "Aug 15, 2026",
+          "note": ""
+        },
+        {
+          "name": "Apsley Autumn Studio Tour",
+          "typical_dates": "3rd weekend of September",
+          "note": ""
+        },
+        {
+          "name": "2027 Ontario long weekends (calendar)",
+          "typical_dates": "Family Day Mon Feb 15; Good Friday Mar 26 (Easter Mar 28); Victoria Day Mon May 24; Canada Day Thu Jul 1; Civic Holiday Mon Aug 2; Labour Day Mon Sep 6; Thanksgiving Mon Oct 11",
+          "note": "Computed from the 2027 calendar. Long weekends bring cottagers north (helps crowds) but compete with family plans."
+        }
+      ],
+      "notes": "Cheapest published event rate of all candidates ($600/day) plus a 325-person licensed-able hall for VIP/after-party. No combat gym found within 30 min (Peterborough gyms ~50 min). Pulls from both Bancroft and Peterborough.",
+      "scores": {
+        "crowd": 3,
+        "venue": 4,
+        "fighters": 2,
+        "competition": 5,
+        "distance": 4,
+        "overall": 3.6
+      },
+      "verdict": "Low-cost, close, untouched market - good for a smaller spring or summer show; confirm arena floor capacity."
+    },
+    {
+      "town": "Marmora",
+      "region": "Hastings County (Marmora and Lake)",
+      "population": "4,267 (Marmora and Lake, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - Crowe Lake/Crowe River cottage area on Hwy 7 between Peterborough and Belleville.",
+      "drive_from_bancroft": "~110 km / ~1 h 20 min via Hwy 62 & Hwy 7 (estimate)",
+      "venues": [
+        {
+          "name": "Dr. Hamilton Crawford Memorial Arena, Lions Hall & Fairgrounds Park (Marmora & District Community Centre)",
+          "address": "28 Victoria Street, Marmora, ON",
+          "capacity": "1,000 (arena dry floor)",
+          "capacity_note": "Published: arena dry floor 1,000; community centre 180; first-floor lobby 125.",
+          "rental_rate": "Town page (year not stated): arena dry floor \"Event: $600/day\" (youth $50/hr, adult program $75/hr); Lions Hall public event no bar $300/day, wedding reception with renter-run bar $700/day. Town ran a '2025 Municipal Facility Rental survey', so fees may change.",
+          "dry_floor_season": "Ice September to April; lower level is a dry-floor event space May to August.",
+          "facilities": "Upstairs Lions Hall with stage and bar (Lions-run or renter-run). Kitchen not mentioned.",
+          "contact": "Jeff Young, Manager of Parks & Recreation/Facilities, 613-472-2410, arena@marmoraandlake.ca",
+          "source_url": "https://marmoraandlake.ca/community-centre"
+        }
+      ],
+      "gyms_nearby": [],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Marmora Fair (same grounds)",
+          "typical_dates": "Labour Day weekend; 2026: Sept 5-6",
+          "note": "Grounds busy that weekend."
+        }
+      ],
+      "notes": "Only candidate with a published 1,000-person dry-floor capacity at a $600/day event rate - best value found. Draws from both the Peterborough and Belleville sides via Hwy 7. No combat gym within 30 min (Belleville and Peterborough ~45 min).",
+      "scores": {
+        "crowd": 3,
+        "venue": 5,
+        "fighters": 2,
+        "competition": 5,
+        "distance": 3,
+        "overall": 3.6
+      },
+      "verdict": "Best-value summer venue on the list (1,000 cap, $600/day, bar) - strong option for a May-August show."
+    },
+    {
+      "town": "Lakefield",
+      "region": "Peterborough County (Selwyn Township)",
+      "population": "18,653 (Selwyn Township, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - gateway to the Kawartha lakes; next to Peterborough's ~84k.",
+      "drive_from_bancroft": "~100 km / ~1 h 15 min south on Hwy 28 (estimate)",
+      "venues": [
+        {
+          "name": "Lakefield-Smith Community Centre",
+          "address": "20 Concession Street, Lakefield",
+          "capacity": "Not published",
+          "capacity_note": "Upper-level Niels Pind Room holds 120; arena hosts trade shows, concerts, events in summer.",
+          "rental_rate": "Selwyn rates page (year not stated): \"Arena floor event rate (up to 1am)\" $761.23 (covers Ennismore & Lakefield); \"Daily Floor Rental (All hours)\" $103.07 under Summer Floor Rate (Sports) - facility page instead says $105.23/hr incl. HST; Niels Pind Room $216.70 (to 11pm) / $416.73 (to 1am).",
+          "dry_floor_season": "Summer floor season (dates not given).",
+          "facilities": "Niels Pind Room with bar option.",
+          "contact": "705-292-9507 ext. 243; recreation@selwyntownship.ca",
+          "source_url": "https://www.selwyntownship.ca/en/township-hall/facility-rental-rates.aspx"
+        },
+        {
+          "name": "Robert E. Young Recreation Complex (Ennismore arena)",
+          "address": "Ennismore",
+          "capacity": "Not published",
+          "capacity_note": "Hosted Corcoran's 12-bout amateur boxing card 'War in Ennismore: Revival' (Aug 20, 2022).",
+          "rental_rate": "Same arena floor event rate $761.23 (up to 1am); auditorium $255.61 (to 11pm) / $483.42 (to 1am)",
+          "dry_floor_season": "Summer floor season",
+          "facilities": "Auditorium",
+          "contact": "705-292-9507 ext. 243",
+          "source_url": "https://www.ptbocanada.com/journal/the-war-in-ennismore-amateur-boxing-returns-to-the-kawarthas"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "BEL Boxing Club",
+          "town": "Selwyn Twp / Peterborough (1625 Chemong Rd)",
+          "source_url": "https://kawarthanow.com/venue/1500/bel-boxing-club"
+        },
+        {
+          "name": "Kawartha Combat (BJJ, Muay Thai, kickboxing)",
+          "town": "Peterborough (910 High St #15)",
+          "source_url": "https://letsroll.co/gym/kawartha-combat-peterborough-on"
+        },
+        {
+          "name": "10th Planet Jiu Jitsu Peterborough",
+          "town": "Peterborough",
+          "source_url": "https://www.10thplanetjj.com/?p=418"
+        },
+        {
+          "name": "Corcoran's Boxing Club & Fitness Centre (ran 12-bout amateur card 'War in Ennismore: Revival', Aug 2022)",
+          "town": "Peterborough",
+          "source_url": "https://boxingontario.com/city/peterborough"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "War in Ennismore: Revival (Corcoran's Boxing Club, 12 amateur boxing bouts) - pre-2025, shows local demand",
+          "date": "2022-08-20",
+          "source_url": "https://www.ptbocanada.com/journal/the-war-in-ennismore-amateur-boxing-returns-to-the-kawarthas"
+        }
+      ],
+      "local_events": [],
+      "notes": "Gets Peterborough's fighters and fans at small-town rental prices; rate pages are inconsistent - confirm the floor rate.",
+      "scores": {
+        "crowd": 4,
+        "venue": 3,
+        "fighters": 4,
+        "competition": 4,
+        "distance": 3,
+        "overall": 3.6
+      },
+      "verdict": "Smart way into the Peterborough market without Memorial Centre costs - good 2027 expansion show."
+    },
+    {
+      "town": "Belleville",
+      "region": "Hastings County / Bay of Quinte",
+      "population": "55,071 (City of Belleville, 2021 census); Quinte West next door 46,560",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Regional city on the Bay of Quinte; summer waterfront festivals; not a cottage swell town.",
+      "drive_from_bancroft": "~150 km / ~1 h 50 min south on Hwy 62 (estimate)",
+      "venues": [
+        {
+          "name": "Quinte Sports & Wellness Centre - main bowl (City lists 'CIBC Place'; Wikipedia: CAA Arena)",
+          "address": "265 Cannifton Road, Belleville",
+          "capacity": "Over 4,400 (City) / 4,365 hockey (Wikipedia); other pads 300, 200, 400 seats",
+          "capacity_note": "Home of the AHL Belleville Senators - winter dates scarce.",
+          "rental_rate": "City page (excl. HST, year not stated): adult ball hockey/floor $119.75/hr, minor $81.75/hr; \"Benefit Exhibition Games: $609.50 plus expenses\". No event day rate published.",
+          "dry_floor_season": "Floor rates listed year-round; summer ice sold July-August.",
+          "facilities": "Multiple pads, elevator access",
+          "contact": "rentals@belleville.ca, 613-966-4632",
+          "source_url": "https://www.belleville.ca/learn-and-play/facilities-and-rentals/arenas/"
+        },
+        {
+          "name": "Belleville Armouries",
+          "address": "Downtown Belleville",
+          "capacity": "Not published",
+          "capacity_note": "Federal heritage building; hosted BTC XXVII pro-am MMA (Mar 15, 2025).",
+          "rental_rate": "Not published",
+          "dry_floor_season": "N/A",
+          "facilities": "Houses the Hastings and Prince Edward Regiment Museum",
+          "contact": "Not found",
+          "source_url": "https://anishinabeknews.ca/2025/01/historic-mixed-martial-arts-event-will-be-staged-in-belleville/"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Infinite Martial Arts and Fitness (BJJ, Muay Thai, kickboxing, MMA, boxing)",
+          "town": "Belleville (315 Bell Blvd)",
+          "source_url": "https://websites.ca/listing/g9yav7/Infinite-Martial-Arts-and-Fitness-Belleville-Ontario"
+        },
+        {
+          "name": "Pinnacle Boxing Academy (hosted Friday Night Fights, Sept 12, 2025)",
+          "town": "Belleville",
+          "source_url": "https://www.inquinte.ca/2025/10/local-boxers-fight-their-way-to-medals-at-provincial-championships/"
+        },
+        {
+          "name": "Bulldog Boxing Academy (named in a 2019 article; current status not verified)",
+          "town": "Belleville",
+          "source_url": "https://www.bancroftthisweek.com/purtells-first-fight-on-home-soil/"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "BTC XXVII: Bellevegas (BTC Fight Promotions, pro-am MMA, Belleville Armouries; planned 6 amateur + 6 pro bouts)",
+          "date": "2025-03-15",
+          "source_url": "https://anishinabeknews.ca/2025/01/historic-mixed-martial-arts-event-will-be-staged-in-belleville/"
+        },
+        {
+          "name": "Friday Night Fights (Pinnacle Boxing, Boxing Ontario club show, Belleville Curling Club)",
+          "date": "2025-09-12",
+          "source_url": "https://boxingontario.com/events"
+        }
+      ],
+      "local_events": [
+        {
+          "name": "Downtown @ Dusk",
+          "typical_dates": "June 19, 2026",
+          "note": ""
+        },
+        {
+          "name": "Festival on the Bay (Trenton)",
+          "typical_dates": "July 16-18, 2026",
+          "note": ""
+        },
+        {
+          "name": "Tyendinaga Traditional Pow Wow",
+          "typical_dates": "Aug 8-9, 2026",
+          "note": ""
+        },
+        {
+          "name": "Belleville Caribbean Festival",
+          "typical_dates": "Aug 16, 2026",
+          "note": ""
+        }
+      ],
+      "notes": "Strong market and gyms, but BTC Fight Promotions (est. 2017) has already run pro-am MMA here, and boxing clubs run their own shows. Purtell trained at Bulldog Boxing Academy in Belleville (2019 article) - existing ties.",
+      "scores": {
+        "crowd": 5,
+        "venue": 4,
+        "fighters": 5,
+        "competition": 2,
+        "distance": 2,
+        "overall": 3.6
+      },
+      "verdict": "Big market with real competition (BTC) - only with a distinct amateur/cottage-league angle or a co-promotion."
+    },
+    {
+      "town": "Lindsay",
+      "region": "City of Kawartha Lakes",
+      "population": "79,247 (City of Kawartha Lakes, 2021 census); Ross Memorial says ~75,000 year-round plus 13,000+ seasonal residents",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario ; https://rmh.org/careers-and-education/community-information",
+      "tourism": "Yes - Kawartha Lakes adds 13,000+ seasonal residents; Lindsay is the urban centre.",
+      "drive_from_bancroft": "~150 km / ~1 h 50 min (estimate)",
+      "venues": [
+        {
+          "name": "Lindsay Recreation Complex",
+          "address": "133 Adelaide Street South, Lindsay",
+          "capacity": "Not published",
+          "capacity_note": "Two ice pads (Pad One/Pad Two); community room 180.",
+          "rental_rate": "Not published (booked via the City's PerfectMind portal)",
+          "dry_floor_season": "Many City arenas become floors April through August.",
+          "facilities": "Community room; alcohol events need liquor liability insurance under City policy.",
+          "contact": "705-324-9112; Facility Booking 705-324-9411 ext. 1226, facilitybooking@kawarthalakes.ca",
+          "source_url": "https://www.kawarthalakes.ca/explore-play/facility-and-park-rentals/arena-and-ice-rentals/"
+        },
+        {
+          "name": "Lindsay Exhibition Grounds",
+          "address": "50 Exhibition Drive, Lindsay",
+          "capacity": "Not published",
+          "capacity_note": "Home of the Lindsay Exhibition ('fourth-largest agricultural fair in Ontario').",
+          "rental_rate": "Not found",
+          "dry_floor_season": "N/A",
+          "facilities": "Fairgrounds",
+          "contact": "Lindsay Agricultural Society",
+          "source_url": "https://ontariovisited.ca/las-presents-the-lex-2026/"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Big Country - Lindsay (MMA, BJJ, Muay Thai, boxing, wrestling, kickboxing; supplied an amateur champion to CCCL 1 per Highlander)",
+          "town": "Lindsay (50 Mary St W)",
+          "source_url": "https://bigcountrylindsay.gymdesk.com/page/home"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Lindsay Exhibition (LEX)",
+          "typical_dates": "Late September; 2026: Sept 23-27",
+          "note": ""
+        }
+      ],
+      "notes": "Big Country Lindsay is a full MMA gym (Lindsay/Orillia/Bracebridge network) and already sent a champion to CCCL 1 - natural co-promotion partner. Far from Bancroft.",
+      "scores": {
+        "crowd": 4,
+        "venue": 3,
+        "fighters": 5,
+        "competition": 4,
+        "distance": 2,
+        "overall": 3.6
+      },
+      "verdict": "Strong fighter base and market, but far - consider a co-promoted show with Big Country later in 2027."
+    },
+    {
+      "town": "Wilberforce (added)",
+      "region": "Haliburton County (Highlands East)",
+      "population": "3,830 (Highlands East, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - cottage township.",
+      "drive_from_bancroft": "About a half-hour drive (My Bancroft Now, Sept 2026)",
+      "venues": [
+        {
+          "name": "Keith Tallman Memorial Arena",
+          "address": "Wilberforce (municipal office 2249 Loop Rd)",
+          "capacity": "Not published",
+          "capacity_note": "Small community arena; hosted Bancroft minor hockey in Sept 2026 while NHCC had no ice.",
+          "rental_rate": "Highlands East page (year not stated): \"Summer Prime Time ... $40 plus HST\" per hour, \"Summer Non-Prime ... $25 plus HST\"; winter prime $95 + HST; \"Full Day Rate not available\"; events need $2M liability.",
+          "dry_floor_season": "Summer = dry season (ice put in early in 2026 for Bancroft groups)",
+          "facilities": "Not described",
+          "contact": "Highlands East municipal office",
+          "source_url": "https://www.highlandseast.ca/municipal-services/fees/facility-fees/"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Bancroft Boxing & Grappling (~30 min)",
+          "town": "Bancroft",
+          "source_url": "https://thehighlander.ca/2026/03/12/fight-night-coming-to-haliburton-county/"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [],
+      "notes": "Cheap hourly summer rate but no day rate and no published capacity.",
+      "scores": {
+        "crowd": 2,
+        "venue": 2,
+        "fighters": 3,
+        "competition": 5,
+        "distance": 5,
+        "overall": 3.4
+      },
+      "verdict": "Low-cost fallback only (e.g., a small youth grappling/amateur night) - too small for a 1,000+ crowd."
+    },
+    {
+      "town": "Minden",
+      "region": "Haliburton County (Minden Hills)",
+      "population": "6,971 (Minden Hills, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - cottage country (Haliburton County).",
+      "drive_from_bancroft": "~95 km / ~1 h 15 min via Haliburton (estimate)",
+      "venues": [
+        {
+          "name": "S.G. Nesbitt Memorial Arena (Minden Hills Recreation Complex)",
+          "address": "55 Parkside St, Minden, ON K0M 2K0",
+          "capacity": "294 seats (Town) / 390 (Stadium Journey)",
+          "capacity_note": "New building opened fall 2020. OJHL Huskies averaged 418 fans early 2025-26. Floor-standing capacity with a cage not published.",
+          "rental_rate": "Town page (year not stated, 2026 site): \"Rink area rental $1,147.50 per day or night\"; floor sports $55.50/hr; special occasion permit surcharge $222.50; stat holidays +20%; non-resident (outside Haliburton County) ice rates higher.",
+          "dry_floor_season": "Summer ice is sold June 1-Aug 31, so a summer dry floor is not guaranteed; spring is the likely window - confirm.",
+          "facilities": "Community Centre room; liquor events need $5M liability (or buy via Town's LCIS program). Deposit at booking, balance 30 days before.",
+          "contact": "705-286-1936 ext. 554; communityservicesbookings@mindenhills.ca",
+          "source_url": "https://www.mindenhills.ca/explore-discover/rent-a-facility/arena-and-ice-rentals/"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "The Chop Shop MMA (BJJ + fitness kickboxing; opened May 30, 2026; owners ran Hayabusa Academy Kingston)",
+          "town": "Haliburton (175 Industrial Park Rd)",
+          "source_url": "https://thehighlander.ca/2026/05/21/bringing-hi-yah-to-haliburton/"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Haliburton County Fair, Minden fairgrounds",
+          "typical_dates": "Sat June 13, 2026",
+          "note": ""
+        },
+        {
+          "name": "Ontario municipal election - S.G. Nesbitt Community Centre is the poll",
+          "typical_dates": "Oct 26, 2026",
+          "note": ""
+        }
+      ],
+      "notes": "Same county market as the Haliburton show (20 min apart) - running both risks splitting the same buyers. Smaller fixed seating than LaRue. Seating figures: Town 294 vs Stadium Journey 390.",
+      "scores": {
+        "crowd": 4,
+        "venue": 3,
+        "fighters": 3,
+        "competition": 4,
+        "distance": 3,
+        "overall": 3.4
+      },
+      "verdict": "Good modern backup to Haliburton, but same market - use only if LaRue is unavailable."
+    },
+    {
+      "town": "Huntsville",
+      "region": "District of Muskoka",
+      "population": "21,147 (Town of Huntsville, 2021 census); Muskoka 66,674 permanent (2021)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario ; https://www.statcan.gc.ca/o1/en/plus/3689-great-canadian-summer-muskoka",
+      "tourism": "Yes - top-tier cottage destination; StatCan notes many seasonal owners summer in Muskoka (47,560 private dwellings vs 28,571 occupied by usual residents).",
+      "drive_from_bancroft": "~165 km / ~2 h via Hwy 127/60 or Haliburton (estimate)",
+      "venues": [
+        {
+          "name": "Canada Summit Centre - Don Lough Arena",
+          "address": "20 Park Drive, Huntsville",
+          "capacity": "2,200 max (incl. standing); 1,371 seated",
+          "capacity_note": "200x100 ft floor (20,000 sq ft), removable glass and boards, sound system. Second pad Jack Bionda Arena: 1,000 max.",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Not published (Town also sells summer ice)",
+          "facilities": "Upper/lower warm viewing areas; bar/licensing not mentioned",
+          "contact": "Greg Pilling, 705-789-6421 x3027, greg.pilling@huntsville.ca",
+          "source_url": "https://huntsville.ca/media/czqfwb2f/town-of-huntsville-2025_sales-kit.pdf"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Big Country - Muskoka (~30-35 min, estimate)",
+          "town": "Bracebridge (75 Manitoba St)",
+          "source_url": "https://bigcountrymuskoka.gymdesk.com/"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "Rock Solid Wrestling 'Brace For Impact' (pro wrestling, Bracebridge & Muskoka Lakes Secondary School; $25 floor / $20 bleacher)",
+          "date": "2025-03-29",
+          "source_url": "https://events.bracebridge.ca/Events/detail/2025-03-29-1900-Rock-Solid-Wrestling-Brace-For-Impact"
+        },
+        {
+          "name": "OFF1: First Strike (Official Fight Federation, pro-am MMA, Sadlon Arena, Barrie) - regional, ~1h south of Muskoka",
+          "date": "2025-05-09",
+          "source_url": "https://orilliamatters.com/local-sports/barries-first-ever-pro-am-mma-event-happening-in-may-10382588"
+        }
+      ],
+      "local_events": [
+        {
+          "name": "Huntsville Festival of the Arts summer season",
+          "typical_dates": "June 1 - Aug 30, 2026",
+          "note": "Mostly at Algonquin Theatre."
+        }
+      ],
+      "notes": "Best-specified big venue on the list (removable boards, 2,200 cap), but ~2 h away and no verified combat gym in Huntsville itself.",
+      "scores": {
+        "crowd": 4,
+        "venue": 4,
+        "fighters": 3,
+        "competition": 4,
+        "distance": 2,
+        "overall": 3.4
+      },
+      "verdict": "Great summer-tourist venue but far from the Bancroft base - consider for a 2028 Muskoka expansion with Big Country Muskoka."
+    },
+    {
+      "town": "Bracebridge",
+      "region": "District of Muskoka",
+      "population": "17,305 (Town of Bracebridge, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - Muskoka cottage hub.",
+      "drive_from_bancroft": "~145 km / ~1 h 50 min via Hwy 118 (estimate)",
+      "venues": [
+        {
+          "name": "Muskoka Lumber Arena (Muskoka Lumber Community Centre)",
+          "address": "56 Salmon Avenue, Bracebridge",
+          "capacity": "Not published",
+          "capacity_note": "",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Not published",
+          "facilities": "Muskoka Leon's Auditorium bookable via same contact",
+          "contact": "Josh Taylor, Bookings, 705-645-3037 ext. 3763, jtaylor@bracebridge.ca",
+          "source_url": "https://www.bracebridge.ca/be-active/recreation-facilities-and-rentals/"
+        },
+        {
+          "name": "Bracebridge Sportsplex",
+          "address": "110 Clearbrook Trail, Bracebridge",
+          "capacity": "Not published",
+          "capacity_note": "",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Not published",
+          "facilities": "Conference + multipurpose rooms",
+          "contact": "Town of Bracebridge 705-645-5264",
+          "source_url": "https://www.bracebridge.ca/be-active/recreation-facilities-and-rentals/"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Big Country - Muskoka (BJJ, Muay Thai, kickboxing, boxing)",
+          "town": "Bracebridge (75 Manitoba St)",
+          "source_url": "https://bigcountrymuskoka.gymdesk.com/"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "Rock Solid Wrestling 'Brace For Impact' (pro wrestling, Bracebridge & Muskoka Lakes Secondary School; $25 floor / $20 bleacher)",
+          "date": "2025-03-29",
+          "source_url": "https://events.bracebridge.ca/Events/detail/2025-03-29-1900-Rock-Solid-Wrestling-Brace-For-Impact"
+        },
+        {
+          "name": "OFF1: First Strike (Official Fight Federation, pro-am MMA, Sadlon Arena, Barrie) - regional, ~1h south of Muskoka",
+          "date": "2025-05-09",
+          "source_url": "https://orilliamatters.com/local-sports/barries-first-ever-pro-am-mma-event-happening-in-may-10382588"
+        }
+      ],
+      "local_events": [],
+      "notes": "Pro wrestling drew a ticketed crowd in a school gym in March 2025 - proof of demand for live combat entertainment.",
+      "scores": {
+        "crowd": 4,
+        "venue": 3,
+        "fighters": 4,
+        "competition": 4,
+        "distance": 2,
+        "overall": 3.4
+      },
+      "verdict": "Good fighter + crowd mix in Muskoka; get venue capacity before considering."
+    },
+    {
+      "town": "Maynooth",
+      "region": "North Hastings (Hastings Highlands)",
+      "population": "4,385 (Hastings Highlands, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - cottage township (Hastings Highlands).",
+      "drive_from_bancroft": "~22 km / ~20 min north on Hwy 62 (estimate)",
+      "venues": [
+        {
+          "name": "Hastings Highlands Centre (Emond Hall)",
+          "address": "33011 Highway #62N, Maynooth, ON K0L 2S0",
+          "capacity": "165",
+          "capacity_note": "Hall only - no arena in Hastings Highlands found.",
+          "rental_rate": "Not listed",
+          "dry_floor_season": "N/A (no ice)",
+          "facilities": "Program room with kitchen; has hosted sporting events.",
+          "contact": "613-338-2811",
+          "source_url": "https://www.hastingshighlands.ca/recreation-culture/facilities-and-rentals/hastings-highlands-centre-emond-hall-program-room/"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Bancroft Boxing & Grappling (~20 min, estimate)",
+          "town": "Bancroft",
+          "source_url": "https://thehighlander.ca/2026/03/12/fight-night-coming-to-haliburton-county/"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [],
+      "notes": "Hastings Highlands residents are the largest NHCC user group (38%), so Maynooth is really part of the Bancroft market.",
+      "scores": {
+        "crowd": 2,
+        "venue": 1,
+        "fighters": 3,
+        "competition": 5,
+        "distance": 5,
+        "overall": 3.2
+      },
+      "verdict": "Not viable for a caged show (165-person hall) - treat as Bancroft's catchment."
+    },
+    {
+      "town": "Madoc",
+      "region": "Hastings County (Centre Hastings)",
+      "population": "4,801 (Centre Hastings, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Some - rural/lakes; crossroads of Hwy 62 and Hwy 7.",
+      "drive_from_bancroft": "~95 km / ~1 h 10 min south on Hwy 62 (estimate)",
+      "venues": [
+        {
+          "name": "Madoc & District Recreation Centre (arena)",
+          "address": "45 Cooper Rd, Madoc, ON K0K 2K0",
+          "capacity": "Not published",
+          "capacity_note": "Single pad, built 1976, on the fairgrounds (land owned by the Agricultural Society, leased to Centre Hastings); 250 parking spaces; has hosted dances, craft shows, trade fairs.",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Open September to May for ice, so dry floor ~June-August.",
+          "facilities": "Lobby, canteen, dressing rooms; bar not mentioned.",
+          "contact": "613-473-4206",
+          "source_url": "https://www.centrehastings.com/media/ntcdeugb/centre-hastings-prc-master-plan-technical-compendium_may2023.pdf"
+        }
+      ],
+      "gyms_nearby": [],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Madoc Fair (at the arena grounds)",
+          "typical_dates": "3rd weekend of September; 2026: Sept 18-20",
+          "note": ""
+        }
+      ],
+      "notes": "Between Bancroft and Belleville; no gyms found within 30 min (Belleville ~45 min).",
+      "scores": {
+        "crowd": 3,
+        "venue": 3,
+        "fighters": 2,
+        "competition": 5,
+        "distance": 3,
+        "overall": 3.2
+      },
+      "verdict": "Possible summer show if capacity checks out; secondary option."
+    },
+    {
+      "town": "Fenelon Falls",
+      "region": "City of Kawartha Lakes",
+      "population": "Part of Kawartha Lakes (79,247, 2021 census); village figure not retrieved",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - lock town and cottage hub (Cameron/Sturgeon lakes).",
+      "drive_from_bancroft": "~140 km / ~1 h 45 min (estimate)",
+      "venues": [
+        {
+          "name": "Fenelon Falls Community Centre (Roger Bellwood Arena & Gord Innes Community Centre)",
+          "address": "27 Veterans Way, Fenelon Falls",
+          "capacity": "280 arena seats",
+          "capacity_note": "Opened Oct 2012; hall 350 (2012 article) / main hall 473 (City page).",
+          "rental_rate": "Not published",
+          "dry_floor_season": "City arenas typically floors April-August",
+          "facilities": "Main hall + meeting room",
+          "contact": "705-887-3727; City Facility Booking 705-324-9411 ext. 1226",
+          "source_url": "https://explorefenelonfalls.com/news-archive/roger-bellwood-arena-and-gord-innes-community-centre-opened-2012"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Big Country - Lindsay (~20-25 min, estimate)",
+          "town": "Lindsay",
+          "source_url": "https://bigcountrylindsay.gymdesk.com/page/home"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Fenelon Fair",
+          "typical_dates": "Mid-July; 2025: July 18-20",
+          "note": ""
+        }
+      ],
+      "notes": "Strong summer cottage traffic; same City booking system as Lindsay.",
+      "scores": {
+        "crowd": 3,
+        "venue": 3,
+        "fighters": 4,
+        "competition": 4,
+        "distance": 2,
+        "overall": 3.2
+      },
+      "verdict": "Decent summer cottage-crowd option if Lindsay is too big or busy."
+    },
+    {
+      "town": "Barry's Bay",
+      "region": "Renfrew County / Ottawa Valley (Madawaska Valley)",
+      "population": "3,927 (Madawaska Valley, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - lakes/cottage area on Hwy 60/62 (Kamaniskeg Lake).",
+      "drive_from_bancroft": "~80 km / ~1 h north via Hwy 62 (estimate)",
+      "venues": [
+        {
+          "name": "Paul J. Yakabuski Community Centre (PJYCC)",
+          "address": "Barry's Bay (Township mailing: 85 Bay St)",
+          "capacity": "Ice surface 800; upstairs Community Hall 285",
+          "capacity_note": "Published capacities.",
+          "rental_rate": "2026 Schedule of Fees: \"PJYCC Renter Run Bar: downstairs ice surface\" $1224; Municipal Run Bar downstairs $816; ice regular hourly $173; fundraising/community group rate \"50% of rental fee\". No dry-floor day rate listed.",
+          "dry_floor_season": "Ice mid-September to mid-April, so dry floor ~mid-April to mid-September.",
+          "facilities": "Kitchen + dedicated bar on the ice-surface level; hall with full kitchen, bar, stage. No air conditioning on the ice surface (summer heat).",
+          "contact": "Hannah Gutoskie, 613-756-2747 ext. 220, recreation@madawaskavalley.ca",
+          "source_url": "https://www.madawaskavalley.ca/recreation-tourism/facilities-rentals/paul-j-yakabuski-community-centre/"
+        }
+      ],
+      "gyms_nearby": [],
+      "combat_events": [],
+      "local_events": [],
+      "notes": "Bar fee structure on the ice surface suits a licensed fight night. No local combat gyms found; Pembroke/Petawawa ~1h further east.",
+      "scores": {
+        "crowd": 3,
+        "venue": 3,
+        "fighters": 1,
+        "competition": 5,
+        "distance": 3,
+        "overall": 3.0
+      },
+      "verdict": "Workable 800-cap venue in an untouched market, but no fighter base - a later-2027 expansion test."
+    },
+    {
+      "town": "Havelock",
+      "region": "Peterborough County (Havelock-Belmont-Methuen)",
+      "population": "5,083 (Havelock-Belmont-Methuen, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - Kawarthas cottage area (Belmont/Round Lake).",
+      "drive_from_bancroft": "~115 km / ~1 h 25 min (estimate)",
+      "venues": [
+        {
+          "name": "Havelock Community Centre (arena)",
+          "address": "39 George Street East, Havelock, ON",
+          "capacity": "Not published",
+          "capacity_note": "Ice and surface rental available.",
+          "rental_rate": "Not shown; fees set by By-Law 2024-032 (not retrieved)",
+          "dry_floor_season": "Not stated",
+          "facilities": "Havelock Lions Hall at the same address is a licensed banquet hall with kitchen.",
+          "contact": "705-778-2891",
+          "source_url": "https://www.hbmtwp.ca/play-and-discover/facilities/rent-a-facility"
+        }
+      ],
+      "gyms_nearby": [],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Havelock Country Jamboree",
+          "typical_dates": "Was 3rd weekend of August",
+          "note": "Closed permanently (announced June 2023) - no clash."
+        }
+      ],
+      "notes": "Peterborough gyms ~35-40 min away (estimate).",
+      "scores": {
+        "crowd": 3,
+        "venue": 3,
+        "fighters": 2,
+        "competition": 4,
+        "distance": 3,
+        "overall": 3.0
+      },
+      "verdict": "Middling - licensed hall on site is a plus, but Marmora is a better-documented option on the same Hwy 7 corridor."
+    },
+    {
+      "town": "Pembroke",
+      "region": "Renfrew County / Ottawa Valley",
+      "population": "14,364 (City of Pembroke, 2021 census); Petawawa next door 18,160",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Some - Ottawa River; CFB Petawawa next door (military population).",
+      "drive_from_bancroft": "~175 km / ~2 h 10 min via Barry's Bay & Hwy 60/41 (estimate)",
+      "venues": [
+        {
+          "name": "Pembroke Memorial Centre",
+          "address": "393 Pembroke St W, Pembroke, ON K8A 5N5",
+          "capacity": "2,250 seats; 3,750 with standing room",
+          "capacity_note": "Record attendance 5,262; new CCHL Pembroke Royals tenant from 2026 (winter dates scarce).",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Public skating Oct-Mar; spring/summer floor likely (estimate)",
+          "facilities": "Not described",
+          "contact": "Parks & Recreation 613-735-6821 ext. 1501, recreation@pembroke.ca",
+          "source_url": "https://en.wikipedia.org/wiki/Pembroke_Memorial_Centre"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Ottawa Valley Boxing (opened Sept 21, 2024)",
+          "town": "Petawawa (1959 Petawawa Blvd, Unit 3)",
+          "source_url": "https://www.petawawa.ca/business/shop-petawawa/story-board/ottawa-valley-boxing-opens-in-petawawa-8817.html"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "Next Wave Combat (Surge MMA, amateur MMA + Muay Thai in a cage, Lois Kemp Arena, Ottawa) - regional",
+          "date": "2026-08-01",
+          "source_url": "https://www.eventbrite.ca/e/next-wave-combat-tickets-1990798629291"
+        }
+      ],
+      "local_events": [
+        {
+          "name": "Canadian Fiddle and Stepdance Championship / Fiddle Week",
+          "typical_dates": "Labour Day week; 2026: Aug 30 - Sept 5",
+          "note": ""
+        }
+      ],
+      "notes": "Large venue and a military-town audience, but beyond 2 h and few gyms found.",
+      "scores": {
+        "crowd": 4,
+        "venue": 4,
+        "fighters": 2,
+        "competition": 4,
+        "distance": 1,
+        "overall": 3.0
+      },
+      "verdict": "Too far for 2027."
+    },
+    {
+      "town": "Gravenhurst",
+      "region": "District of Muskoka",
+      "population": "13,157 (Town of Gravenhurst, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - Muskoka cottage/tourist town.",
+      "drive_from_bancroft": "~165 km / ~2 h 05 min (estimate)",
+      "venues": [
+        {
+          "name": "Gravenhurst Centennial Centre (Graeme Murray Arena)",
+          "address": "Gravenhurst (address not retrieved)",
+          "capacity": "Not published",
+          "capacity_note": "",
+          "rental_rate": "2025 fee sheet (effective Jan 1, 2025; columns poorly aligned in PDF text): arena floor trade shows/concerts per hour ~ Commercial $231 / Non-commercial $209 / Youth-NFP $157; \"Special Events Flat Rates... Complete use of Facility (4pm Fri - 6pm Sun)\" $1,427; full hall $96/hr commercial (8-hour minimum for large functions).",
+          "dry_floor_season": "Summer ice listed July-Labour Day; set-up fees apply 'whether ice is in or not'",
+          "facilities": "Hall + kitchen ($113 flat with hall)",
+          "contact": "Town of Gravenhurst",
+          "source_url": "https://gravenhurst.ca/media/msmpvc4a/centennial-centre-arena-fees-2025.pdf"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Big Country - Muskoka (~15-20 min, estimate)",
+          "town": "Bracebridge",
+          "source_url": "https://bigcountrymuskoka.gymdesk.com/"
+        }
+      ],
+      "combat_events": [
+        {
+          "name": "Rock Solid Wrestling 'Brace For Impact' (pro wrestling, Bracebridge & Muskoka Lakes Secondary School; $25 floor / $20 bleacher)",
+          "date": "2025-03-29",
+          "source_url": "https://events.bracebridge.ca/Events/detail/2025-03-29-1900-Rock-Solid-Wrestling-Brace-For-Impact"
+        }
+      ],
+      "local_events": [],
+      "notes": "Weekend flat rate is attractive but the town is at the 2-hour limit.",
+      "scores": {
+        "crowd": 3,
+        "venue": 3,
+        "fighters": 4,
+        "competition": 4,
+        "distance": 1,
+        "overall": 3.0
+      },
+      "verdict": "Too far for now."
+    },
+    {
+      "town": "Campbellford",
+      "region": "Northumberland County (Trent Hills)",
+      "population": "13,861 (Trent Hills, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Some - Trent-Severn Waterway town.",
+      "drive_from_bancroft": "~135 km / ~1 h 45 min (estimate)",
+      "venues": [
+        {
+          "name": "Sunny Life Recreation & Wellness Centre",
+          "address": "50 Seymour Quarry Road, Campbellford",
+          "capacity": "Not published",
+          "capacity_note": "New 64,000 sq ft facility; arena opened Oct 18, 2024 (replaced 1967 Campbellford-Seymour Arena); YMCA-operated parts.",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Not published",
+          "facilities": "Multi-purpose room, pool, fitness",
+          "contact": "bookings@trenthills.ca; 705-653-1900",
+          "source_url": "https://trenthills.ca/parks-recreation-community/sunny-life-recreation-wellness-centre"
+        }
+      ],
+      "gyms_nearby": [],
+      "combat_events": [],
+      "local_events": [],
+      "notes": "New arena could be eager for events, but no gyms or capacity info found.",
+      "scores": {
+        "crowd": 3,
+        "venue": 3,
+        "fighters": 1,
+        "competition": 5,
+        "distance": 2,
+        "overall": 2.8
+      },
+      "verdict": "Low priority - far, no fighter base."
+    },
+    {
+      "town": "Tweed",
+      "region": "Hastings County (Tweed)",
+      "population": "6,067 (Municipality of Tweed, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Some - Stoco Lake; Tweed Stampede draws visitors.",
+      "drive_from_bancroft": "~120 km / ~1 h 30 min via Madoc & Hwy 7/37 (estimate)",
+      "venues": [
+        {
+          "name": "Tweed Hungerford Community Centre (arena)",
+          "address": "Tweed (address not retrieved)",
+          "capacity": "Not published",
+          "capacity_note": "Details not found online; Town lists an Arena Availability Calendar.",
+          "rental_rate": "Not found",
+          "dry_floor_season": "Not found",
+          "facilities": "Not found",
+          "contact": "Municipality of Tweed 613-478-2535",
+          "source_url": "https://tweed.ca/business-directory-c451/tweed-community-centre/236"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Infinite Martial Arts and Fitness (~40 min, estimate)",
+          "town": "Belleville",
+          "source_url": "https://websites.ca/listing/g9yav7/Infinite-Martial-Arts-and-Fitness-Belleville-Ontario"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Tweed Fair (617 Louisa St)",
+          "typical_dates": "July 10-12, 2026",
+          "note": ""
+        },
+        {
+          "name": "Tweed Stampede (rodeo + concerts, Stoco Lake Lodge)",
+          "typical_dates": "Labour Day weekend; 2026: Sept 4-7",
+          "note": "Shows the town can draw a festival crowd."
+        }
+      ],
+      "notes": "Venue data too thin to assess.",
+      "scores": {
+        "crowd": 3,
+        "venue": 2,
+        "fighters": 2,
+        "competition": 5,
+        "distance": 2,
+        "overall": 2.8
+      },
+      "verdict": "Low priority - farther than Marmora/Madoc with no published venue info."
+    },
+    {
+      "town": "Norwood",
+      "region": "Peterborough County (Asphodel-Norwood)",
+      "population": "4,658 (Asphodel-Norwood, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Limited - mostly rural/agricultural.",
+      "drive_from_bancroft": "~125 km / ~1 h 30 min (estimate)",
+      "venues": [
+        {
+          "name": "Asphodel-Norwood Community Centre",
+          "address": "88 Alma Street, Norwood",
+          "capacity": "Not published",
+          "capacity_note": "",
+          "rental_rate": "Not published",
+          "dry_floor_season": "Not published",
+          "facilities": "Millennium Room; sheltered picnic area",
+          "contact": "705-639-2342",
+          "source_url": "https://www.antownship.ca/township-services/facilities/community-centre"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Kawartha Combat (BJJ, Muay Thai, kickboxing)",
+          "town": "Peterborough (910 High St #15)",
+          "source_url": "https://letsroll.co/gym/kawartha-combat-peterborough-on"
+        },
+        {
+          "name": "10th Planet Jiu Jitsu Peterborough",
+          "town": "Peterborough",
+          "source_url": "https://www.10thplanetjj.com/?p=418"
+        },
+        {
+          "name": "Corcoran's Boxing Club & Fitness Centre (ran 12-bout amateur card 'War in Ennismore: Revival', Aug 2022)",
+          "town": "Peterborough",
+          "source_url": "https://boxingontario.com/city/peterborough"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Norwood Fall Fair",
+          "typical_dates": "Thanksgiving weekend; 2026: Oct 10-12",
+          "note": ""
+        }
+      ],
+      "notes": "Peterborough gyms ~25-30 min (estimate).",
+      "scores": {
+        "crowd": 3,
+        "venue": 2,
+        "fighters": 3,
+        "competition": 4,
+        "distance": 2,
+        "overall": 2.8
+      },
+      "verdict": "Low priority - no published venue data and Peterborough is the bigger draw nearby."
+    },
+    {
+      "town": "Bobcaygeon",
+      "region": "City of Kawartha Lakes",
+      "population": "Part of Kawartha Lakes (79,247, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - major Kawartha cottage/tourist town.",
+      "drive_from_bancroft": "~120 km / ~1 h 30 min via Hwy 28 & Hwy 36 (estimate)",
+      "venues": [
+        {
+          "name": "Bobcaygeon/Verulam Community Centre",
+          "address": "51 Mansfield Street, Bobcaygeon",
+          "capacity": "Hall 200",
+          "capacity_note": "Hall not available for rentals September through March; arena seating not published.",
+          "rental_rate": "Not published",
+          "dry_floor_season": "City arenas typically floors April-August",
+          "facilities": "Hall",
+          "contact": "705-738-3331",
+          "source_url": "https://www.kawarthalakes.ca/explore-play/facility-and-park-rentals/community-hall-rentals/"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Big Country - Lindsay (~30 min, estimate)",
+          "town": "Lindsay",
+          "source_url": "https://bigcountrylindsay.gymdesk.com/page/home"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Bobcaygeon Fall Fair",
+          "typical_dates": "Late September; 2024: Sept 26-28",
+          "note": ""
+        }
+      ],
+      "notes": "",
+      "scores": {
+        "crowd": 3,
+        "venue": 2,
+        "fighters": 3,
+        "competition": 4,
+        "distance": 2,
+        "overall": 2.8
+      },
+      "verdict": "Low priority - no venue capacity data."
+    },
+    {
+      "town": "Coe Hill / Wollaston",
+      "region": "North Hastings (Wollaston Twp)",
+      "population": "721 (Wollaston, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Cottage/rural township.",
+      "drive_from_bancroft": "~40 km / ~35 min (estimate)",
+      "venues": [
+        {
+          "name": "Coe Hill Fair Grounds (outdoor)",
+          "address": "Coe Hill (street address not published)",
+          "capacity": "Not published",
+          "capacity_note": "No indoor arena found.",
+          "rental_rate": "Not found",
+          "dry_floor_season": "Outdoor only",
+          "facilities": "Fairgrounds",
+          "contact": "Coe Hill Agricultural Society (Facebook)",
+          "source_url": "https://hastings.ca/adventures/events/coe-hill-agricultural-society-fair-coe-hill-fair-grounds"
+        }
+      ],
+      "gyms_nearby": [
+        {
+          "name": "Bancroft Boxing & Grappling (~35 min, estimate)",
+          "town": "Bancroft",
+          "source_url": "https://thehighlander.ca/2026/03/12/fight-night-coming-to-haliburton-county/"
+        }
+      ],
+      "combat_events": [],
+      "local_events": [
+        {
+          "name": "Coe Hill Agricultural Society Fair",
+          "typical_dates": "Fri-Sat Aug 28-29, 2026 (late August)",
+          "note": "Possible demo/exhibition partner, not a show venue."
+        }
+      ],
+      "notes": "Too small for a ticketed caged event.",
+      "scores": {
+        "crowd": 1,
+        "venue": 1,
+        "fighters": 2,
+        "competition": 5,
+        "distance": 4,
+        "overall": 2.6
+      },
+      "verdict": "Skip as a host; at most a promo booth at the Coe Hill Fair."
+    },
+    {
+      "town": "Coboconk",
+      "region": "City of Kawartha Lakes",
+      "population": "Part of Kawartha Lakes (79,247, 2021 census)",
+      "population_source": "https://en.wikipedia.org/wiki/List_of_municipalities_in_Ontario",
+      "tourism": "Yes - cottage area (Balsam Lake).",
+      "drive_from_bancroft": "~125 km / ~1 h 35 min via Minden & Hwy 35 (estimate)",
+      "venues": [
+        {
+          "name": "Coboconk Community Centre (hall)",
+          "address": "Coboconk",
+          "capacity": "175",
+          "capacity_note": "No arena listed in the City's arena directory.",
+          "rental_rate": "Not published",
+          "dry_floor_season": "N/A",
+          "facilities": "Hall",
+          "contact": "City Facility Booking 705-324-9411 ext. 1226",
+          "source_url": "https://www.kawarthalakes.ca/explore-play/facility-and-park-rentals/community-hall-rentals/"
+        }
+      ],
+      "gyms_nearby": [],
+      "combat_events": [],
+      "local_events": [],
+      "notes": "",
+      "scores": {
+        "crowd": 2,
+        "venue": 1,
+        "fighters": 2,
+        "competition": 5,
+        "distance": 2,
+        "overall": 2.4
+      },
+      "verdict": "Not viable - no arena."
+    }
+  ],
+  "oac": {
+    "notes": "Amateur MMA has been legal in Ontario under the Combative Sports Act, 2019 since Jan 1, 2025; all amateur MMA contests must be sanctioned by the Ontario Athletics Commission (OAC). Amateur MMA ruleset v2.0 took effect May 27, 2025. EVENT PERMIT (ontario.ca 'Amateur combative sports events', updated Sept 16, 2025): apply at least 30 days before the event (for a series, 30 days before the first and details 30 days before each later one). Non-refundable application fees: \"$600 for an event permit to hold a single amateur combative sport contest or exhibition\"; \"$1,600 for ... a tournament-style\" event; \"$3,000 for an event permit to hold up to eight single amateur combative sport contests or exhibitions\". No published tier above eight contests - with 8-12 bouts (CCCL 1), ask the OAC whether a second permit or another option applies (uncertainty). Required with application: application form, photo ID, partnership/incorporation proof, code of conduct, venue letter of undertaking confirming the date, policies for qualification and selection of officials, list of all onsite medical personnel with titles/contacts, emergency response policies, certificate of commercial general liability insurance with minimum coverage of $2,000,000. Medical: if full-contact strikes to the head are allowed, a physician licensed with the College of Physicians and Surgeons of Ontario must be present at all times; each contestant needs a medical exam by a legally qualified practitioner within one year before the event. Rules: modified-ruleset exemptions must be requested at least 120 days before the event (AthleticsComm@ontario.ca). After: keep amateur books of suspensions, injuries, results; post-event report due within 14 days. Refusals can be appealed to the Licence Appeals Tribunal. Secondary source (MM-Eh, Jan 2025): promoters, contestants, managers, matchmakers and officials must be licensed, and amateurs must complete concussion-awareness training and follow return-to-play protocols - confirm which licences apply to amateur shows. OAC random anti-doping testing from Jan 1, 2026 applies to professionals, not amateurs (MM-Eh, Jan 2026). OAC contact (from ontario.ca pro page): AthleticsComm@ontario.ca, 416-326-0416. Venue-side insurance seen: Minden and North Kawartha require $5M liability for liquor events; Highlands East requires $2M for all events.",
+    "sources": [
+      "https://www.ontario.ca/page/amateur-combative-sports",
+      "https://www.ontario.ca/document/amateur-combative-sport-rules-mixed-martial-arts",
+      "https://ontario.ca/page/combat-sports-regulation-and-fees",
+      "https://mm-eh.ca/2025/01/ontario-welcomes-amateur-mma-as-new-legislation-comes-into-force",
+      "https://mm-eh.ca/tag/ontario/"
+    ]
+  },
+  "bancroft_nhcc_status": {
+    "status": "Renovation essentially complete and ice back in as of mid/late Sept 2026. The Town said on Sept 15, 2026 that the remaining Green and Inclusive Community Buildings work was done (fully accessible washroom, new referee change room, extra small change room) and that ice would be available the following Monday (~Sept 21, 2026), running on a temporary ice plant until a small US-made part for the new permanent plant arrived (expected end of September), with the changeover taking about a month and not expected to disrupt bookings. Project scope: replace the original ice-making equipment, new accessible washroom, new heat pumps; budget just over $2.4M ($1.9M federal GICB grant, just under $500k Town). The new cooling plant arrived at the end of August instead of July, so minor hockey used Wilberforce's arena in early September. Note: the Town's NHCC page text says public skating 'has come to an end for the 2026-2027 season', which looks like a stale/mislabelled line.",
+    "timeline": "Jan 13, 2026: mayor says GICB funding secured in 2025 and Town preparing for the 2026 arena retrofit. Mar 9-10, 2026: tenders to council (~$2M project, ~$500k Town share); work to start soon because ice usually goes in in August. Late July 2026: Town learns of equipment delay. End of Aug 2026: cooling plant delivered. ~Sept 21, 2026: ice available (temporary plant). ~Oct 2026: switch to permanent plant (about one month). For 2027 shows: the arena should be fully operational; a spring/early-summer 2027 dry-floor date is the realistic window (estimate) - the ice normally goes in in August and the Rockhound Gemboree uses NHCC over the Civic Holiday weekend.",
+    "source_url": "https://www.mybancroftnow.com/74361/news/community/ice-ice-baby-town-says-nhcc-will-be-available-next-week/ ; https://www.mybancroftnow.com/74319/news/sports/no-ice-at-north-hastings-community-centre-sends-user-groups-out-of-town/ ; https://www.mybancroftnow.com/72569/news/municipal-news/town-of-bancroft/bancroft-council-to-address-community-centre-improvements/ ; https://www.bancroftthisweek.com/bancrofts-mayor-looks-back-on-2025-and-forward-to-the-year-ahead/ ; https://bancroft.hosted.civiclive.com/living/recreation___leisure/north_hastings_community_centre"
+  }
+}

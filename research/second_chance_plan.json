@@ -1,0 +1,308 @@
+{
+ "generated": "2026-10-20",
+ "about": {
+  "mission": "Second Chance helps former inmates and people with criminal records rebuild their lives through employment, job training, mentorship and community support.",
+  "who": "Adults leaving the justice system, and anyone who needs a fresh start.",
+  "does": "Job skills and work experience, and volunteer roles at fight nights.",
+  "status": "Incorporation in progress. Plans to become a registered charity. Five possible board members. No bank account yet. Start now.",
+  "source": "Cody's answers, October 20, 2026"
+ },
+ "board": [
+  "Laura",
+  "Tristan",
+  "Bandit",
+  "Tim",
+  "Terry"
+ ],
+ "checklist": [
+  [
+   "Setup",
+   "Check where the incorporation filing stands: search the Ontario Business Registry and Corporations Canada by the full legal name.",
+   "Cody",
+   "This week"
+  ],
+  [
+   "Setup",
+   "If nothing is filed yet, incorporate under Ontario's ONCA ($155 online, about 5 business days; NUANS name search $22-$40). Federal (CNCA) also works but costs more and needs an Ontario registration too.",
+   "Cody",
+   "Next 2 weeks"
+  ],
+  [
+   "Setup",
+   "Make a free Gmail just for Second Chance and a Second Chance folder in its Google Drive. Share it only with the board, and with Cody's CCCL account so Claude can read the Tracker. Keeps its email, files and participants apart from BBG and CCCL.",
+   "Cody",
+   "This week"
+  ],
+  [
+   "Board",
+   "Confirm at least 3 directors (5 is better). More than half must be at arm's length: not related to each other or to Cody by blood, marriage, common-law partnership or adoption, and not acting together for Cody. No more than one-third can be employees. The board invitation letter asks the arm's-length questions.",
+   "Cody",
+   "Next 2 weeks"
+  ],
+  [
+   "Board",
+   "Each director agrees in writing to serve and gets a vulnerable sector check (the OPP lists volunteer checks as free; confirm with the Bancroft detachment).",
+   "Cody",
+   "Next 30 days"
+  ],
+  [
+   "Rules",
+   "Pass a by-law within 60 days of incorporation (CLEO's free Bylaw Builder helps) and a conflict-of-interest policy. Cody declares BBG and CCCL in writing and steps out of any decision that involves them.",
+   "Board",
+   "Within 60 days"
+  ],
+  [
+   "Rules",
+   "Have a lawyer write the purposes in CRA's words (CSP-R16 Social rehabilitation; CG-014 employment-related training).",
+   "Cody",
+   "Before the CRA application"
+  ],
+  [
+   "Money",
+   "Open Second Chance's own bank account and keep books from day one (Trillium needs a year of financial history). Use its own copy of the Money Summary.",
+   "Board treasurer",
+   "Right after incorporation"
+  ],
+  [
+   "Safety",
+   "Adopt the four policies (screening, Rule of Two, privacy, conflict of interest). Drafts are ready in Second Chance Policy Drafts; a lawyer reviews them, then the board adopts them at its first meeting.",
+   "Board",
+   "Before the first participant"
+  ],
+  [
+   "Safety",
+   "Get insurance quotes: directors and officers, general liability, events and abuse coverage (Ontario Nonprofit Network's program is one place to ask).",
+   "Board",
+   "Before the first participant"
+  ],
+  [
+   "Program",
+   "Meet two partners from the Partners tab (John Howard Society of the Kawarthas and Loyalist College Community Employment Services first) about referrals and a joint project. The first letters are drafted in Second Chance First Letters.",
+   "Cody",
+   "Next 30 days"
+  ],
+  [
+   "Program",
+   "Line up placement hosts beyond CCCL so training isn't tied to Cody's businesses.",
+   "Cody",
+   "Next 60 days"
+  ],
+  [
+   "Funding",
+   "Ask a partner charity about leading a United Way Hastings & Prince Edward application (due Dec 11, 2026) with Second Chance delivering the program.",
+   "Cody",
+   "By Nov 20, 2026"
+  ],
+  [
+   "Funding",
+   "Once incorporated: CFDC Local Initiatives (small grant) and the Rural Ontario Development community stream (Jan 18 to Feb 25, 2027).",
+   "Cody",
+   "Winter 2027"
+  ],
+  [
+   "Charity",
+   "Apply to CRA for charitable registration in My Business Account (no fee; CRA aims to decide within 9 months).",
+   "Board",
+   "After the by-law and purposes are done"
+  ]
+ ],
+ "pathway": [
+  [
+   "1. Referral",
+   "Partners (John Howard Society, the Employment Ontario office, probation and community agencies) or self-referral."
+  ],
+  [
+   "2. Welcome",
+   "A first meeting: goals, what Second Chance offers, written consent for what we record and who we share it with."
+  ],
+  [
+   "3. Training",
+   "Job readiness (resume, interviews, workplace basics) and short certificates with local providers, such as first aid."
+  ],
+  [
+   "4. Work experience",
+   "Placements with several local hosts, plus volunteer roles at fight nights. Never one employer only."
+  ],
+  [
+   "5. Mentoring",
+   "A screened volunteer mentor and a monthly check-in."
+  ],
+  [
+   "6. Job connection",
+   "Job matching with the Employment Ontario office; Better Jobs Ontario for longer training (the person applies)."
+  ]
+ ],
+ "fight_night_roles": [
+  [
+   "Good fits",
+   "Setup and teardown, chairs and barriers, merch table with staff, cleanup, runner for the production crew, ticket scanning alongside staff."
+  ],
+  [
+   "Not at first",
+   "Anything with authority over young athletes (youth grappling), the warm-up area for youth bouts, cash on their own, and security work (Ontario licenses security guards; check the rules before any security role)."
+  ],
+  [
+   "Always",
+   "Never alone with a youth athlete. Two adults (Rule of Two). A vulnerable sector check for any role with youth contact. Each person decided one at a time, never a blanket ban."
+  ]
+ ],
+ "privacy": [
+  "Second Chance's files live in their own Drive folder: only Cody, the board, and Claude (through Cody's CCCL account) can open it. Never in BBG or CCCL sheets.",
+  "Participants appear by first name and a code (SC-001) only.",
+  "Never write down what someone was charged with or convicted of, health details, or addresses. Police check results go to the person first; record only the date, \"cleared\" or \"role-limited\", and that written consent is on file.",
+  "No photos or stories of participants without written consent, and never a participant's last name in a post."
+ ],
+ "charity_cautions": [
+  "CRA accepts rehabilitation of prisoners as charitable (CSP-R16) and employment training (CG-014), but training has to be training, not jobs, and can't be tied to one employer.",
+  "Cody owns CCCL and BBG. If CCCL is the only placement, CCCL gets free labour, which risks the private-benefit test. Use several hosts and keep CCCL a small part.",
+  "Any payment from Second Chance to BBG or CCCL (gym time, event fees) needs the board's approval with Cody stepping out, and Ontario's rules for paying a director's business. Ask a lawyer first.",
+  "This is research, not legal or accounting advice."
+ ],
+ "partners": [
+  [
+   "John Howard Society of the Kawarthas",
+   "Serves Bancroft and Haliburton County; Minden office runs Get SET training and record suspensions.",
+   "Minden",
+   "https://johnhoward.on.ca/kawartha/"
+  ],
+  [
+   "John Howard Society of Belleville & District",
+   "Bail supervision, record suspensions, youth programs; job training for people leaving incarceration.",
+   "Belleville",
+   "https://johnhoward.on.ca/belleville/"
+  ],
+  [
+   "Loyalist College Community Employment Services",
+   "The Employment Ontario office in Bancroft (195 Hastings St N): job search, matching, Better Jobs Ontario.",
+   "Bancroft",
+   "https://loyalistces.ca/"
+  ],
+  [
+   "North Hastings Community Trust",
+   "Poverty relief in Bancroft (food share, wood share, outreach). Won an OTF grant in 2022-23. Possible lead or trustee for joint grants.",
+   "Bancroft",
+   "https://www.northhastingscommunitytrust.org"
+  ],
+  [
+   "Community Advocacy and Legal Centre",
+   "Free legal help, with a part-time Bancroft satellite. Possible referral partner for record suspensions and rights.",
+   "Belleville (Bancroft satellite)",
+   "https://communitylegalcentre.ca"
+  ],
+  [
+   "Elizabeth Fry Society of Peterborough",
+   "Supports criminalized women and adults in Peterborough.",
+   "Peterborough",
+   "https://efryptbo.org/contact-us/"
+  ]
+ ],
+ "funding": [
+  [
+   "Canada Summer Jobs (not-for-profit rate)",
+   "Up to 100% of minimum wage for youth 15-30. Second Chance must already be a not-for-profit employer when it applies; the 2027 call opens Oct 27, 2026, so CSJ 2028 is more realistic.",
+   "No charity status needed"
+  ],
+  [
+   "United Way Hastings & Prince Edward",
+   "$5,000 minimum, one year. Due Dec 11, 2026. Needs a qualified donee, so a partner charity would lead.",
+   "Charity (or partner)"
+  ],
+  [
+   "CFDC Local Initiatives Program",
+   "Small grants, normally up to $3,000 (the CFDC's own page; Hastings County lists up to $3,500), for incorporated non-profits in North & Central Hastings.",
+   "Incorporated non-profit"
+  ],
+  [
+   "Rural Ontario Development: community streams",
+   "Workforce development in rural Ontario. Window Jan 18 to Feb 25, 2027.",
+   "Incorporated non-profit"
+  ],
+  [
+   "Skills Development Fund (Ontario)",
+   "Priority groups include people involved with the criminal justice system; 9 second-chance hiring projects funded in 2023. Next round not announced. Best as a partner to an employment agency.",
+   "Incorporated non-profit"
+  ],
+  [
+   "Ontario Trillium Foundation Seed",
+   "$5,000-$75,000 for up to 12 months. Needs a year of financial history and a board at least half arm's length.",
+   "About a year after incorporation"
+  ],
+  [
+   "Better Jobs Ontario",
+   "Up to $28,000 of training for an individual. Participants apply themselves; Second Chance refers.",
+   "n/a (individuals)"
+  ]
+ ],
+ "budget": [
+  [
+   "Incorporation (ONCA)",
+   "$155"
+  ],
+  [
+   "NUANS name search",
+   "$22-$40"
+  ],
+  [
+   "CRA charity application",
+   "No fee"
+  ],
+  [
+   "Police checks",
+   "Free for volunteers (OPP); $41 for staff"
+  ],
+  [
+   "Insurance (D&O, liability, events, abuse)",
+   "Get quotes"
+  ],
+  [
+   "Bookkeeping, review engagement, lawyer",
+   "Get quotes"
+  ]
+ ],
+ "sources": [
+  [
+   "CLEO Nonprofit Law (start a nonprofit, ONCA vs CNCA, Bylaw Builder)",
+   "https://nonprofitlaw.cleo.on.ca/"
+  ],
+  [
+   "Ontario fees",
+   "https://www.ontario.ca/page/companies-service-standards-and-fees"
+  ],
+  [
+   "CRA CSP-R16 Social rehabilitation",
+   "https://www.canada.ca/en/revenue-agency/services/charities-giving/charities/policies-guidance/summary-policy-r16-social-rehabilitation.html"
+  ],
+  [
+   "CRA CG-014 Community economic development",
+   "https://www.canada.ca/en/revenue-agency/services/charities-giving/charities/policies-guidance/community-economic-development-activities-charitable-registration-014.html"
+  ],
+  [
+   "CRA types of charities (arm's length)",
+   "https://www.canada.ca/en/revenue-agency/services/charities-giving/charities/registering-charitable-qualified-donee-status/apply-become-registered-charity/establishing/types-registered-charities-designations.html"
+  ],
+  [
+   "CRA public benefit test (CPS-024)",
+   "https://www.canada.ca/en/revenue-agency/services/charities-giving/charities/policies-guidance/policy-statement-024-guidelines-registering-a-charity-meeting-public-benefit-test.html"
+  ],
+  [
+   "Ontario Human Rights Commission: record of offences",
+   "https://www.ohrc.on.ca/en/your-rights/code-grounds/record-offences"
+  ],
+  [
+   "Ontario police record checks",
+   "https://www.ontario.ca/policerecordchecks"
+  ],
+  [
+   "Coaching Association of Canada: Rule of Two",
+   "https://coach.ca/rule-two"
+  ],
+  [
+   "United Way Hastings & Prince Edward funding",
+   "https://unitedwayhpe.ca/funding/"
+  ],
+  [
+   "OTF Seed Grant",
+   "https://otf.ca/our-grants/community-investments-grants/seed-grant"
+  ]
+ ]
+}
